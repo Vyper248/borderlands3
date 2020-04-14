@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { getTiers } from './items';
+
+import TierList from './components/TierList';
+import Input from './components/Input';
+import Header from './components/Header';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let tiers = getTiers();
+
+    const [search, setSearch] = useState('');
+    const [item, setItem] = useState(null);
+
+    const onChangeSearch = (e) => {
+        let value = e.target.value;
+        setSearch(value);
+    }
+
+    const onClearSearch = () => {
+        setSearch('');
+    }
+
+    return (
+        <div className="App">
+            <Header/>
+            <Input placeholder="Search" value={search} onChange={onChangeSearch} onClear={onClearSearch}/>
+            {
+                tiers.map(tier => {
+                    return (
+                        <TierList key={tier.tier} tier={tier.tier} search={search}/>
+                    );
+                })
+            }
+        </div>
+    );
 }
 
 export default App;
