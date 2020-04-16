@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import Item from './Item';
 
-const TypeList = ({type, items}) => {
+const TypeList = ({type, items, onClickItem}) => {
     const isMobile = useMediaQuery({ maxWidth: 700 });
 
     return (
@@ -12,7 +12,7 @@ const TypeList = ({type, items}) => {
             <td>
                 {
                     items.map(item => {
-                        return <Item key={item.name} {...item}/>
+                        return <Item key={item.name} {...item} onClick={onClickItem(item.name)}/>
                     })
                 }
             </td>

@@ -6,10 +6,14 @@ const StyledComp = styled.div`
     margin: 5px;
     padding: 5px;
     background-color: #333;
+
+    :hover {
+        cursor: pointer;
+    }
 `;
 
-const Item = ({name, tier, type}) => {
-    return <StyledComp>{name}</StyledComp>
+const Item = ({name, tier, type, onClick}) => {
+    return <StyledComp onClick={onClick}>{name}</StyledComp>
 }
 
 export default Item;

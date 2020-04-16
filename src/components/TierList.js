@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
 
 import TierHeading from './TierHeading';
-import Item from './Item';
 import TypeList from './TypeList';
 
 import getItems, { getTiers, getTypes } from '../items';
 
 const StyledComp = styled.div`
+    width: 100%;
     max-width: 800px;
     margin: 10px auto;
 
@@ -32,9 +31,8 @@ const StyledComp = styled.div`
     }
 `;
 
-const TierList = ({tier, search}) => {
+const TierList = ({tier, search, onClickItem}) => {
     const [open, setOpen] = useState(false);
-    const isMobile = useMediaQuery({ maxWidth: 700 });
 
     let items = getItems();
     let tiers = getTiers();
@@ -69,7 +67,7 @@ const TierList = ({tier, search}) => {
                                 let typeItems = getItemsForType(type, searchFiltered);
                                 if (typeItems.length === 0) return null;
                                 return (
-                                    <TypeList key={tier+type} type={type} items={typeItems}/>
+                                    <TypeList key={tier+type} type={type} items={typeItems} onClickItem={onClickItem}/>
                                 );
                             })
                         }
