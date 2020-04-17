@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Header from './components/Header';
+import Button from './components/Button';
 
 import { getTiers } from './items';
 
@@ -43,18 +44,6 @@ const StyledTable = styled.table`
     }
 `;
 
-const StyledButton = styled.div`
-    padding: 5px;
-    background-color: #900;
-    max-width: 120px;
-    margin: auto;
-    margin-top: 5px;
-
-    :hover {
-        cursor: pointer;
-    }
-`;
-
 const TableRow = ({label,value}) => {
     if (value !== undefined && value.length > 0) {
         return (
@@ -79,7 +68,7 @@ const ItemPage = ({item, onClearItem}) => {
     return (
         <StyledPage>
             <Header/>
-            <StyledButton onClick={onClearItem}>Go Back</StyledButton>
+            <Button onClick={onClearItem}>Go Back</Button>
             <h3>{name}</h3>
             <StyledTable>
                 <tbody>
