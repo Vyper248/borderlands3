@@ -106,9 +106,9 @@ const ItemPage = ({item, onClearItem}) => {
             <h4>Dedicated Drop{dedicatedDrops.length > 1 ? 's' : ''}</h4>
 
             {
-                dedicatedDrops.map(obj => {
+                dedicatedDrops.map((obj, i) => {
                     return (
-                        <StyledTable>
+                        <StyledTable key={'ded-'+i}>
                             <tbody>
                                 <TableRow label="Source" value={obj.dedicated}/>
                                 <TableRow label="Quest" value={obj.quest}/>

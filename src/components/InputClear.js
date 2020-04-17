@@ -17,6 +17,10 @@ const StyledComp = styled.div`
         margin-right: auto;
     }
 
+    & > div:hover {
+        cursor: pointer;
+    }
+
     & > * {
         background-color: white;
         color: black;
