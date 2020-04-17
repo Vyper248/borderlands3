@@ -7,6 +7,8 @@ const StyledComp = styled.h2`
     padding: 5px;
     margin: 0px;
     margin-bottom: 10px;
+    position: sticky;
+    top: 0px;
 
     :hover {
         cursor: pointer;

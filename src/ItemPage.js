@@ -12,6 +12,10 @@ const StyledPage = styled.div`
     right: 0px;
     bottom: 0px;
     background-color: black;
+
+    & h3, & h4 {
+        margin: 10px;
+    }
 `;
 
 const StyledTable = styled.table`
@@ -30,13 +34,20 @@ const StyledTable = styled.table`
         background-color: #333;
         width: 100px;
     }
+
+    @media screen and (max-width: 700px) {
+        & td {
+            padding: 2px;
+        }
+    }
 `;
 
 const StyledButton = styled.div`
     padding: 5px;
-    background-color: #333;
+    background-color: #900;
     max-width: 120px;
     margin: auto;
+    margin-top: 5px;
 
     :hover {
         cursor: pointer;

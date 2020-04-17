@@ -3,8 +3,11 @@ import styled from 'styled-components';
 
 const StyledComp = styled.div`
     background-color: gray;
-    padding: 10px;
-    margin-bottom: 10px;
+    height: 70px;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     & > h1 {
         margin-top: 0px;
