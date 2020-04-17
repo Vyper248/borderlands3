@@ -12,6 +12,7 @@ const StyledPage = styled.div`
     right: 0px;
     bottom: 0px;
     background-color: black;
+    overflow: scroll;
 
     & h3, & h4 {
         margin: 10px;
