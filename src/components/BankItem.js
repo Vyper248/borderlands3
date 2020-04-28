@@ -12,6 +12,20 @@ const StyledComp = styled.div`
     & > div {
         padding: 5px;
         background-color: #333;
+        border-right: 1px solid black;
+    }
+
+    & > div:last-child {
+        border-right: none;
+    }
+
+    & svg {
+        position: relative;
+        top: 2px;
+    }
+
+    :hover {
+        cursor: pointer;
     }
 `;
 
@@ -20,8 +34,8 @@ const BankItem = ({item, onClick}) => {
         <StyledComp onClick={onClick(item)}>
             <div>{item.level}</div>
             <div>{item.name}</div>
-            { item.element1 && item.element1.length > 0 ? <div>{getElementIcon(item.element1)}</div> : null }
-            { item.element2 && item.element2.length > 0 ? <div>{getElementIcon(item.element2)}</div> : null }
+            { item.element1 && item.element1.length > 0 && item.element1 !== 'None' ? <div>{getElementIcon(item.element1)}</div> : null }
+            { item.element2 && item.element2.length > 0 && item.element2 !== 'None' ? <div>{getElementIcon(item.element2)}</div> : null }
         </StyledComp>
     );
 };

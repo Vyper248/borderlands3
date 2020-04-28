@@ -8,6 +8,7 @@ import TierList from './components/TierList';
 import InputClear from './components/InputClear';
 import Header from './components/Header';
 import IconButton from './components/IconButton';
+import Container from './components/Container';
 
 const StyledComp = styled.div`
     height: 100vh;
@@ -34,13 +35,13 @@ const TierListPage = ({item, onClickItem, onClickBank}) => {
     return (
         <StyledComp hide={item !== null ? true : false}>
             <Header/>
-            <div style={{maxWidth: '800px', margin: 'auto', position: 'relative'}}>
+            <Container>
                 <InputClear placeholder="Search" value={search} onChange={onChangeSearch} onClear={onClearSearch}/>
                 <IconButton Icon={GiLockedChest} onClick={onClickBank}/>
                 <div>
                     { tiers.map(tier => <TierList key={tier.tier} tier={tier.tier} search={search} onClickItem={onClickItem}/>) }
                 </div>
-            </div>
+            </Container>
         </StyledComp>
     );
 };

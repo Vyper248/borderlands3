@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { FiPlus } from 'react-icons/fi';
 
 import Header from './components/Header';
 import Button from './components/Button';
-import TierHeading from './components/TierHeading';
 import BankTypeList from './components/BankTypeList';
+import IconButton from './components/IconButton';
+import Container from './components/Container';
+
+import AddItemPage from './AddItemPage';
 
 import { getTypes } from './items';
 
-const StyledComp = styled.div`
-
-`;
-
 const BankPage = ({onClickBack}) => {
 
+    const [showAddPage, setShowAddPage] = useState(true);
     const [bankItems, setBankItems] = useState([
         {
             name: 'Cutsman',
@@ -64,17 +65,36 @@ const BankPage = ({onClickBack}) => {
         
     }
 
+    const onClickAdd = () => {
+        setShowAddPage(true);
+    }
+
+    const onClickCancelAdd = () => {
+        setShowAddPage(false);
+    }
+
+    const onAddItem = (item) => {
+        let newItems = [...bankItems, item];
+        setBankItems(newItems);
+        setShowAddPage(false);        
+    }
+
+    if (showAddPage) return <AddItemPage onBack={onClickCancelAdd} onAddItem={onAddItem}/>
+
     return (
-        <StyledComp>
+        <div>
             <Header/>
-            <Button onClick={onClickBack}>Go Back</Button>
-            <h3>Bank</h3>
-            {
-                types.map(type => {
-                    return <BankTypeList key={'BankType-'+type} type={type} items={getItemsByType(type)} search={''} onClickItem={onClickItem}/>
-                })
-            }
-        </StyledComp>
+            <Container>
+                <Button onClick={onClickBack}>Go Back</Button>
+                <IconButton Icon={FiPlus} onClick={onClickAdd}/>
+                <h3>Owned</h3>
+                {
+                    types.map(type => {
+                        return <BankTypeList key={'BankType-'+type} type={type} items={getItemsByType(type)} search={''} onClickItem={onClickItem}/>
+                    })
+                }
+            </Container>
+        </div>
     );
 };
 

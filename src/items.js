@@ -26,9 +26,11 @@ const getItems = () => {
         {name: 'Storm Front', tier: 1, type: 'Grenade', dedicated: 'El Dragon Jr.', location: 'Eden-6', area: 'Jakobs Estate', redText: 'Very, very frightening.', ability: 'Splits into 4 grenades that deal continuous shock to nearby enemies', elements: 'S'},
         {name: 'Band of Sitorak', tier: 1, type: 'Shield', dedicated: 'The Unstoppable', location: 'Eden-6', area: 'Ambermire', redText: 'I said "biiiiiiiiiiiitttccchhhh..."', ability: ' +22% wpn dmg while depleted. Low capacity, Very high recharge rate', elements: 'F C S R O'},
         {name: 'Big Boom Blaster', tier: 1, type: 'Shield', dedicated: 'The Unstoppable', location: 'Eden-6', area: 'Ambermire', redText: 'For all your big boom blasting needs!', ability: 'boosters restore 60% shield, grenade, & heavy ammo. 15% absorb', elements: 'Any'},
+        {name: 'Firewall', tier: 1, type: 'Shield', dedicated: 'Cartel Enemies', location: 'Revenge of the Cartels Event', area: '', redText: 'Initiate countermeasures.', ability: 'Projected shield has a chance to fire projectiles at attackers. A portion of the projectiles damage restores shields.', elements: 'N'},
         {name: 'Rico', tier: 1, type: 'Shield', dedicated: 'Quest Reward', location: 'The Handsome Jackpot', area: 'VIP Tower', quest: 'All Bets Off', redText: 'You wanna live forever?', ability: '50% chance to reflect shots while shielded. 80% while not shielded', elements: 'N'},
         {name: 'Stop-Gap', tier: 1, type: 'Shield', dedicated: 'El Dragon Jr.', location: 'Eden-6', area: 'Jakobs Estate', redText: 'The process is called "living".', ability: 'Immune to dmg on depletion for 5 seconds', elements: 'Any'},
         {name: 'The Transformer', tier: 1, type: 'Shield', dedicated: 'Killavolt,Quest Reward', location: 'Promethea,Nekrotafeyo', area: 'Lectra City,Desolations Edge', quest: ',Its Alive', redText: 'Theres more than your eye can see.', ability: '100% Shock resistance. 40% chance to absorb bullets', elements: 'S'},
+        {name: 'Wattson', tier: 1, type: 'Shield', dedicated: 'Cartel Enemies', location: 'Revenge of the Cartels Event', area: '', redText: 'Its all quite arbitrary, my dear boy.', ability: 'When damage is taken, fires discs that spawn in random elements and deal elemental damage', elements: 'N'},
 
         {name: 'Brainstormer', tier: 2, type: 'Shotgun', dedicated: 'Katagawa Ball', location: 'Promethea', area: 'Skywell-27', redText: 'Lets put our heads together.', ability: 'Vertical row spread. Shocks nearby enemies', elements: 'S'},
         {name: 'Conference Call', tier: 2, type: 'Shotgun', dedicated: 'Judge Hightower', location: 'Promethea', area: 'Lectra City', redText: 'Lets just ping everyone all at once', ability: 'Spawns more projectiles. Same as in BL2', elements: 'Any'},
@@ -232,6 +234,126 @@ export const getTiers = () => {
 
 export const getTypes = () => {
     return ['Shotgun', 'AR', 'SMG', 'Pistol', 'Rocket Launcher', 'Sniper', 'Grenade', 'Shield'];
+}
+
+export const getAnnointments = () => {
+    return {
+        'Shield': {
+            Univeral: [
+                'On ASE, gain 50% Fire damage with weapons for 10s',
+                'On ASE, gain 50% Corrosive damage with weapons for 10s',
+                'On ASE, gain 50% Shock damage with weapons for 10s',
+                'On ASE, gain 50% Cryo damage with weapons for 10s',
+                'On ASE, gain 50% Radiation damage with weapons for 10s',
+                'On ASE, Action Skill cooldown rate is increased by 20% for 15s',
+                'On ASE, melee damage is increased by 100% for 12s',
+                'On ASE, movement speed is increased by 5% for 12s',
+                'On ASE, damage taken is reduced by 13% for 12s',
+            ],
+            Amara: [
+                'After using Phaseslam, melee damage is increased by 200% for 10s',
+                'While Phasegrasp is active, Amara constantly triggers novas that deal 50% damage for 15s',
+                'On ASE, 30% of all damage taken is returned to attacker for 12s',
+                'After using Phaseslam, damage taken is reduced by 25% and movespeed is increased by 12% for 12s'
+            ],
+            Zane: [
+                'While STNL active, move speed increased by 15%',
+                'While Barrier is deployed, instantly start recharging your shields',
+                'While Digi-Clone active, regenerate 3% max health/sec',
+            ],
+            Moze: [
+                'After Exiting Iron Bear, gain 75% increased shields and health for 25s',
+                'After Exiting Iron Bear, kills increase Iron Bears cooldown rate by 30% for 30s',
+                'When entering and exiting Iron Bear, create a nova that deals 175% damage'
+            ],
+            Fl4k: [
+                'On ASE, regenerate 5% max health per second for 12s',
+                'When exiting Fade Away, create a nova that deals 175% damage',
+                'After using Attack command, gain 8% movement speed for 6s',
+                'Grants an extra charge of Rakk Attack',
+            ]
+        }, 
+        'Weapon': {
+            Universal: [
+                'On Action Skill End, Weapon Damage is increased by 100% for a short time',
+                'On Action Skill End, Splash Damage is increased by 125% for a short time',
+                'On Action Skill End, Deal 125% more Weapon Damage to Badass, Named, and Boss enemies for a short time',
+                'On Action Skill End, The next 2 magazines will have 50% additional bonus Fire damage',
+                'On Action Skill End, The next 2 magazines will have 50% additional bonus Corrosive damage',
+                'On Action Skill End, The next 2 magazines will have 50% additional bonus Shock damage',
+                'On Action Skill End, The next 2 magazines will have 50% additional bonus Cryo damage',
+                'On Action Skill End, The next 2 magazines will have 50% additional bonus Radiation damage',
+                'On Action Skill End, Critical Damage is increased by 25% for a short time',
+                'Consecutive Hits increase Weapon Damage by 1% per hit, misses remove all bonuses',
+                'On Action Skill End, Weapon Status Effect Damage & Chance are increased by 75% for a short time',
+                'Killing an enemy grants 5% Weapon Damage and Reload Speed for 25 seconds, this effect stacks',
+                'On Action Skill End, Gain 15% Life Steal for a short time',
+                'On Action Skill End, Projectile Speed is increased by 100% for a short time',
+                'While enemies are below 25% Health, gain 50% increased Weapon Damage',
+                'While Sliding, Damage is increased by 40%',
+                'On Action Skill End, Fire rate is increased by 11%, & reload speed by 26% for a short time',
+                'On Action Skill End, Weapon Accuracy & Handling are greatly increased for a short time',
+                'While Airborne, Accuracy and Handling are increased by 75%',
+                'While Sliding, Accuracy and Handling are increased by 50%',
+                'While Sliding, Fire Rate is increased by 25%'
+            ],
+            Amara: [
+                'After using Phasecast, Weapon Damage is increased by 250% for a short time',
+                'After using Phaseslam, Weapon Damage is increased by 300% for a short time',
+                'After using Phasecast, Status Effect Chance is increased by 50% for a short time',
+                'After using Phaseslam, Melee Damage is increased by 200% for a short time',
+                'While Phasegrasp is active, Amara constantly triggers novas that deal damage based on level',
+                'On Action Skill End, deal 20% bonus radiation damage for a short time',
+                'After Phasegrasping an enemy, Weapon Accuracy and Handling are greatly increased',
+                'After using Phaseslam, damage taken is reduced by 20% and movespeed is increased by 12%',
+                'On Action Skill End, 30% of damage taken is returned to the attacker for a short time'
+            ],
+            Zane: [
+                'While SNTNL is active, Gain 100% of damage as bonus Cryo damage',
+                'While SNTNL is active, Movespeed is increased by 15%',
+                'After swapping places with your Digi-Clone, Weapon Damage is increased by 130% for a short time',
+                'While Barrier is active, Accuracy is increased by 60%, and Critical Hit damage is increased by 70%',
+                'When Barrier is Deployed, instantly start recharging your shields',
+                'While Barrier is active, Status Effect Chance is increased by 50%',
+                'While Digi-Clone is active, regenerate 12% of magazine ammo per second',
+                'While SNTNL is active, Fire Rate is increased by 9% and Reload Speed by 23%',
+                'After swapping places with your Digi-Clone, your weapon is reloaded',
+            ],
+            Moze: [
+                'After exiting Iron Bear, the next 2 magazines will have 125% bonus incendiary damage',
+                'After exiting Iron Bear, do not consume ammo for 5s',
+                'After exiting Iron Bear, gain 75% increased shields and health for 25s',
+                'After exiting Iron Bear, the next 3 magazines will have 33% incrased reload speed and 67% increased handling',
+                'After exiting Iron Bear, the next 2 magazines will have 10% increased fire rate and 20% critical damage',
+                'After exiting Iron Bear, kills increase Iron Bear’s cooldown rate by 30%',
+                'While Auto Bear is active, constantly regenerate 8% of magazine size per second'
+            ],
+            Fl4k: [
+                'Enemies Damaged by Rakk Attak take 100% increased damage for 10s',
+                'While gamma burst is active gain 115% bonus radiation damage',
+                'After using rakk attack, gain 50% critical hit damage for 8s',
+                'After using attack command, gain 30% lifesteal for 8s',
+                'While fade away is active, gain greatly increased accuracy and handling for 20s',
+                'Grants an extra chage of rakk attack'
+            ]
+        },
+        'Grenade': {
+            Universal: [
+                'On Action Skill End, The next 2 magazines will have a 50% additional bonus Fire damage.',
+                'On Action Skill End, The next 2 magazines will have a 50% additional bonus Corrosive damage.',
+                'On Action Skill End, The next 2 magazines will have a 50% additional bonus Shock damage.',
+                'On Action Skill End, The next 2 magazines will have a 50% additional bonus Cryo damage.',
+                'On Action Skill End, The next 2 magazines will have a 50% additional bonus Radiation damage.',
+                'On grenade thrown, weapon, grenade and Action Skill Damage are increased by 25% for 6s',
+                'While Iron Bear is active, taking damage has a 20% chance to spawn a grenade each 8s',
+                'On Action Skill Start, regenerate 1 grenade',
+            ],
+            Amara: [],
+            Zane: [],
+            Moze: [],
+            Fl4k: []
+        }
+    };
 }
 
 export default getItems;
