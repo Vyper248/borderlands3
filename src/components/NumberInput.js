@@ -109,9 +109,9 @@ const NumberInput = ({value, onChange, width='100%', suffix=''}) => {
                     <div onClick={onClickNumber(7)}><span>7</span></div>
                     <div onClick={onClickNumber(8)}><span>8</span></div>
                     <div onClick={onClickNumber(9)}><span>9</span></div>
-                    <div onClick={onCloseMenu}><span>X</span></div>
-                    <div onClick={onClickNumber(0)}><span>0</span></div>
                     <div onClick={onRemoveNumber}><span>{'<'}</span></div>
+                    <div onClick={onClickNumber(0)}><span>0</span></div>
+                    <div onClick={onCloseMenu}><span>X</span></div>
                 </StyledMenu>
             ) : null
         }

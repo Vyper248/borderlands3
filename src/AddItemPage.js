@@ -11,7 +11,7 @@ import NumberInput from './components/NumberInput';
 import Input from './components/Input';
 
 const StyledTable = styled.table`
-    margin: 10px auto;
+    margin: 0px auto 10px auto;
     border-collapse: collapse;
     width: 360px;
     max-width: 360px;
@@ -19,6 +19,7 @@ const StyledTable = styled.table`
 
     & td {
         height: 30px;
+        min-height: 30px;
         border: 1px solid #333;
     }
 `;
@@ -27,11 +28,11 @@ const AddItemPage = ({onBack, onAddItem}) => {
     const [nameSuggest, setNameSuggest] = useState('');
 
     //general
-    const [type, setType] = useState('Shotgun'); //auto set
-    const [name, setName] = useState('Anarchy'); //lookup
+    const [type, setType] = useState(''); //auto set
+    const [name, setName] = useState(''); //lookup
     const [level, setLevel] = useState(57);
     const [notes, setNotes] = useState('');
-    const [annoint, setAnnoint] = useState(''); //dropdown
+    const [annoint, setAnnoint] = useState('None'); //dropdown
     const [prefix, setPrefix] = useState(''); //dropdown
 
     //weapon specific
@@ -70,9 +71,6 @@ const AddItemPage = ({onBack, onAddItem}) => {
     const [stat2, setStat2] = useState('');
     const [stat3, setStat3] = useState('');
 
-    //artifact specific
-    const [artifactPrefix, setArtifactPrefix] = useState('');
-
     const isWeapon = type === 'Shotgun' || type === 'AR' || type === 'Sniper' || type === 'Rocket Launcher' || type === 'SMG' || type === 'Pistol';
 
     const onClickSuggestion = (obj) => () => {
@@ -84,7 +82,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
     const onClickAdd = () => {
         let item = {};
         if (isWeapon) item = {name, type, level, element1, element2};
-        
+
         onAddItem(item);        
     }
 
@@ -106,7 +104,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
                         </tr>
                         <tr>
                             <td>Prefix</td>
-                            <td></td>
+                            <td><Input value={prefix} onChange={(e) => setPrefix(e.target.value)}/></td>
                         </tr>
                         <tr>
                             <td>Level</td>
@@ -150,7 +148,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
                         }
                     </tbody>
                 </StyledTable>
-                <Input as='button' onClick={onClickAdd}>Add</Input>
+                
             </div>
         );
     }
@@ -158,12 +156,12 @@ const AddItemPage = ({onBack, onAddItem}) => {
     return (
         <div>
             <Header/>
-            <Button onClick={onBack}>Cancel</Button>
             <h3>Add Item</h3>
             <InputSuggest type="name" placeholder="Search" value={nameSuggest} onChange={(e) => setNameSuggest(e.target.value)} onClickSuggestion={onClickSuggestion}/>
             {
                 isWeapon ? getWeaponLayout() : null
             }
+            <Input as='button' onClick={onBack} width='150px'>Cancel</Input> { name.length > 0 ? <Input as='button' onClick={onClickAdd} width='150px'>Add</Input> : null }
         </div>
     );
 };

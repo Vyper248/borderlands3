@@ -5,6 +5,10 @@ import useOnclickOutside from 'react-cool-onclickoutside';
 import Input from './Input';
 
 const StyledComp = styled.div`
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+
     @media screen and (min-width: 700px) {
         position: relative;
     }
@@ -17,6 +21,7 @@ const StyledMenu = styled.div`
     right: 0px;
     max-height: 300px;
     overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     z-index: 5;
 
     & > div {
@@ -44,12 +49,13 @@ const StyledMenu = styled.div`
     }
 
     @media screen and (max-width: 700px) {
+        position: fixed;
         bottom: 0px;
         border-top: 1px solid white;
     }
 `;
 
-const Dropdown = ({value, items, onChange, placeholder}) => {
+const Dropdown = ({value, items, onChange, placeholder=''}) => {
     const [open, setOpen] = useState(false);
     const [subMenu, setSubMenu] = useState('');
     const ref = useRef();
@@ -88,7 +94,8 @@ const Dropdown = ({value, items, onChange, placeholder}) => {
             {
                 open ? (
                     <StyledMenu ref={ref}>
-                        { subMenu.length > 0 ? <div onClick={() => setSubMenu('')}><span>Back</span></div> : null }
+                    {   subMenu.length > 0 ? <div onClick={() => setSubMenu('')}><span>Back</span></div> : null   }
+                    {   Array.isArray(items) === false && subMenu.length === 0 ? <div onClick={onClickItem('None')} className={value === 'None' ? 'selected' : ''}><span>None</span></div> : null   }
                     {
                         Array.isArray(items) 
                             ? items.map(item => <div key={`dropdown-${item}`} onClick={onClickItem(item)} className={item === value ? 'selected' : ''}><span>{item}</span></div>) 

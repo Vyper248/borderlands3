@@ -8,7 +8,7 @@ import Input from './Input';
 const StyledDropdown = styled.div`
     position: absolute;
     z-index: 5;
-    top: 30px;
+    top: 29px;
     left: 0px;
     right: 0px;
     max-height: 400px;
@@ -47,7 +47,7 @@ const InputSuggest = ({value, placeholder, onChange, onClickSuggestion, type}) =
     }
 
     return (
-        <div style={{position: 'relative'}}>
+        <div style={{position: 'relative', marginBottom: '10px'}}>
             <Input value={value} onChange={onChange} placeholder={placeholder} width="250px"/>
             {
                 filtered.length > 0 ? (
