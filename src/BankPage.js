@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FiPlus } from 'react-icons/fi';
 
@@ -55,9 +55,21 @@ const BankPage = ({onClickBack}) => {
         }
     ]);
 
+    useEffect(() => {
+        let bankArr = localStorage.getItem('bank');        
+        if (bankArr !== null) bankArr = JSON.parse(bankArr);
+        else bankArr = [];        
+        setBankItems(bankArr);
+    }, []);
+
     const types = getTypes();
 
-    const getItemsByType = (type) => {
+    const saveBankToStorage = (arr) => {
+        let str = JSON.stringify(arr);
+        localStorage.setItem('bank', str);
+    }
+
+    const getItemsByType = (type) => {        
         return bankItems.filter(item => item.type === type);
     }
 
@@ -76,7 +88,8 @@ const BankPage = ({onClickBack}) => {
     const onAddItem = (item) => {
         let newItems = [...bankItems, item];
         setBankItems(newItems);
-        setShowAddPage(false);        
+        setShowAddPage(false); 
+        saveBankToStorage(newItems);       
     }
 
     if (showAddPage) return <AddItemPage onBack={onClickCancelAdd} onAddItem={onAddItem}/>

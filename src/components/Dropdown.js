@@ -9,6 +9,10 @@ const StyledComp = styled.div`
     padding: 0px;
     height: 100%;
 
+    & > button:hover {
+        cursor: pointer;
+    }
+
     @media screen and (min-width: 700px) {
         position: relative;
     }
@@ -32,6 +36,10 @@ const StyledMenu = styled.div`
         display: flex;
         align-items: center;
         padding: 5px;
+    }
+
+    & > div:hover {
+        cursor: pointer;
     }
 
     & > div.selected {

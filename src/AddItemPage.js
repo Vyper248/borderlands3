@@ -48,8 +48,6 @@ const AddItemPage = ({onBack, onAddItem}) => {
     const [capacity, setCapacity] = useState(0);
     const [rechargeDelay, setRechargeDelay] = useState(0);
     const [rechargeRate, setRechargeRate] = useState(0);
-    const [resistanceEl, setResistanceEl] = useState(''); //dropdown
-    const [resistancePct, setResistancePct] = useState(0);
     const [shieldEffect1, setSheildEffect1] = useState('');
     const [shieldEffect2, setSheildEffect2] = useState('');
     const [shieldEffect3, setSheildEffect3] = useState('');
@@ -81,7 +79,9 @@ const AddItemPage = ({onBack, onAddItem}) => {
 
     const onClickAdd = () => {
         let item = {};
-        if (isWeapon) item = {name, type, level, element1, element2};
+        if (isWeapon) item = {name, type, prefix, level, annoint, notes, damage, element1, element2, elementDmg, elementChance, elementEfficiency};
+        if (type === 'Grenade') item = {name, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance, elementEfficiency};
+        if (type === 'Shield') item = {name, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance};
 
         onAddItem(item);        
     }
@@ -148,7 +148,125 @@ const AddItemPage = ({onBack, onAddItem}) => {
                         }
                     </tbody>
                 </StyledTable>
-                
+            </div>
+        );
+    }
+
+    const getGrenadeLayout = () => {
+        return (
+            <div style={{padding: '10px'}}>
+                <StyledTable>
+                    <tbody>
+                        <tr>
+                            <td style={{minWidth: '150px', maxWidth: '150px', width: '150px'}}>Name</td>
+                            <td>{name}</td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>{type}</td>
+                        </tr>
+                        <tr>
+                            <td>Prefix</td>
+                            <td><Input value={prefix} onChange={(e) => setPrefix(e.target.value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Level</td>
+                            <td><Dropdown value={level} placeholder="Level" items={levels} onChange={(value) => setLevel(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Annointment</td>
+                            <td><Dropdown value={annoint} items={annointments['Grenade']['Universal']} onChange={(value) => setAnnoint(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Notes</td>
+                            <td><Input value={notes} onChange={(e) => setNotes(e.target.value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Damage</td>
+                            <td><NumberInput value={damage} onChange={(value) => setDamage(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Radius</td>
+                            <td><NumberInput value={radius} onChange={(value) => setRadius(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Element 1</td>
+                            <td><Dropdown value={element1} placeholder="Element 1" items={['Fire', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Element Damage</td>
+                            <td><NumberInput value={elementDmg} onChange={(value) => setElementDmg(value)}/></td>
+                        </tr>
+                        {
+                            element1 === 'Cryo' ? (
+                                <tr>
+                                    <td>Element Efficiency</td>
+                                    <td><NumberInput value={elementEfficiency} onChange={(value) => setElementEfficiency(value)} suffix='%'/></td>
+                                </tr>
+                            ) : (
+                                <tr>
+                                    <td>Element Chance</td>
+                                    <td><NumberInput value={elementChance} onChange={(value) => setElementChance(value)} suffix='%'/></td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </StyledTable>
+            </div>
+        );
+    }
+
+    const getShieldLayout = () => {
+        return (
+            <div style={{padding: '10px'}}>
+                <StyledTable>
+                    <tbody>
+                        <tr>
+                            <td style={{minWidth: '150px', maxWidth: '150px', width: '150px'}}>Name</td>
+                            <td>{name}</td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>{type}</td>
+                        </tr>
+                        <tr>
+                            <td>Prefix</td>
+                            <td><Input value={prefix} onChange={(e) => setPrefix(e.target.value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Level</td>
+                            <td><Dropdown value={level} placeholder="Level" items={levels} onChange={(value) => setLevel(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Annointment</td>
+                            <td><Dropdown value={annoint} items={annointments['Shield']} onChange={(value) => setAnnoint(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Notes</td>
+                            <td><Input value={notes} onChange={(e) => setNotes(e.target.value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Capacity</td>
+                            <td><NumberInput value={capacity} onChange={(value) => setCapacity(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Recharge Delay</td>
+                            <td><NumberInput value={rechargeDelay} onChange={(value) => setRechargeDelay(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Recharge Rate</td>
+                            <td><NumberInput value={rechargeRate} onChange={(value) => setRechargeRate(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Element Res.</td>
+                            <td><Dropdown value={element1} items={['Fire', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
+                        </tr>
+                        <tr>
+                            <td>Resistance %</td>
+                            <td><NumberInput value={elementChance} onChange={(value) => setElementChance(value)} suffix='%'/></td>
+                        </tr>
+                    </tbody>
+                </StyledTable>
             </div>
         );
     }
@@ -158,9 +276,9 @@ const AddItemPage = ({onBack, onAddItem}) => {
             <Header/>
             <h3>Add Item</h3>
             <InputSuggest type="name" placeholder="Search" value={nameSuggest} onChange={(e) => setNameSuggest(e.target.value)} onClickSuggestion={onClickSuggestion}/>
-            {
-                isWeapon ? getWeaponLayout() : null
-            }
+            { isWeapon ? getWeaponLayout() : null }
+            { type === 'Grenade' ? getGrenadeLayout() : null }
+            { type === 'Shield' ? getShieldLayout() : null }
             <Input as='button' onClick={onBack} width='150px'>Cancel</Input> { name.length > 0 ? <Input as='button' onClick={onClickAdd} width='150px'>Add</Input> : null }
         </div>
     );
