@@ -23,10 +23,12 @@ function App() {
 
     const onClickBank = () => {
         setShowBank(true);
+        setItem(null);
     }
 
     const onBackFromBank = () => {
         setShowBank(false);
+        setItem(null);
     }
     
     if (showBank) {

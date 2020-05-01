@@ -7,6 +7,8 @@ import Button from './components/Button';
 import BankTypeList from './components/BankTypeList';
 import IconButton from './components/IconButton';
 import Container from './components/Container';
+import ListContainer from './components/ListContainer';
+import BankItemDetails from './components/BankItemDetails';
 
 import AddItemPage from './AddItemPage';
 
@@ -14,7 +16,8 @@ import { getTypes } from './items';
 
 const BankPage = ({onClickBack}) => {
 
-    const [showAddPage, setShowAddPage] = useState(true);
+    const [showAddPage, setShowAddPage] = useState(false);
+    const [selectedItem, setSelectedItem] = useState(null);
     const [bankItems, setBankItems] = useState([
         {
             name: 'Cutsman',
@@ -73,12 +76,24 @@ const BankPage = ({onClickBack}) => {
         return bankItems.filter(item => item.type === type);
     }
 
-    const onClickItem = (item) => () => {
-        
-    }
-
     const onClickAdd = () => {
         setShowAddPage(true);
+        setSelectedItem(null);
+    }
+
+    const onClickItem = (item) => () => {
+        setSelectedItem(item);
+    }
+
+    const onCloseItem = () => {
+        setSelectedItem(null);
+    }
+
+    const onDeleteItem = () => {
+        let newItems = bankItems.filter(item => item !== selectedItem);
+        setBankItems(newItems);
+        saveBankToStorage(newItems);
+        setSelectedItem(null);
     }
 
     const onClickCancelAdd = () => {
@@ -87,6 +102,11 @@ const BankPage = ({onClickBack}) => {
 
     const onAddItem = (item) => {
         let newItems = [...bankItems, item];
+        newItems.sort((a,b) => {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+        });
         setBankItems(newItems);
         setShowAddPage(false); 
         saveBankToStorage(newItems);       
@@ -95,7 +115,7 @@ const BankPage = ({onClickBack}) => {
     if (showAddPage) return <AddItemPage onBack={onClickCancelAdd} onAddItem={onAddItem}/>
 
     return (
-        <div>
+        <ListContainer>
             <Header/>
             <Container>
                 <Button onClick={onClickBack}>Go Back</Button>
@@ -107,7 +127,9 @@ const BankPage = ({onClickBack}) => {
                     })
                 }
             </Container>
-        </div>
+            { selectedItem !== null ? <div style={{height: '400px'}}></div> : null }
+            { selectedItem !== null ? <BankItemDetails item={selectedItem} onClose={onCloseItem} onDelete={onDeleteItem}/> : null }
+        </ListContainer>
     );
 };
 

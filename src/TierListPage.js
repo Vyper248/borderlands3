@@ -9,14 +9,7 @@ import InputClear from './components/InputClear';
 import Header from './components/Header';
 import IconButton from './components/IconButton';
 import Container from './components/Container';
-
-const StyledComp = styled.div`
-    height: 100vh;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    position: relative;
-    top: ${props => props.hide ? '-5000px' : '0px'};
-`;
+import ListContainer from './components/ListContainer';
 
 const TierListPage = ({item, onClickItem, onClickBank}) => {
     let tiers = getTiers();
@@ -33,7 +26,7 @@ const TierListPage = ({item, onClickItem, onClickBank}) => {
     }
 
     return (
-        <StyledComp hide={item !== null ? true : false}>
+        <ListContainer hide={item !== null ? true : false}>
             <Header/>
             <Container>
                 <InputClear placeholder="Search" value={search} onChange={onChangeSearch} onClear={onClearSearch}/>
@@ -42,7 +35,7 @@ const TierListPage = ({item, onClickItem, onClickBank}) => {
                     { tiers.map(tier => <TierList key={tier.tier} tier={tier.tier} search={search} onClickItem={onClickItem}/>) }
                 </div>
             </Container>
-        </StyledComp>
+        </ListContainer>
     );
 };
 

@@ -36,6 +36,8 @@ const BankItem = ({item, onClick}) => {
             <div>{item.name}</div>
             { item.element1 && item.element1.length > 0 && item.element1 !== 'None' ? <div>{getElementIcon(item.element1)}</div> : null }
             { item.element2 && item.element2.length > 0 && item.element2 !== 'None' ? <div>{getElementIcon(item.element2)}</div> : null }
+            {/* { item.damage !== undefined && item.damage > 0 ? <div>{item.damage}</div> : null } */}
+            {/* { item.capacity !== undefined && item.capacity > 0 ? <div>{item.capacity}</div> : null } */}
         </StyledComp>
     );
 };

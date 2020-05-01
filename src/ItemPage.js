@@ -1,48 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import Header from './components/Header';
 import Button from './components/Button';
+import ItemPageContainer from './components/ItemPageContainer';
+import Table from './components/Table';
 
 import { getTiers } from './items';
-
-const StyledPage = styled.div`
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    background-color: black;
-    overflow: scroll;
-
-    & h3, & h4 {
-        margin: 10px;
-    }
-`;
-
-const StyledTable = styled.table`
-    margin: auto;
-    border-collapse: collapse;
-    width: 90%;
-    max-width: 400px;
-    margin-bottom: 10px;
-
-    & td {
-        border: 1px solid gray;
-        padding: 5px;
-    }
-
-    & td:first-child {
-        background-color: #333;
-        width: 100px;
-    }
-
-    @media screen and (max-width: 700px) {
-        & td {
-            padding: 2px;
-        }
-    }
-`;
 
 const TableRow = ({label,value}) => {
     if (value !== undefined && value.length > 0) {
@@ -66,11 +29,11 @@ const ItemPage = ({item, onClearItem}) => {
     let dedicatedDrops = getDedicatedDrops(item);
 
     return (
-        <StyledPage>
+        <ItemPageContainer>
             <Header/>
             <Button onClick={onClearItem}>Go Back</Button>
             <h3>{name}</h3>
-            <StyledTable>
+            <Table>
                 <tbody>
                     <tr>
                         <td colSpan="2" style={{backgroundColor: tierObj.color, color: 'black', fontWeight: 'bold'}}>{tierObj.name}</td>
@@ -91,25 +54,25 @@ const ItemPage = ({item, onClearItem}) => {
                     <TableRow label="Ability" value={ability}/>
                     <TableRow label="Elements" value={parseElements(elements)}/>
                 </tbody>
-            </StyledTable>
+            </Table>
 
             <h4>Dedicated Drop{dedicatedDrops.length > 1 ? 's' : ''}</h4>
 
             {
                 dedicatedDrops.map((obj, i) => {
                     return (
-                        <StyledTable key={'ded-'+i}>
+                        <Table key={'ded-'+i}>
                             <tbody>
                                 <TableRow label="Source" value={obj.dedicated}/>
                                 <TableRow label="Quest" value={obj.quest}/>
                                 <TableRow label="Location" value={obj.location}/>
                                 <TableRow label="Area" value={obj.area}/>
                             </tbody>
-                        </StyledTable>
+                        </Table>
                     );
                 })
             }
-        </StyledPage>
+        </ItemPageContainer>
     );
 }
 

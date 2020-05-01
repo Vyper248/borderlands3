@@ -190,7 +190,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
                             <td><NumberInput value={radius} onChange={(value) => setRadius(value)}/></td>
                         </tr>
                         <tr>
-                            <td>Element 1</td>
+                            <td>Element</td>
                             <td><Dropdown value={element1} placeholder="Element 1" items={['Fire', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
                         </tr>
                         <tr>
