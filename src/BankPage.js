@@ -9,6 +9,7 @@ import IconButton from './components/IconButton';
 import Container from './components/Container';
 import ListContainer from './components/ListContainer';
 import BankItemDetails from './components/BankItemDetails';
+import InputClear from './components/InputClear';
 
 import AddItemPage from './AddItemPage';
 
@@ -18,6 +19,7 @@ const BankPage = ({onClickBack}) => {
 
     const [showAddPage, setShowAddPage] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
+    const [search, setSearch] = useState('');
     const [bankItems, setBankItems] = useState([
         {
             name: 'Cutsman',
@@ -112,18 +114,25 @@ const BankPage = ({onClickBack}) => {
         saveBankToStorage(newItems);       
     }
 
+    const onChangeSearch = (e) => {
+        setSearch(e.target.value);
+    }
+
+    const onClearSearch = () => {
+        setSearch('');
+    }
+
     if (showAddPage) return <AddItemPage onBack={onClickCancelAdd} onAddItem={onAddItem}/>
 
     return (
         <ListContainer>
-            <Header/>
+            <Header onBank={true} showTierList={onClickBack}/>
             <Container>
-                <Button onClick={onClickBack}>Go Back</Button>
+                <InputClear placeholder="Search" value={search} onChange={onChangeSearch} onClear={onClearSearch}/>
                 <IconButton Icon={FiPlus} onClick={onClickAdd}/>
-                <h3>Owned</h3>
                 {
                     types.map(type => {
-                        return <BankTypeList key={'BankType-'+type} type={type} items={getItemsByType(type)} search={''} onClickItem={onClickItem}/>
+                        return <BankTypeList key={'BankType-'+type} type={type} items={getItemsByType(type)} search={search} onClickItem={onClickItem}/>
                     })
                 }
             </Container>

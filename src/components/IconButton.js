@@ -10,7 +10,7 @@ const StyledButton = styled.div`
     padding: 2px;
 
     position: absolute;
-    top: 0px;
+    top: -1px;
     right: 5px;
 
     :hover {

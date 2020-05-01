@@ -273,7 +273,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
 
     return (
         <div>
-            <Header/>
+            <Header onBank={true}/>
             <h3>Add Item</h3>
             <InputSuggest type="name" placeholder="Search" value={nameSuggest} onChange={(e) => setNameSuggest(e.target.value)} onClickSuggestion={onClickSuggestion}/>
             { isWeapon ? getWeaponLayout() : null }

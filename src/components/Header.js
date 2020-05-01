@@ -14,16 +14,20 @@ const StyledComp = styled.div`
         margin-bottom: 0px;
     }
 
-    & > span {
+    & > div > span {
         font-style: italic;
+    }
+
+    & span.selected {
+        color: #00FFFF;
     }
 `;
 
-const Header = () => {
+const Header = ({showTierList=()=>{}, showBank=()=>{}, onTierList=false, onBank=false}) => {
     return (
         <StyledComp>
             <h1>Borderlands 3</h1>
-            <span>Tier List</span>
+            <div><span className={onTierList ? 'selected' : ''} onClick={showTierList}>Tier List</span> / <span className={onBank ? 'selected' : ''} onClick={showBank}>Bank</span></div>
         </StyledComp>
     )
 }

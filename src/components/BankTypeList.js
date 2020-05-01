@@ -49,14 +49,13 @@ const BankTypeList = ({type, items, search, onClickItem}) => {
                 showList ? (
                     <div>
                         {
-                            items.map((item, i) => {
+                            searchFiltered.map((item, i) => {
                                 return <BankItem key={'bankItem-'+i} item={item} onClick={onClickItem}/>
                             })
                         }
                     </div>
                 ) : null
             }
-           
         </StyledComp>
     );
 }

@@ -30,7 +30,7 @@ const ItemPage = ({item, onClearItem}) => {
 
     return (
         <ItemPageContainer>
-            <Header/>
+            <Header onTierList={true}/>
             <Button onClick={onClearItem}>Go Back</Button>
             <h3>{name}</h3>
             <Table>

@@ -27,10 +27,9 @@ const TierListPage = ({item, onClickItem, onClickBank}) => {
 
     return (
         <ListContainer hide={item !== null ? true : false}>
-            <Header/>
+            <Header onTierList={true} showBank={onClickBank}/>
             <Container>
                 <InputClear placeholder="Search" value={search} onChange={onChangeSearch} onClear={onClearSearch}/>
-                <IconButton Icon={GiLockedChest} onClick={onClickBank}/>
                 <div>
                     { tiers.map(tier => <TierList key={tier.tier} tier={tier.tier} search={search} onClickItem={onClickItem}/>) }
                 </div>
