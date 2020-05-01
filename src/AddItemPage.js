@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 
 import { getAnnointments } from './items';
@@ -79,7 +79,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
 
     const onClickAdd = () => {
         let item = {};
-        if (isWeapon) item = {name, type, prefix, level, annoint, notes, damage, element1, element2, elementDmg, elementChance, elementEfficiency};
+        if (isWeapon) item = {name, type, prefix, level, annoint, notes, damage, damageMult, element1, element2, elementDmg, elementChance, elementEfficiency};
         if (type === 'Grenade') item = {name, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance, elementEfficiency};
         if (type === 'Shield') item = {name, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance};
 
@@ -88,6 +88,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
 
     const levels = new Array(57).fill(0).map((a,i) => i+1).reverse();
     const annointments = getAnnointments();
+    const cryoOnly = (element1 === 'Cryo' && element2 === 'None') || (element2 === 'Cryo' && element1 === 'None') || (element1 === 'Cryo' && element2 === 'Cryo');
 
     const getWeaponLayout = () => {
         return (
@@ -130,18 +131,24 @@ const AddItemPage = ({onBack, onAddItem}) => {
                             <td>Element 2</td>
                             <td><Dropdown value={element2} placeholder="Element 2" items={['Fire', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement2(value)}/></td>
                         </tr>
-                        <tr>
-                            <td>Element Damage</td>
-                            <td><NumberInput value={elementDmg} onChange={(value) => setElementDmg(value)}/></td>
-                        </tr>
-                        <tr>
-                            <td>Element Chance</td>
-                            <td><NumberInput value={elementChance} onChange={(value) => setElementChance(value)} suffix='%'/></td>
-                        </tr>
+                        {
+                            cryoOnly ? null : (
+                                <Fragment>
+                                    <tr>
+                                        <td>Element Damage</td>
+                                        <td><NumberInput value={elementDmg} onChange={(value) => setElementDmg(value)}/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Element Chance</td>
+                                        <td><NumberInput value={elementChance} onChange={(value) => setElementChance(value)} suffix='%'/></td>
+                                    </tr>
+                                </Fragment>
+                            )
+                        }
                         {
                             element1 === 'Cryo' || element2 === 'Cryo' ? (
                                 <tr>
-                                    <td>Element Efficiency</td>
+                                    <td>Cryo Efficiency</td>
                                     <td><NumberInput value={elementEfficiency} onChange={(value) => setElementEfficiency(value)} suffix='%'/></td>
                                 </tr>
                             ) : null

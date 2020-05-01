@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FiPlus } from 'react-icons/fi';
+import { FaFileImport } from 'react-icons/fa';
 
 import Header from './components/Header';
 import Button from './components/Button';
@@ -12,12 +13,14 @@ import BankItemDetails from './components/BankItemDetails';
 import InputClear from './components/InputClear';
 
 import AddItemPage from './AddItemPage';
+import ImportPage from './ImportPage';
 
 import { getTypes } from './items';
 
 const BankPage = ({onClickBack}) => {
 
     const [showAddPage, setShowAddPage] = useState(false);
+    const [showImportPage, setShowImportPage] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
     const [search, setSearch] = useState('');
     const [bankItems, setBankItems] = useState([
@@ -78,6 +81,14 @@ const BankPage = ({onClickBack}) => {
         return bankItems.filter(item => item.type === type);
     }
 
+    const onClickImport = () => {
+        setShowImportPage(true);
+    }
+
+    const onClickCancelImport = () => {
+        setShowImportPage(false);
+    }
+
     const onClickAdd = () => {
         setShowAddPage(true);
         setSelectedItem(null);
@@ -102,13 +113,17 @@ const BankPage = ({onClickBack}) => {
         setShowAddPage(false);
     }
 
-    const onAddItem = (item) => {
-        let newItems = [...bankItems, item];
-        newItems.sort((a,b) => {
+    const sortItems = (items) => {
+        items.sort((a,b) => {
             if (a.name < b.name) return -1;
             if (a.name > b.name) return 1;
             return 0;
         });
+    }
+
+    const onAddItem = (item) => {
+        let newItems = [...bankItems, item];
+        sortItems(newItems);
         setBankItems(newItems);
         setShowAddPage(false); 
         saveBankToStorage(newItems);       
@@ -122,14 +137,24 @@ const BankPage = ({onClickBack}) => {
         setSearch('');
     }
 
+    const onImportItems = (items) => {
+        let newItems = [...bankItems, ...items];
+        sortItems(newItems);
+        setBankItems(newItems);
+        setShowImportPage(false);
+        saveBankToStorage(newItems);
+    }
+
     if (showAddPage) return <AddItemPage onBack={onClickCancelAdd} onAddItem={onAddItem}/>
+    if (showImportPage) return <ImportPage onBack={onClickCancelImport} onImport={onImportItems} bankItems={bankItems}/>
 
     return (
         <ListContainer>
             <Header onBank={true} showTierList={onClickBack}/>
             <Container>
                 <InputClear placeholder="Search" value={search} onChange={onChangeSearch} onClear={onClearSearch}/>
-                <IconButton Icon={FiPlus} onClick={onClickAdd}/>
+                <IconButton Icon={FiPlus} onClick={onClickAdd} position='right'/>
+                {/* <IconButton Icon={FaFileImport} onClick={onClickImport} position='left'/> */}
                 {
                     types.map(type => {
                         return <BankTypeList key={'BankType-'+type} type={type} items={getItemsByType(type)} search={search} onClickItem={onClickItem}/>

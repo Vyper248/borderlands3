@@ -11,7 +11,8 @@ const StyledButton = styled.div`
 
     position: absolute;
     top: -1px;
-    right: 5px;
+    ${props => props.position === 'right' ? 'right: 5px;' : ''}
+    ${props => props.position === 'left' ? 'left: 5px;' : ''}
 
     :hover {
         cursor: pointer;
@@ -23,9 +24,9 @@ const StyledButton = styled.div`
     }
 `;
 
-const IconButton = ({Icon, onClick}) => {
+const IconButton = ({Icon, onClick, position}) => {
     return (
-        <StyledButton onClick={onClick}><Icon/></StyledButton>
+        <StyledButton onClick={onClick} position={position}><Icon/></StyledButton>
     );
 };
 

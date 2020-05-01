@@ -33,8 +33,10 @@ const TableRow = ({label, value, suffix=''}) => {
 }
 
 const getWeaponLayout = (item) => {
-    const {name, type, level, annoint, notes, prefix, damage, element1, element2, elementDmg, elementChance, elementEfficiency} = item;   
-    const showChance =(element1 !== 'None' || element2 !== 'None') && (element1 !== 'Cryo' && element2 !== 'Cryo');
+    const {name, type, level, annoint, notes, prefix, damage, damageMult, element1, element2, elementDmg, elementChance, elementEfficiency} = item;   
+    const showChance = (element1 !== 'Cryo' && element1 !== 'None') || (element2 !== 'Cryo' && element2 !== 'None');
+    let damageStr = damage;
+    if (damageMult !== undefined && damageMult !== 1) damageStr += ' x ' + damageMult;
 
     return (
         <tbody>
@@ -43,10 +45,10 @@ const getWeaponLayout = (item) => {
             <TableRow label="Prefix" value={prefix}/>
             <TableRow label="Level" value={level}/>
             <TableRow label="Notes" value={notes}/>
-            <TableRow label="Damage" value={damage}/>
-            <TableRow label={element2 !== 'None' ? "Element 1" : 'Element'} value={element1}/>
+            <TableRow label="Damage" value={damageStr}/>
+            <TableRow label={element2 !== 'None' && element2 !== '' ? "Element 1" : 'Element'} value={element1}/>
             <TableRow label="Element 2" value={element2}/>
-            { element1 !== 'None' || element2 !== 'None' ? <TableRow label="Element Damage" value={elementDmg}/> : null }
+            { showChance ? <TableRow label="Element Damage" value={elementDmg}/> : null }
             { showChance ? <TableRow label="Element Chance" value={elementChance} suffix='%'/> : null }
             { element1 === 'Cryo' || element2 === 'Cryo' ? <TableRow label="Cryo Efficiency" value={elementEfficiency} suffix='%'/> : null }
             <TableRow label="Annointment" value={annoint}/>
