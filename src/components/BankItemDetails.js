@@ -21,6 +21,8 @@ const StyledComp = styled.div`
 
 const TableRow = ({label, value, suffix=''}) => {    
     if (typeof value === 'string' && value.length === 0) return null;
+    if (label === 'Recharge Delay' && value === 0) return null;
+    if (label === 'Recharge Rate' && value === 0) return null;
     if (value === 'None') return null;
     if (value !== undefined) {
         return (
