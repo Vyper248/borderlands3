@@ -50,7 +50,7 @@ const StyledMenu = styled.div`
     }
 `;
 
-const NumberInput = ({value, onChange, width='100%', suffix=''}) => {
+const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=false}) => {
     const [open, setOpen] = useState(false);
     const ref = useRef();
     const isMobile = useMediaQuery({ maxWidth: 700 });
@@ -62,12 +62,11 @@ const NumberInput = ({value, onChange, width='100%', suffix=''}) => {
     });
 
     const onClickInput = () => {
+        if (clearOnOpen) onChange(0);
         setOpen(!open);
     }
 
-    const onChangeInput = (e) => {
-        console.log(e.target.value);
-        
+    const onChangeInput = (e) => {        
         onChange(e.target.value);
     }
 
@@ -100,18 +99,18 @@ const NumberInput = ({value, onChange, width='100%', suffix=''}) => {
             open ? (
                 <StyledMenu ref={ref}>
                     <div><span>{value}</span></div>
-                    <div onClick={onClickNumber(1)}><span>1</span></div>
-                    <div onClick={onClickNumber(2)}><span>2</span></div>
-                    <div onClick={onClickNumber(3)}><span>3</span></div>
-                    <div onClick={onClickNumber(4)}><span>4</span></div>
-                    <div onClick={onClickNumber(5)}><span>5</span></div>
-                    <div onClick={onClickNumber(6)}><span>6</span></div>
-                    <div onClick={onClickNumber(7)}><span>7</span></div>
-                    <div onClick={onClickNumber(8)}><span>8</span></div>
-                    <div onClick={onClickNumber(9)}><span>9</span></div>
-                    <div onClick={onRemoveNumber}><span>{'<'}</span></div>
-                    <div onClick={onClickNumber(0)}><span>0</span></div>
-                    <div onClick={onCloseMenu}><span>X</span></div>
+                    <div onTouchStart={onClickNumber(1)}><span>1</span></div>
+                    <div onTouchStart={onClickNumber(2)}><span>2</span></div>
+                    <div onTouchStart={onClickNumber(3)}><span>3</span></div>
+                    <div onTouchStart={onClickNumber(4)}><span>4</span></div>
+                    <div onTouchStart={onClickNumber(5)}><span>5</span></div>
+                    <div onTouchStart={onClickNumber(6)}><span>6</span></div>
+                    <div onTouchStart={onClickNumber(7)}><span>7</span></div>
+                    <div onTouchStart={onClickNumber(8)}><span>8</span></div>
+                    <div onTouchStart={onClickNumber(9)}><span>9</span></div>
+                    <div onTouchStart={onRemoveNumber}><span>{'<'}</span></div>
+                    <div onTouchStart={onClickNumber(0)}><span>0</span></div>
+                    <div onTouchStart={onCloseMenu}><span>X</span></div>
                 </StyledMenu>
             ) : null
         }

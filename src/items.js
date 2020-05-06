@@ -1,14 +1,18 @@
 const getItems = () => {
     return [
         {name: 'Anarchy', tier: 1, type: 'Shotgun', dedicated: 'World Drop Only', location: 'DLC 2', area: '', redText: 'The stacks... THE STACKS!', ability: 'Auto reload or kill grants 30% dmg & reduces accuracy. Max 10 stacks', elements: 'Any'},
+        {name: 'Insider', tier: 1, type: 'Shotgun', dedicated: 'World Drop Only', location: 'DLC 2', area: '', redText: 'You can run, but you cant hide.', ability: 'No charge time. Shots penetrate enemies', elements: 'F C S R O'},
         {name: 'Lob', tier: 1, type: 'Shotgun', dedicated: 'Graveward', location: 'Eden-6', area: 'The Floating Tomb', redText: 'Everything has to be magical.', ability: '3-round burst of big slow orbs that pass through enemies', elements: 'F C S R O'},
         {name: 'Recursion', tier: 1, type: 'Shotgun', dedicated: 'General Traunt', location: 'Nekrotafeyo', area: 'Desolations Edge', redText: 'See green text for description | See red text for description', ability: 'Shoots a disk that ricochets off walls', elements: 'Any'},
+        {name: 'Reflux', tier: 1, type: 'Shotgun', m6: true, dedicated: 'GenIVIV', location: 'Eden-6', area: 'Voracious Canopy', redText: 'That\'s gotta burn.', ability: 'Corrodes nearby enemies. Biohazard projectile patttern (similar to the Brainstormer)', elements: 'C'},
         {name: 'Boom Sickle', tier: 1, type: 'AR', dedicated: 'Warden', location: 'Eden-6', area: 'The Anvil', redText: 'Swing the sickle!', ability: 'Its really a Full-Auto shotgun. Spread forms a sickle. 2 ammo/shot', elements: 'Any'},
         {name: 'Good Juju', tier: 1, type: 'AR', dedicated: 'The Rampager,Valkyrie Squad / Wotan', location: 'Promethea,', area: 'Forgotten Basilica,Midnights Cairn', m4: true, redText: 'Kinda, sorta wants to end all existence.', ability: 'Refills magazine on kill', elements: 'Any'},
         {name: 'Kaos', tier: 1, type: 'AR', dedicated: 'Psychobillies', location: 'Eden-6', area: 'Ambermire', redText: 'Grants the mystical art of exploding smallhands.', ability: 'Enemies explode on death. Explosion matches element', elements: 'F C S O'},
+        {name: 'OPQ System', tier: 1, type: 'AR', dedicated: 'Joey Ultraviolet,Josie Byte,Franco Firewall', location: 'Revenge of the Cartels Event,Revenge of the Cartels Event,Revenge of the Cartels Event', area: 'Villa Ultraviolet,Villa Ultraviolet,Villa Ultraviolet', redText: 'B.Y.O.B.B', ability: 'Alternate fire: Spawns a drone copy of itself that targets where you aim', elements: 'N'},
         {name: 'Soulrender', tier: 1, type: 'AR', dedicated: 'Tom & Xam', location: 'Xylourgos', area: 'Hearts Desire', redText: 'Picture a soul. Now REND that thing!', ability: 'Sends out homing purple ghosts while firing that explode on impact', elements: 'Any'},
         {name: 'Cutsman', tier: 1, type: 'SMG', dedicated: 'Borman Nates', location: 'Promethea', area: 'Meridian Outskirts', redText: 'Little android man, born without a soul.', ability: '[Bladed]. 2 ammo/shot', elements: 'F C S'},
         {name: 'Hyperfocus XZ41', tier: 1, type: 'SMG', dedicated: 'Power Troopers', location: 'Promethea', area: 'Atlas HQ', redText: 'My line has ended.', ability: 'Front shield reflects bullets back at attackers', elements: 'Any'},
+        {name: 'Kaoson', tier: 1, type: 'SMG', m6: true, dedicated: 'Captain Traunt', location: 'Athenas', area: 'Athenas', redText: 'Small but packs a punch', ability: 'Sticky shots that explode on reload. +Splash dmg radius', elements: 'Any'},
         {name: 'Kybs Worth', tier: 1, type: 'SMG', dedicated: 'Wotan the Invincible', area: 'Midnights Cairn', redText: 'Stand in the f****** circle.', ability: 'Fallen enemies spawn a Healing Aura once every 10 seconds', elements: 'Any'},
         {name: 'Redistributor', tier: 1, type: 'SMG', dedicated: 'Valkyrie Squad / Wotan', area: 'Midnights Cairn', redText: 'Mans reach exceeds his imagination.', ability: 'Every 7th shot is Amped. Amped shots chain to nearby enemies', elements: 'F C S R O'},
         {name: 'Hellshock', tier: 1, type: 'Pistol', dedicated: 'Gigamind', location: 'Promethea', area: 'Meridian Metroplex', redText: 'I had not thought death had undone so many.', ability: '2 projectiles/shot. Ricochet switches projectile element', elements: 'F S'},
@@ -16,9 +20,12 @@ const getItems = () => {
         {name: 'Maggie', tier: 1, type: 'Pistol', dedicated: 'Tremendous Rex', location: 'Promethea (Meridian Metroplex)', area: 'Cistern of Slaughter', redText: 'Montys wife dont take no guff.', ability: '6 pellets per shot. Low accuracy', elements: 'N'},
         {name: 'Moonfire', tier: 1, type: 'Pistol', dedicated: 'Wotan the Invincible', area: 'Midnights Cairn', redText: 'Meet your destiny.', ability: 'Every 3rd shot is a powerful shot', elements: 'Any'},
         {name: 'Ion Cannon', tier: 1, type: 'Rocket Launcher', dedicated: 'Fabricator', location: 'The Handsome Jackpot', area: 'Jacks Secret', redText: 'Fun Detected: Obliterate.', ability: 'Charging shot releases fast rocket. 6 ammo/shot', elements: 'Any'},
+        {name: 'Yellowcake', tier: 1, type: 'Rocket Launcher', dedicated: 'Joey Ultraviolet,FISH SLAP!!!,Tyrone Smallums', location: 'Revenge of the Cartels Event,Revenge of the Cartels Event,Revenge of the Cartels Event', area: 'Villa Ultraviolet,Villa Ultraviolet,Villa Ultraviolet', redText: 'I\'m really more of a pie person.', ability: 'Splits into 4 balls that drop and explode. High splash radius', elements: 'R'},
         {name: 'Krakatoa', tier: 1, type: 'Sniper', dedicated: 'The Rampager', location: 'Promethea', area: 'Forgotten Basilica', redText: 'Get him angry and hes bound to erupt', ability: 'Turns killed enemies into volcanoes (must be on ground). Full-Auto', elements: 'F'},
         {name: 'Cocky Bastard', tier: 1, type: 'Sniper', dedicated: 'DLC 2 Chests', location: 'Xylourgos', area: 'All', redText: 'Great, kid.', ability: 'Crit deals additional +100% dmg as shock dmg', elements: 'N'},
         {name: 'Unseen Threat', tier: 1, type: 'Sniper', dedicated: 'Amach', location: 'Xylourgos', area: 'Cursehaven', redText: 'Taste their fear.', ability: 'Crit ricochets 3 homing projectiles', elements: 'N'},
+        {name: 'Sand Hawk', tier: 1, type: 'Sniper', m6: true, dedicated: 'Katagawa Jr', location: 'Promethea', area: 'Atlas HQ', redText: 'Wedge a pig.', ability: 'Fires a line of nine projectiles. Semi-auto & tight spread / 3-round burst & wide spread', elements: 'Any'},
+        {name: 'Skullmasher', tier: 1, type: 'Sniper', dedicated: 'Eista', location: 'Xylourgos', area: 'Skittermaw Basin', redText: 'Makes your brain hurt.', ability: 'x5 projectiles per shot. Extremely fast fire rate', elements: 'N'},
         {name: 'Wedding Invitation', tier: 1, type: 'Sniper', dedicated: '100 Broken Hearts', location: 'Special Event', area: '', redText: 'Will you be the rest of my life?', ability: 'Shoots as fire, ricochets as cryo. Crit returns 1 bullet', elements: 'F O'},
         {name: 'Hex', tier: 1, type: 'Grenade', dedicated: 'Sky Bullies', location: 'Eden-6', area: 'The Anvil', redText: 'Keeper of the stars, I hope to never find...', ability: 'Hovers around releasing beams of damage to nearby enemies', elements: 'S R O'},
         {name: 'Its Piss', tier: 1, type: 'Grenade', dedicated: 'Sloth', location: 'Pandora', area: 'Konrads Hold', redText: 'Hey you guys!', ability: 'Removes status effects on allies. Damaged enemies take +20% dmg', elements: 'N'},
@@ -26,17 +33,23 @@ const getItems = () => {
         {name: 'Storm Front', tier: 1, type: 'Grenade', dedicated: 'El Dragon Jr.', location: 'Eden-6', area: 'Jakobs Estate', redText: 'Very, very frightening.', ability: 'Splits into 4 grenades that deal continuous shock to nearby enemies', elements: 'S'},
         {name: 'Band of Sitorak', tier: 1, type: 'Shield', dedicated: 'The Unstoppable', location: 'Eden-6', area: 'Ambermire', redText: 'I said "biiiiiiiiiiiitttccchhhh..."', ability: ' +22% wpn dmg while depleted. Low capacity, Very high recharge rate', elements: 'F C S R O'},
         {name: 'Big Boom Blaster', tier: 1, type: 'Shield', dedicated: 'The Unstoppable', location: 'Eden-6', area: 'Ambermire', redText: 'For all your big boom blasting needs!', ability: 'boosters restore 60% shield, grenade, & heavy ammo. 15% absorb', elements: 'Any'},
-        {name: 'Firewall', tier: 1, type: 'Shield', dedicated: 'Cartel Enemies', location: 'Revenge of the Cartels Event', area: '', redText: 'Initiate countermeasures.', ability: 'Projected shield has a chance to fire projectiles at attackers. A portion of the projectiles damage restores shields.', elements: 'N'},
+        {name: 'Firewall', tier: 1, type: 'Shield', dedicated: 'Joey Ultraviolet,Josie Byte,Franco Firewall', location: 'Revenge of the Cartels Event,Revenge of the Cartels Event,Revenge of the Cartels Event', area: 'Villa Ultraviolet,Villa Ultraviolet,Villa Ultraviolet', redText: 'Initiate countermeasures.', ability: 'Projected shield has a chance to fire projectiles at attackers. A portion of the projectiles damage restores shields.', elements: 'N'},
         {name: 'Rico', tier: 1, type: 'Shield', dedicated: 'Quest Reward', location: 'The Handsome Jackpot', area: 'VIP Tower', quest: 'All Bets Off', redText: 'You wanna live forever?', ability: '50% chance to reflect shots while shielded. 80% while not shielded', elements: 'N'},
         {name: 'Stop-Gap', tier: 1, type: 'Shield', dedicated: 'El Dragon Jr.', location: 'Eden-6', area: 'Jakobs Estate', redText: 'The process is called "living".', ability: 'Immune to dmg on depletion for 5 seconds', elements: 'Any'},
         {name: 'The Transformer', tier: 1, type: 'Shield', dedicated: 'Killavolt,Quest Reward', location: 'Promethea,Nekrotafeyo', area: 'Lectra City,Desolations Edge', quest: ',Its Alive', redText: 'Theres more than your eye can see.', ability: '100% Shock resistance. 40% chance to absorb bullets', elements: 'S'},
-        {name: 'Wattson', tier: 1, type: 'Shield', dedicated: 'Cartel Enemies', location: 'Revenge of the Cartels Event', area: '', redText: 'Its all quite arbitrary, my dear boy.', ability: 'When damage is taken, fires discs that spawn in random elements and deal elemental damage', elements: 'N'},
+        {name: 'Wattson', tier: 1, type: 'Shield', dedicated: 'Joey Ultraviolet,FISH SLAP!!!,Tyrone Smallums', location: 'Revenge of the Cartels Event,Revenge of the Cartels Event,Revenge of the Cartels Event', area: 'Villa Ultraviolet,Villa Ultraviolet,Villa Ultraviolet', redText: 'Its all quite arbitrary, my dear boy.', ability: 'When damage is taken, fires discs that spawn in random elements and deal elemental damage', elements: 'N'},
+        {name: 'Otto Idol', tier: 1, type: 'Artifact', dedicated: 'Tyreen the Destroyer', location: 'Pandora', area: 'Destroyers Rift', redText: 'Every man for himself.', ability: 'Restores +20% max HP per kill (lvl57)', elements: 'Any'},
+        {name: 'Pearl of Ineffable Knowledge', tier: 1, type: 'Artifact', dedicated: 'Quest Reward', location: 'Xylourgos', area: 'The Lodge', quest: 'The Call of Gythian', redText: 'Knowing is half the battle.', ability: 'Consec. hits grant +1% dmg per hit up to 15 times. At max add +90%', elements: 'N'},
+        {name: 'Victory Rush', tier: 1, type: 'Artifact', dedicated: 'Sloth', location: 'Pandora', area: 'Konrads Hold', redText: 'Another one.', ability: '+18% movement speed and dmg on badass kill for 60 seconds', elements: 'Any'},
+        {name: 'Blast Master', tier: 1, type: 'Class Mod', character: 'Moze', dedicated: 'Arbalest of Discipline', location:'Precipice Anchor', quest: 'Trial of Discipline', redText: 'Slow and steady wins the arms race.', ability: 'The longer going without reloading, the more splash dmg Moze deals'},
+        {name: 'Bounty Hunter', tier: 1, type: 'Class Mod', character: 'Fl4k', dedicated: 'Hag of Fervor', location: 'Skydrowned Pulpit', quest: 'Trial of Fervor', redText: 'The world is made up of two classes — the hunters and the huntees.', ability: '3% Hunt Kill Skill chance / Bosses as regular enemies'},
+        {name: 'Seein Dead', tier: 1, type: 'Class Mod', character: 'Zane', dedicated: 'Quest Reward', location: 'The Handsome Jackpot', area: 'VIP Tower', quest: 'All Bets Off', redText: 'Musha rain dum a doo, dum a da.', ability: '4% chance to auto activ. all kill skills on wpn dmg. +25% Kill skill effect'},
+        {name: 'Spiritual Driver', tier: 1, type: 'Class Mod', character: 'Amara', m4: true, dedicated: 'Sylestro,Wotan the Invincible', location: 'Nekrotafeyo,', area: 'Tazandeer Ruins,Midnights Cairn', redText: 'Only on the brink can we see so clearly.', ability: 'On Action Skill, apply skill element to self. +Gun dmg while moving'},
 
         {name: 'Brainstormer', tier: 2, type: 'Shotgun', dedicated: 'Katagawa Ball', location: 'Promethea', area: 'Skywell-27', redText: 'Lets put our heads together.', ability: 'Vertical row spread. Shocks nearby enemies', elements: 'S'},
         {name: 'Conference Call', tier: 2, type: 'Shotgun', dedicated: 'Judge Hightower', location: 'Promethea', area: 'Lectra City', redText: 'Lets just ping everyone all at once', ability: 'Spawns more projectiles. Same as in BL2', elements: 'Any'},
         {name: 'Flama Diddle', tier: 2, type: 'Shotgun', dedicated: 'World Drop Only', location: 'DLC 2', area: '', redText: 'VIII. Never turn your back on the Monster!', ability: 'Reload shoots twice before exploding on impact. Bullets ricochet once', elements: 'F'},
         {name: 'Garcia', tier: 2, type: 'Shotgun', dedicated: 'Chonk Stomp', location: 'Eden-6', area: 'Floodmoor Basin', redText: 'Rooty Tooty Pointy Shooty', ability: 'High mag size. 2 ammo/shot', elements: 'N'},
-        {name: 'Insider', tier: 2, type: 'Shotgun', dedicated: 'World Drop Only', location: 'DLC 2', area: '', redText: 'You can run, but you cant hide.', ability: 'No charge time. Shots penetrate enemies', elements: 'F C S R O'},
         {name: 'Nothingness', tier: 2, type: 'Shotgun', dedicated: 'Gmork', location: 'Xylourgos', area: 'The Cankerwood', redText: 'A hole would be something.', ability: 'Charged shot for several consecutive explosions (similar to the Flakker)', elements: 'F C S R O'},
         {name: 'Nimble Jack', tier: 2, type: 'Shotgun', dedicated: 'Handsome Jackie', location: 'Promethea', area: 'Skywell-27', redText: 'Jack be nimble, Jack be quick, Jack jump and kill lunatics.', ability: 'Tight spread. 1 shot reload', elements: 'N'},
         {name: 'One Pump Chump', tier: 2, type: 'Shotgun', dedicated: 'One Punch', location: 'Promethea', area: 'Lectra City', redText: 'I swear, that has never happened before.', ability: '50% chance to not consume ammo', elements: 'N'},
@@ -233,7 +246,51 @@ export const getTiers = () => {
 }
 
 export const getTypes = () => {
-    return ['Shotgun', 'AR', 'SMG', 'Pistol', 'Rocket Launcher', 'Sniper', 'Grenade', 'Shield'];
+    return ['Pistol', 'SMG', 'AR', 'Shotgun', 'Rocket Launcher', 'Sniper', 'Grenade', 'Shield', 'Artifact', 'Class Mod'];
+}
+
+export const getModSkills = () => {
+    const red = '#E8430E';
+    const green = '#3AF00F';
+    const blue = '#0B7FF0';
+    return {
+        'Breaker': [`Jab Cross:${red}`, `Personal Space:${red}`, `Find Your Center:${red}`],
+        'Dragon': [`Do Harm:${blue}`, `Remnat:${blue}`, `Restless:${blue}`],
+        'Elementalist': [`Wildfire:${red}`, `Infusion:${red}`, `Violent Tapestry:${blue}`],
+        'Golden Rule': [`Laid Bare:${blue}`, `Mindfulness:${green}`, `Helping Hand(s):${green}`],
+        'Nimbus': [`Conflux:${red}`, `Tempest:${red}`, `Violent Tapestry:${blue}`],
+        'Phasezerker': [`Anima:${red}`, `Clarity:${green}`, `Conflux:${red}`],
+        'Spiritual Driver': [`Clarity:${green}`, `Helping Hand(s):${green}`, `Mindfulness:${green}`],
+        'Stone': [`Awakening:${blue}`, `Do Harm:${blue}`, `Violent Tapestry:${blue}`],
+
+        'Bounty Hunter': [`Frenzy:${blue}`, `Hunters Eye:${red}`, `The Most Dangerous Game: ${red}`],
+        'Cosmic Stalker': [`Hunters Eye:${red}`, `Interplanetary Stalker:${red}`, `Big Game:${red}`],
+        'DE4DEYE': [`Go For The Eyes:${blue}`, `The Fast And The Furryous:${green}`, `Two F4ng:${red}`],
+        'Friend-Bot': [`All My BFFs:${green}`, `Barbaric Yawp:${blue}`, `Psycho Head On A Stick:${blue}`],
+        'R4kk P4k': [`Grim Harvest:${red}`, `Head Count:${red}`, `Pack Tactics:${blue}`],
+        'Rakk Commander': [`Eager To Impress:${green}`, `Ferocity:${blue}`, `He Bites:${blue}`],
+        'Red Fang': [`Eager To Impress:${green}`, `Ferocity:${blue}`, `He Bites:${blue}`],
+        'St4ckbot': [`Hunters Eye:${red}`, `The Fast And The Furryous:${green}`, `Pack Tactics:${blue}`],
+        'Tr4iner': [`Pack Tactics:${blue}`, `Grim Harvest:${red}`, `Ferocity:${blue}`],
+
+        'Bear Trooper': [`Explosive Punctuation:${blue}`, `Grizzled:${blue}`, `Stainless Steel Bear:${blue}`],
+        'Blast Master': [`Pull The Holy Pin:${blue}`, `Redistribution:${green}`, `Vampyr:${blue}`],
+        'Bloodletter': [`Desperate Measures:${red}`, `Phalanc Doctrine:${red}`, `Thin Red Line:${red}`],
+        'Green Monster': [`Scorching RPMs:${green}`, `Click Click:${green}`, `The Iron Bank:${green}`],
+        'Mind Sweeper': [`Fire In The Skag Den:${blue}`, `Redistribution:${green}`, `Torgue Cross Promotion:${blue}`],
+        'Raging Bear': [`Deadlines:${blue}`, `Stainless Steel Bear:${blue}`, `Stoke The Embers:${green}`],
+        'Rocketeer': [`Cloud Of Lead:${green}`, `Fire In The Skag Den:${blue}`, `Torgue Cross Promotion:${blue}`],
+        'Sapper': [`Matched Set:${green}`, `Means Of Destruction:${blue}`, `The Iron Bank:${green}`],
+
+        'Antifreeze': [`Supersonic Man:${red}`, `Violent Momentum:${blue}`, `Violent Speed:${blue}`],
+        'Cold Warrior': [`Ready For Action:${green}`, `Synchronicity:${red}`, `Trick Of The Light:${red}`],
+        'Conductor': [`Adrenaline:${green}`, `Borrowed Time:${red}`, `Good Misfortune:${blue}`],
+        'Executor': [`Good Misfortune:${blue}`, `Playing Dirty:${blue}`, `Violent Violence:${blue}`],
+        'Infiltrator': [`Like A Ghost:${red}`, `Supersonic Man:${red}`, `Violent Momentum:${blue}`],
+        'Seein Dead': [`Donnybrook:${red}`, `Playing Dirty:${blue}`, `Violent Violence:${blue}`],
+        'Shockerator': [`Best Served Cold:${green}`, `Duct Tape Mod:${red}`, `Pocket Full Of Grenades:${red}`],
+        'Techspert': [`Ready For Action:${green}`, `Really Expensive Jacket:${green}`, `Rise To The Occasion:${green}`]
+    }
 }
 
 export const getAnnointments = () => {

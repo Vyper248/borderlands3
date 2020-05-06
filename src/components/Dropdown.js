@@ -8,6 +8,7 @@ const StyledComp = styled.div`
     margin: 0px;
     padding: 0px;
     height: 100%;
+    width: 100%;
 
     & > button:hover {
         cursor: pointer;
@@ -63,7 +64,7 @@ const StyledMenu = styled.div`
     }
 `;
 
-const Dropdown = ({value, items, onChange, placeholder=''}) => {
+const Dropdown = ({value, items, onChange, placeholder='', width='100%'}) => {
     const [open, setOpen] = useState(false);
     const [subMenu, setSubMenu] = useState('');
     const ref = useRef();
@@ -98,7 +99,7 @@ const Dropdown = ({value, items, onChange, placeholder=''}) => {
 
     return (
         <StyledComp>
-            <Input as="button" onClick={onClickDropdown} className={open ? 'open' : ''}>{String(value).length > 0 ? value : placeholder}</Input>
+            <Input as="button" width={width} onClick={onClickDropdown} className={open ? 'open' : ''}>{String(value).length > 0 ? value : placeholder}</Input>
             {
                 open ? (
                     <StyledMenu ref={ref}>

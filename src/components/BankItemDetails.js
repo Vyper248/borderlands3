@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { getModSkills } from '../items';
+
 import Table from './Table';
 import Button from './Button';
 
@@ -96,6 +98,46 @@ const getGrenadeLayout = (item) => {
     );
 }
 
+const getModLayout = (item) => {
+    const {name, type, modClass, level, notes, ability1, ability2, ability3, stat1, stat2, stat3} = item;   
+    const modSkills = getModSkills();
+    const relevantSkills = modSkills[name] || [];
+    const skillNames = relevantSkills.map(skill => skill.split(':')[0]);
+
+    return (
+        <tbody>
+            <TableRow label="Name" value={name}/>
+            <TableRow label="Type" value={type}/>
+            <TableRow label="Class" value={modClass}/>
+            <TableRow label="Level" value={level}/>
+            <TableRow label="Notes" value={notes}/>
+            <TableRow label={skillNames[0]} value={ability1}/>
+            <TableRow label={skillNames[1]} value={ability2}/>
+            <TableRow label={skillNames[2]} value={ability3}/>
+            <TableRow label="Stat 1" value={stat1}/>
+            <TableRow label="Stat 2" value={stat2}/>
+            <TableRow label="Stat 3" value={stat3}/>
+        </tbody>
+    );
+}
+
+const getArtifactLayout = (item) => {
+    const {name, type, prefix, level, notes, stat1, stat2, stat3} = item;   
+
+    return (
+        <tbody>
+            <TableRow label="Name" value={name}/>
+            <TableRow label="Type" value={type}/>
+            <TableRow label="Prefix" value={prefix}/>
+            <TableRow label="Level" value={level}/>
+            <TableRow label="Notes" value={notes}/>
+            <TableRow label="Stat 1" value={stat1}/>
+            <TableRow label="Stat 2" value={stat2}/>
+            <TableRow label="Stat 3" value={stat3}/>
+        </tbody>
+    );
+}
+
 const BankItemDetails = ({item, onClose, onDelete}) => {    
     const {type} = item;    
     const isWeapon = type === 'Shotgun' || type === 'AR' || type === 'Sniper' || type === 'Rocket Launcher' || type === 'SMG' || type === 'Pistol';    
@@ -110,6 +152,8 @@ const BankItemDetails = ({item, onClose, onDelete}) => {
                 { isWeapon ? getWeaponLayout(item) : null }
                 { type === 'Shield' ? getShieldLayout(item) : null }
                 { type === 'Grenade' ? getGrenadeLayout(item) : null }
+                { type === 'Class Mod' ? getModLayout(item) : null }
+                { type === 'Artifact' ? getArtifactLayout(item) : null }
             </Table>
         </StyledComp>
     );
