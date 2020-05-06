@@ -41,8 +41,8 @@ const AddItemPage = ({onBack, onAddItem}) => {
     const [nameSuggest, setNameSuggest] = useState('');
 
     //general
-    const [type, setType] = useState('Class Mod'); //auto set
-    const [name, setName] = useState('Breaker'); //lookup
+    const [type, setType] = useState(''); //auto set
+    const [name, setName] = useState(''); //lookup
     const [level, setLevel] = useState(57);
     const [notes, setNotes] = useState('');
     const [annoint, setAnnoint] = useState('None'); //dropdown
