@@ -40,7 +40,7 @@ const getWeaponLayout = (item) => {
     const {name, type, level, annoint, notes, prefix, damage, damageMult, element1, element2, elementDmg, elementChance, elementEfficiency} = item;   
     const showChance = (element1 !== 'Cryo' && element1 !== 'None') || (element2 !== 'Cryo' && element2 !== 'None');
     let damageStr = damage;
-    if (damageMult !== undefined && damageMult !== 1) damageStr += ' x ' + damageMult;
+    if (damageMult !== undefined && damageMult !== 1 && damageMult !== '') damageStr += ' x ' + damageMult;
 
     return (
         <tbody>
