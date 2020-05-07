@@ -33,7 +33,7 @@ const ItemPage = ({item, onClearItem}) => {
             <Header onTierList={true}/>
             <Button onClick={onClearItem}>Go Back</Button>
             <h3>{name}</h3>
-            <Table>
+            <Table col1Width='100px'>
                 <tbody>
                     <tr>
                         <td colSpan="2" style={{backgroundColor: tierObj.color, color: 'black', fontWeight: 'bold'}}>{tierObj.name}</td>
@@ -57,7 +57,7 @@ const ItemPage = ({item, onClearItem}) => {
                         ) : null
                     }
                     <tr>
-                        <td style={{'width': '110px'}}>Red Text</td>
+                        <td>Red Text</td>
                         <td style={{color: 'red'}}>{redText}</td>
                     </tr>
                     <TableRow label="Ability" value={ability}/>
@@ -70,7 +70,7 @@ const ItemPage = ({item, onClearItem}) => {
             {
                 dedicatedDrops.map((obj, i) => {
                     return (
-                        <Table key={'ded-'+i}>
+                        <Table key={'ded-'+i} col1Width='100px'>
                             <tbody>
                                 <TableRow label="Source" value={obj.dedicated}/>
                                 <TableRow label="Quest" value={obj.quest}/>

@@ -65,7 +65,7 @@ const InputSuggest = ({value, placeholder, onChange, onClickSuggestion, type}) =
 }
 
 const compare = (obj, key, value) => {
-    return obj[key].toLowerCase().includes(value.toLowerCase()) && obj[key].toLowerCase() !== value.toLowerCase();
+    return obj[key].toLowerCase().includes(value.toLowerCase());
 }
 
 export default InputSuggest;
