@@ -475,4 +475,14 @@ export const getAnnointments = () => {
     };
 }
 
+export const getGrenadeEffects = () => {
+    return [
+        'Lobbed', 'Longbow', 'Homing', 'Rubberized',
+        'Impact', 'Exploder', 'Sticky',
+        'Artillery', 'Bouncy', 'Jumping', 'Rain', 'MIRV', 'Mini MIRV', 'Singularity', 'Chiller', 'Corrupter', 'Blight', 'Flamer', 'Tesla',
+        'Roider', 'Link', 'Large', 'Nuke', 'Divider',
+        'Generator', 'Transfusion', 'Force', 'Money', 'Elemental Damage'
+    ]
+}
+
 export default getItems;

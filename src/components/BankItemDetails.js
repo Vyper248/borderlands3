@@ -5,6 +5,7 @@ import { getModSkills } from '../items';
 
 import Table from './Table';
 import Button from './Button';
+import Container from './Container';
 
 const StyledComp = styled.div`
     position: fixed;
@@ -23,6 +24,8 @@ const TableRow = ({label, value, suffix=''}) => {
     if (typeof value === 'string' && value.length === 0) return null;
     if (label === 'Recharge Delay' && value === 0) return null;
     if (label === 'Recharge Rate' && value === 0) return null;
+    if (label === undefined) return null;
+    
     if (value === 'None') return null;
     if (value !== undefined) {
         return (
@@ -81,7 +84,7 @@ const getShieldLayout = (item) => {
 }
 
 const getGrenadeLayout = (item) => {
-    const {name, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance} = item;   
+    const {name, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance, grenadeEffect1, grenadeEffect2, grenadeEffect3} = item;   
 
     return (
         <tbody>
@@ -96,6 +99,9 @@ const getGrenadeLayout = (item) => {
             { element1 !== 'None' ? <TableRow label="Element Damage" value={elementDmg}/> : null }
             { element1 !== 'None' ? <TableRow label="Element Chance" value={elementChance} suffix='%'/> : null }
             <TableRow label="Annointment" value={annoint}/>
+            <TableRow label="Effect 1" value={grenadeEffect1}/>
+            <TableRow label="Effect 2" value={grenadeEffect2}/>
+            <TableRow label="Effect 3" value={grenadeEffect3}/>
         </tbody>
     );
 }
@@ -146,17 +152,19 @@ const BankItemDetails = ({item, onClose, onDelete}) => {
     
     return (
         <StyledComp>
-            <div>
-                <Button onClick={onDelete} style={{display: 'inline-block', float: 'left', marginLeft: '20px'}}>Delete</Button> 
-                <Button onClick={onClose} style={{display: 'inline-block', float: 'right', marginRight: '20px', marginBottom: '5px'}}>Close</Button>
-            </div>
-            <Table col1Width='150px'>
-                { isWeapon ? getWeaponLayout(item) : null }
-                { type === 'Shield' ? getShieldLayout(item) : null }
-                { type === 'Grenade' ? getGrenadeLayout(item) : null }
-                { type === 'Class Mod' ? getModLayout(item) : null }
-                { type === 'Artifact' ? getArtifactLayout(item) : null }
-            </Table>
+            <Container>
+                <div>
+                    <Button onClick={onDelete} style={{display: 'inline-block', float: 'left', marginLeft: '20px'}}>Delete</Button> 
+                    <Button onClick={onClose} style={{display: 'inline-block', float: 'right', marginRight: '20px', marginBottom: '5px'}}>Close</Button>
+                </div>
+                <Table col1Width='150px'>
+                    { isWeapon ? getWeaponLayout(item) : null }
+                    { type === 'Shield' ? getShieldLayout(item) : null }
+                    { type === 'Grenade' ? getGrenadeLayout(item) : null }
+                    { type === 'Class Mod' ? getModLayout(item) : null }
+                    { type === 'Artifact' ? getArtifactLayout(item) : null }
+                </Table>
+            </Container>
         </StyledComp>
     );
 }

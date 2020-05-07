@@ -10,7 +10,7 @@ function App() {
     let items = getItems();
 
     const [item, setItem] = useState(null);
-    const [showBank, setShowBank] = useState(true);
+    const [showBank, setShowBank] = useState(false);
 
     const onClickItem = (name) => () => {
         let itemObj = items.find(item => item.name === name);

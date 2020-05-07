@@ -70,7 +70,8 @@ const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=fals
         onChange(e.target.value);
     }
 
-    const onClickNumber = (number) => () => {
+    const onClickNumber = (number) => (e) => {
+        e.preventDefault();
         let newValue = value + '' + number;
         newValue = Number(newValue);
         onChange(newValue);
