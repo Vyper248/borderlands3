@@ -229,7 +229,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
                         </tr>
                         <tr>
                             <td>Annointment</td>
-                            <td><Dropdown value={annoint} items={annointments['Grenade']['Universal']} onChange={(value) => setAnnoint(value)}/></td>
+                            <td><Dropdown value={annoint} items={annointments['Grenade']} onChange={(value) => setAnnoint(value)}/></td>
                         </tr>
                         <tr>
                             <td>Notes</td>
