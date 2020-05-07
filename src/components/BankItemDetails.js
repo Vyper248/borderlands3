@@ -64,7 +64,7 @@ const getWeaponLayout = (item) => {
 }
 
 const getShieldLayout = (item) => {
-    const {name, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance} = item;   
+    const {name, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance, shieldEffect1, shieldEffect2, shieldEffect3} = item;   
 
     return (
         <tbody>
@@ -79,6 +79,9 @@ const getShieldLayout = (item) => {
             { element1 !== 'None' ? <TableRow label="Element Res." value={element1}/> : null }
             { element1 !== 'None' ? <TableRow label="Resistance %" value={elementChance} suffix='%'/> : null }
             <TableRow label="Annointment" value={annoint}/>
+            <TableRow label="Effect 1" value={shieldEffect1}/>
+            <TableRow label="Effect 2" value={shieldEffect2}/>
+            <TableRow label="Effect 3" value={shieldEffect3}/>
         </tbody>
     );
 }

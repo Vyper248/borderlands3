@@ -482,7 +482,14 @@ export const getGrenadeEffects = () => {
         'Artillery', 'Bouncy', 'Jumping', 'Rain', 'MIRV', 'Mini MIRV', 'Singularity', 'Chiller', 'Corrupter', 'Blight', 'Flamer', 'Tesla',
         'Roider', 'Link', 'Large', 'Nuke', 'Divider',
         'Generator', 'Transfusion', 'Force', 'Money', 'Elemental Damage'
-    ]
+    ];
+}
+
+export const getShieldEffects = () => {
+    return [
+        'Absorb', 'Adaptive', 'Adrenaline', 'Amp', 'Booster', 'Brimming', 'Delay', 'Devourer', 'Fleet', 'Fortify Charge', 'Health', 'Health Charge', 
+        'Nova', 'Power Charge', 'Projected', 'Quick-Charge', 'Recharger', 'Reflect', 'Resistant', 'Roid', 'Safe-Space', 'Spike', 'Staw Man', 'Trigger Happy', 'Turtle', 'Vagabond'
+    ];
 }
 
 export default getItems;

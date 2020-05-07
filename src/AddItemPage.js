@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import { GoSearch } from 'react-icons/go';
 
-import { getAnnointments, getModSkills, getGrenadeEffects, getTypes } from './items';
+import { getAnnointments, getModSkills, getGrenadeEffects, getShieldEffects, getTypes } from './items';
 
 import Header from './components/Header';
 import Dropdown from './components/Dropdown';
@@ -64,9 +64,9 @@ const AddItemPage = ({onBack, onAddItem}) => {
     const [capacity, setCapacity] = useState(0);
     const [rechargeDelay, setRechargeDelay] = useState(0);
     const [rechargeRate, setRechargeRate] = useState(0);
-    const [shieldEffect1, setSheildEffect1] = useState('None');
-    const [shieldEffect2, setSheildEffect2] = useState('None');
-    const [shieldEffect3, setSheildEffect3] = useState('None');
+    const [shieldEffect1, setShieldEffect1] = useState('None');
+    const [shieldEffect2, setShieldEffect2] = useState('None');
+    const [shieldEffect3, setShieldEffect3] = useState('None');
 
     //grenade specific
     const [radius, setRadius] = useState(0);
@@ -103,7 +103,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
         let item = {};
         if (isWeapon) item = {name, type, prefix, level, annoint, notes, damage, damageMult, element1, element2, elementDmg, elementChance, elementEfficiency};
         if (type === 'Grenade') item = {name, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance, elementEfficiency, grenadeEffect1, grenadeEffect2, grenadeEffect3};
-        if (type === 'Shield') item = {name, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance};
+        if (type === 'Shield') item = {name, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance, shieldEffect1, shieldEffect2, shieldEffect3};
         if (type === 'Class Mod') item = {name, type, modClass, level, notes, ability1, ability2, ability3, stat1, stat2, stat3};
         if (type === 'Artifact') item = {name, type, prefix, level, notes, stat1, stat2, stat3};
 
@@ -298,6 +298,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
     }
 
     const getShieldLayout = () => {
+        const shieldEffects = getShieldEffects();
         return (
             <div style={{padding: '10px'}}>
                 <StyledTable>
@@ -346,6 +347,26 @@ const AddItemPage = ({onBack, onAddItem}) => {
                             <td>Resistance %</td>
                             <td><NumberInput value={elementChance} onChange={(value) => setElementChance(value)} suffix='%'/></td>
                         </tr>
+                        <tr>
+                            <td>Effect 1</td>
+                            <td><Dropdown value={shieldEffect1} items={shieldEffects} onChange={(value) => setShieldEffect1(value)}/></td>
+                        </tr>
+                        {
+                            shieldEffect1 !== 'None' ? (
+                                <tr>
+                                    <td>Effect 2</td>
+                                    <td><Dropdown value={shieldEffect2} items={shieldEffects} onChange={(value) => setShieldEffect2(value)}/></td>
+                                </tr>
+                            ) : null
+                        }
+                        {
+                            shieldEffect2 !== 'None' ? (
+                                <tr>
+                                    <td>Effect 3</td>
+                                    <td><Dropdown value={shieldEffect3} items={shieldEffects} onChange={(value) => setShieldEffect3(value)}/></td>
+                                </tr>
+                            ) : null
+                        }
                     </tbody>
                 </StyledTable>
             </div>
