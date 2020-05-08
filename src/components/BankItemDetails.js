@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { getModSkills } from '../items';
+import getItems, { getModSkills } from '../items';
 
 import Table from './Table';
 import Button from './Button';
@@ -40,7 +40,7 @@ const TableRow = ({label, value, suffix=''}) => {
 }
 
 const getWeaponLayout = (item) => {
-    let {name, type, level, annoint, notes, prefix, damage, damageMult, element1, element2, elementDmg, elementChance, elementEfficiency} = item;   
+    let {name, type, level, annoint, notes, prefix, damage, damageMult, element1, element2, elementDmg, elementChance, elementEfficiency, tier} = item;   
     const showChance = (element1 !== 'Cryo' && element1 !== 'None') || (element2 !== 'Cryo' && element2 !== 'None');
     let damageStr = damage;
     if (damageMult !== undefined && damageMult !== 1 && damageMult !== '') damageStr += ' x ' + damageMult;
@@ -50,6 +50,7 @@ const getWeaponLayout = (item) => {
     return (
         <tbody>
             <TableRow label="Name" value={name}/>
+            <TableRow label='Tier' value={tier}/>
             <TableRow label="Type" value={type}/>
             <TableRow label="Prefix" value={prefix}/>
             <TableRow label="Level" value={level}/>
@@ -66,12 +67,13 @@ const getWeaponLayout = (item) => {
 }
 
 const getShieldLayout = (item) => {
-    let {name, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance, shieldEffect1, shieldEffect2, shieldEffect3} = item;   
+    let {name, tier, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance, shieldEffect1, shieldEffect2, shieldEffect3} = item;   
     if (element1 === 'Fire') element1 = 'Incendiary';
 
     return (
         <tbody>
             <TableRow label="Name" value={name}/>
+            <TableRow label='Tier' value={tier}/>
             <TableRow label="Type" value={type}/>
             <TableRow label="Prefix" value={prefix}/>
             <TableRow label="Level" value={level}/>
@@ -90,12 +92,13 @@ const getShieldLayout = (item) => {
 }
 
 const getGrenadeLayout = (item) => {
-    let {name, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance, grenadeEffect1, grenadeEffect2, grenadeEffect3} = item;  
+    let {name, tier, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance, grenadeEffect1, grenadeEffect2, grenadeEffect3} = item;  
     if (element1 === 'Fire') element1 = 'Incendiary'; 
 
     return (
         <tbody>
             <TableRow label="Name" value={name}/>
+            <TableRow label='Tier' value={tier}/>
             <TableRow label="Type" value={type}/>
             <TableRow label="Prefix" value={prefix}/>
             <TableRow label="Level" value={level}/>
@@ -114,7 +117,7 @@ const getGrenadeLayout = (item) => {
 }
 
 const getModLayout = (item) => {
-    const {name, type, modClass, level, notes, ability1, ability2, ability3, stat1, stat2, stat3} = item;   
+    const {name, tier, type, modClass, level, notes, ability1, ability2, ability3, stat1, stat2, stat3} = item;   
     const modSkills = getModSkills();
     const relevantSkills = modSkills[name] || [];
     const skillNames = relevantSkills.map(skill => skill.split(':')[0]);
@@ -122,6 +125,7 @@ const getModLayout = (item) => {
     return (
         <tbody>
             <TableRow label="Name" value={name}/>
+            <TableRow label='Tier' value={tier}/>
             <TableRow label="Type" value={type}/>
             <TableRow label="Class" value={modClass}/>
             <TableRow label="Level" value={level}/>
@@ -137,11 +141,12 @@ const getModLayout = (item) => {
 }
 
 const getArtifactLayout = (item) => {
-    const {name, type, prefix, level, notes, stat1, stat2, stat3} = item;   
+    const {name, tier, type, prefix, level, notes, stat1, stat2, stat3} = item;   
 
     return (
         <tbody>
             <TableRow label="Name" value={name}/>
+            <TableRow label='Tier' value={tier}/>
             <TableRow label="Type" value={type}/>
             <TableRow label="Prefix" value={prefix}/>
             <TableRow label="Level" value={level}/>
@@ -156,6 +161,12 @@ const getArtifactLayout = (item) => {
 const BankItemDetails = ({item, onClose, onDelete}) => {    
     const {type} = item;    
     const isWeapon = type === 'Shotgun' || type === 'AR' || type === 'Sniper' || type === 'Rocket Launcher' || type === 'SMG' || type === 'Pistol';    
+
+    //get tier of item if can find it
+    const items = getItems();
+    let itemObj = items.find(obj => obj.name === item.name);
+    let tier = itemObj !== undefined ? itemObj.tier : 'Unknown';
+    item.tier = tier;
     
     return (
         <StyledComp>
