@@ -18,6 +18,8 @@ Class Mod Icons: https://borderlands.fandom.com/wiki/Class_Mod_(Borderlands_3)
 Grenade Effects: https://forums.gearboxsoftware.com/t/grenade-features-in-bl3/4064626
 
 Shield Effects: https://docs.google.com/spreadsheets/d/e/2PACX-1vRJ8R2-nBod9Y3nUmDW1uH_j7v0hq9dpQcSozGk1BuBuEvyqa8zKJxdFtKReL3WisUT2_ojPluqhBLi/pubhtml#
+
+Annointments: https://borderlands.fandom.com/wiki/Anointed_(item_bonus)
 */
 
 function App() {

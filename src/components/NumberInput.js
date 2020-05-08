@@ -18,6 +18,7 @@ const StyledMenu = styled.div`
     max-height: 300px;
     overflow: scroll;
     z-index: 5;
+    padding-bottom: 50px;
 
     & > div:first-child {
         width: 200px;

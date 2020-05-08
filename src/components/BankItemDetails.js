@@ -40,10 +40,12 @@ const TableRow = ({label, value, suffix=''}) => {
 }
 
 const getWeaponLayout = (item) => {
-    const {name, type, level, annoint, notes, prefix, damage, damageMult, element1, element2, elementDmg, elementChance, elementEfficiency} = item;   
+    let {name, type, level, annoint, notes, prefix, damage, damageMult, element1, element2, elementDmg, elementChance, elementEfficiency} = item;   
     const showChance = (element1 !== 'Cryo' && element1 !== 'None') || (element2 !== 'Cryo' && element2 !== 'None');
     let damageStr = damage;
     if (damageMult !== undefined && damageMult !== 1 && damageMult !== '') damageStr += ' x ' + damageMult;
+    if (element1 === 'Fire') element1 = 'Incendiary';
+    if (element2 === 'Fire') element2 = 'Incendiary';
 
     return (
         <tbody>
@@ -64,7 +66,8 @@ const getWeaponLayout = (item) => {
 }
 
 const getShieldLayout = (item) => {
-    const {name, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance, shieldEffect1, shieldEffect2, shieldEffect3} = item;   
+    let {name, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance, shieldEffect1, shieldEffect2, shieldEffect3} = item;   
+    if (element1 === 'Fire') element1 = 'Incendiary';
 
     return (
         <tbody>
@@ -87,7 +90,8 @@ const getShieldLayout = (item) => {
 }
 
 const getGrenadeLayout = (item) => {
-    const {name, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance, grenadeEffect1, grenadeEffect2, grenadeEffect3} = item;   
+    let {name, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance, grenadeEffect1, grenadeEffect2, grenadeEffect3} = item;  
+    if (element1 === 'Fire') element1 = 'Incendiary'; 
 
     return (
         <tbody>

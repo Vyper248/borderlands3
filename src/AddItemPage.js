@@ -170,11 +170,11 @@ const AddItemPage = ({onBack, onAddItem}) => {
                         </tr>
                         <tr>
                             <td>Element 1</td>
-                            <td><Dropdown value={element1} placeholder="Element 1" items={['Fire', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
+                            <td><Dropdown value={element1} placeholder="Element 1" items={['Incendiary', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
                         </tr>
                         <tr>
                             <td>Element 2</td>
-                            <td><Dropdown value={element2} placeholder="Element 2" items={['Fire', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement2(value)}/></td>
+                            <td><Dropdown value={element2} placeholder="Element 2" items={['Incendiary', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement2(value)}/></td>
                         </tr>
                         {
                             cryoOnly || noElement ? null : (
@@ -245,7 +245,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
                         </tr>
                         <tr>
                             <td>Element</td>
-                            <td><Dropdown value={element1} placeholder="Element 1" items={['Fire', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
+                            <td><Dropdown value={element1} placeholder="Element 1" items={['Incendiary', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
                         </tr>
                         {
                             element1 === 'None' ? null : (
@@ -341,7 +341,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
                         </tr>
                         <tr>
                             <td>Element Res.</td>
-                            <td><Dropdown value={element1} items={['Fire', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
+                            <td><Dropdown value={element1} items={['Incendiary', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
                         </tr>
                         <tr>
                             <td>Resistance %</td>
