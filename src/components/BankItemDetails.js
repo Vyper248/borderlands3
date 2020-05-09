@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import getItems, { getModSkills } from '../items';
+import getItems, { getModSkills, getTiers } from '../items';
 
 import Table from './Table';
 import Button from './Button';
@@ -164,9 +164,12 @@ const BankItemDetails = ({item, onClose, onDelete}) => {
 
     //get tier of item if can find it
     const items = getItems();
-    let itemObj = items.find(obj => obj.name === item.name);
-    let tier = itemObj !== undefined ? itemObj.tier : 'Unknown';
-    item.tier = tier;
+    const tierNames = getTiers();
+    const itemObj = items.find(obj => obj.name === item.name);
+    const tier = itemObj !== undefined ? itemObj.tier : 0;
+    const tierObj= tierNames.find(obj => obj.tier === tier);
+    const tierName = tierObj !== undefined ? tierObj.name : 'Unknown';
+    item.tier = tierName;
     
     return (
         <StyledComp>
