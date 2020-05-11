@@ -18,7 +18,7 @@ import ImportPage from './ImportPage';
 
 import { getTypes } from './items';
 
-const BankPage = ({onClickBack, onClickInfo}) => {
+const BankPage = ({onClickBack, onClickInfo, onShowItem}) => {
 
     const [showAddPage, setShowAddPage] = useState(false);
     const [showImportPage, setShowImportPage] = useState(false);
@@ -126,7 +126,7 @@ const BankPage = ({onClickBack, onClickInfo}) => {
                 }
             </Container>
             { selectedItem !== null && !isLargeScreen ? <div style={{height: '400px'}}></div> : null }
-            { selectedItem !== null ? <BankItemDetails item={selectedItem} onClose={onCloseItem} onDelete={onDeleteItem}/> : null }
+            { selectedItem !== null ? <BankItemDetails item={selectedItem} onClose={onCloseItem} onDelete={onDeleteItem} onShowItem={onShowItem}/> : null }
         </ListContainer>
     );
 };

@@ -12,7 +12,6 @@ import InputClear from './components/InputClear';
 
 const StyledParagraph = styled.p`
     padding: 10px;
-    text-align: left;
     margin: 0px;
 
     & > a {

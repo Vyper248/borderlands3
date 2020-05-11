@@ -8,6 +8,7 @@ const ItemPageContainer = styled.div`
     bottom: 0px;
     background-color: black;
     overflow: scroll;
+    z-index: 6;
 
     & h3, & h4 {
         margin: 10px;

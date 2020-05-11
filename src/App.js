@@ -16,7 +16,7 @@ function App() {
 
     const onClickItem = (name) => () => {
         let itemObj = items.find(item => item.name === name);
-        setItem(itemObj);
+        if (itemObj !== undefined) setItem(itemObj);
     }
 
     const onClearItem = () => {
@@ -54,7 +54,8 @@ function App() {
     if (showBank) {
         return (
             <div className="App">
-                <BankPage onClickBack={onBackFromBank} onClickInfo={onClickInfo}/>
+                <BankPage onClickBack={onBackFromBank} onClickInfo={onClickInfo} onShowItem={onClickItem}/>
+                { item !== null ? <ItemPage item={item} onClearItem={onClearItem} onClickInfo={onClickInfo} onClickTierList={onBackFromBank} onBank={true}/> : null }
             </div>
         );
     }
