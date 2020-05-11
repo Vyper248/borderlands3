@@ -78,7 +78,8 @@ const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=fals
         onChange(newValue);
     }
 
-    const onRemoveNumber = () => {
+    const onRemoveNumber = (e) => {
+        e.preventDefault();
         let newValue = String(value).split('');
         newValue.pop();
         newValue = newValue.join('');
@@ -86,7 +87,8 @@ const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=fals
         onChange(newValue);
     }
 
-    const onCloseMenu = () => {
+    const onCloseMenu = (e) => {
+        e.preventDefault();
         setOpen(false);
     }
 
@@ -112,7 +114,7 @@ const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=fals
                     <div onTouchStart={onClickNumber(9)}><span>9</span></div>
                     <div onTouchStart={onRemoveNumber}><span>{'<'}</span></div>
                     <div onTouchStart={onClickNumber(0)}><span>0</span></div>
-                    <div onTouchStart={onCloseMenu}><span>X</span></div>
+                    <div onTouchEnd={onCloseMenu}><span>X</span></div>
                 </StyledMenu>
             ) : null
         }
