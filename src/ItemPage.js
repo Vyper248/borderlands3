@@ -20,7 +20,7 @@ const TableRow = ({label,value}) => {
     }
 }
 
-const ItemPage = ({item, onClearItem}) => {
+const ItemPage = ({item, onClearItem, onClickInfo, onClickBank}) => {
     const {name, type, character, tier, m4, m6, redText, ability, elements} = item;
 
     const tiers = getTiers();
@@ -30,7 +30,7 @@ const ItemPage = ({item, onClearItem}) => {
 
     return (
         <ItemPageContainer>
-            <Header onTierList={true}/>
+            <Header onTierList={true} showInfo={onClickInfo} showBank={onClickBank}/>
             <Button onClick={onClearItem}>Go Back</Button>
             <h3>{name}</h3>
             <Table col1Width='100px'>

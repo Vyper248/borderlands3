@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 import { FiPlus } from 'react-icons/fi';
 import { FaFileImport } from 'react-icons/fa';
@@ -17,51 +18,14 @@ import ImportPage from './ImportPage';
 
 import { getTypes } from './items';
 
-const BankPage = ({onClickBack}) => {
+const BankPage = ({onClickBack, onClickInfo}) => {
 
     const [showAddPage, setShowAddPage] = useState(false);
     const [showImportPage, setShowImportPage] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
     const [search, setSearch] = useState('');
-    const [bankItems, setBankItems] = useState([
-        {
-            name: 'Cutsman',
-            type: 'SMG',
-            level: 57,
-            element1: 'Shock',
-        },
-        {
-            name: 'Cutsman',
-            type: 'SMG',
-            level: 57,
-            element1: 'Corrosive',
-        },
-        {
-            name: 'Cutsman',
-            type: 'SMG',
-            level: 53,
-            element1: 'Fire',
-        },
-        {
-            name: 'Cutsman',
-            type: 'SMG',
-            level: 57,
-            element1: 'Cryo',
-        },
-        {
-            name: 'Laser-Sploder',
-            type: 'AR',
-            level: 57,
-            element1: 'Radiation',
-        },
-        {
-            name: 'Recursion',
-            type: 'Shotgun',
-            level: 57,
-            element1: 'Fire',
-            element2: 'Shock',
-        }
-    ]);
+    const [bankItems, setBankItems] = useState([]);
+    const isLargeScreen = useMediaQuery({ minWidth: 1700 });
 
     useEffect(() => {
         let bankArr = localStorage.getItem('bank');        
@@ -145,12 +109,12 @@ const BankPage = ({onClickBack}) => {
         saveBankToStorage(newItems);
     }
 
-    if (showAddPage) return <AddItemPage onBack={onClickCancelAdd} onAddItem={onAddItem}/>
+    if (showAddPage) return <AddItemPage onBack={onClickCancelAdd} onAddItem={onAddItem} showTierList={onClickBack} showInfo={onClickInfo}/>
     if (showImportPage) return <ImportPage onBack={onClickCancelImport} onImport={onImportItems} bankItems={bankItems}/>
 
     return (
         <ListContainer>
-            <Header onBank={true} showTierList={onClickBack}/>
+            <Header onBank={true} showTierList={onClickBack} showInfo={onClickInfo}/>
             <Container>
                 <InputClear placeholder="Search" value={search} onChange={onChangeSearch} onClear={onClearSearch}/>
                 <IconButton Icon={FiPlus} onClick={onClickAdd} position='right'/>
@@ -161,7 +125,7 @@ const BankPage = ({onClickBack}) => {
                     })
                 }
             </Container>
-            { selectedItem !== null ? <div style={{height: '400px'}}></div> : null }
+            { selectedItem !== null && !isLargeScreen ? <div style={{height: '400px'}}></div> : null }
             { selectedItem !== null ? <BankItemDetails item={selectedItem} onClose={onCloseItem} onDelete={onDeleteItem}/> : null }
         </ListContainer>
     );

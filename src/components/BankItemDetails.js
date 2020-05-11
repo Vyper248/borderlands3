@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
 
 import getItems, { getModSkills, getTiers } from '../items';
 
@@ -18,6 +19,21 @@ const StyledComp = styled.div`
     padding-top: 5px;
     background-color: black;
     z-index: 5;
+`;
+
+const StyledSideComp = styled.div`
+    position: absolute;
+    top: 90px;
+    right: 0px;
+    width: 400px;
+    bottom: 0px;
+    background-color: black;
+    z-index: 5;
+
+    & > div {
+        position: sticky;
+        top: 0px;
+    }
 `;
 
 const TableRow = ({label, value, suffix=''}) => {    
@@ -158,7 +174,17 @@ const getArtifactLayout = (item) => {
     );
 }
 
+const ResponsiveComp = ({isLargeScreen, children}) => {
+    if (isLargeScreen) {
+        return <StyledSideComp>{children}</StyledSideComp>;
+    } else {
+        return <StyledComp>{children}</StyledComp>;
+    }
+}
+
 const BankItemDetails = ({item, onClose, onDelete}) => {    
+    const isLargeScreen = useMediaQuery({ minWidth: 1700 });
+
     const {type} = item;    
     const isWeapon = type === 'Shotgun' || type === 'AR' || type === 'Sniper' || type === 'Rocket Launcher' || type === 'SMG' || type === 'Pistol';    
 
@@ -172,21 +198,23 @@ const BankItemDetails = ({item, onClose, onDelete}) => {
     item.tier = tierName;
     
     return (
-        <StyledComp>
-            <Container>
-                <div>
-                    <Button onClick={onDelete} style={{display: 'inline-block', float: 'left', marginLeft: '20px'}}>Delete</Button> 
-                    <Button onClick={onClose} style={{display: 'inline-block', float: 'right', marginRight: '20px', marginBottom: '5px'}}>Close</Button>
-                </div>
-                <Table col1Width='150px'>
-                    { isWeapon ? getWeaponLayout(item) : null }
-                    { type === 'Shield' ? getShieldLayout(item) : null }
-                    { type === 'Grenade' ? getGrenadeLayout(item) : null }
-                    { type === 'Class Mod' ? getModLayout(item) : null }
-                    { type === 'Artifact' ? getArtifactLayout(item) : null }
-                </Table>
-            </Container>
-        </StyledComp>
+        <ResponsiveComp isLargeScreen={isLargeScreen}>
+            <div>
+                <Container>
+                    <div>
+                        <Button onClick={onDelete} style={{display: 'inline-block', float: 'left', marginLeft: '20px', marginBottom: '5px'}}>Delete</Button> 
+                        <Button onClick={onClose} style={{display: 'inline-block', float: 'right', marginRight: '20px', marginBottom: '5px'}}>Close</Button>
+                    </div>
+                    <Table col1Width='150px'>
+                        { isWeapon ? getWeaponLayout(item) : null }
+                        { type === 'Shield' ? getShieldLayout(item) : null }
+                        { type === 'Grenade' ? getGrenadeLayout(item) : null }
+                        { type === 'Class Mod' ? getModLayout(item) : null }
+                        { type === 'Artifact' ? getArtifactLayout(item) : null }
+                    </Table>
+                </Container>
+            </div>
+        </ResponsiveComp>
     );
 }
 

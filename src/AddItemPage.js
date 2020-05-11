@@ -39,23 +39,23 @@ const FlexRow = styled.div`
     display: flex;
 `;
 
-const AddItemPage = ({onBack, onAddItem}) => {
+const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
     const [nameSuggest, setNameSuggest] = useState('');
     const [customMode, setCustomMode] = useState(false);
 
     //general
-    const [type, setType] = useState(''); //auto set
-    const [name, setName] = useState(''); //lookup
+    const [type, setType] = useState('');
+    const [name, setName] = useState('');
     const [level, setLevel] = useState(57);
     const [notes, setNotes] = useState('');
-    const [annoint, setAnnoint] = useState('None'); //dropdown
-    const [prefix, setPrefix] = useState(''); //dropdown
+    const [annoint, setAnnoint] = useState('None');
+    const [prefix, setPrefix] = useState('');
 
     //weapon specific
     const [damage, setDamage] = useState(0);
     const [damageMult, setDamageMult] = useState(1);
-    const [element1, setElement1] = useState('None'); //dropdown
-    const [element2, setElement2] = useState('None'); //dropdown
+    const [element1, setElement1] = useState('None');
+    const [element2, setElement2] = useState('None');
     const [elementDmg, setElementDmg] = useState(0);
     const [elementChance, setElementChance] = useState(0);
     const [elementEfficiency, setElementEfficiency] = useState(0);
@@ -75,7 +75,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
     const [grenadeEffect3, setGrenadeEffect3] = useState('None');
 
     //mod specific
-    const [modClass, setModClass] = useState(''); //auto
+    const [modClass, setModClass] = useState('');
     const [ability1, setAbility1] = useState(0);
     const [ability2, setAbility2] = useState(0);
     const [ability3, setAbility3] = useState(0);
@@ -480,7 +480,7 @@ const AddItemPage = ({onBack, onAddItem}) => {
 
     return (
         <div>
-            <Header onBank={true}/>
+            <Header onBank={true} showTierList={showTierList} showInfo={showInfo}/>
             <Container>
             <h3>Add Item</h3>
             { name !== '' && customMode === false ? <IconButton Icon={GoSearch} onClick={onSelectNew} position='right'/> : null }

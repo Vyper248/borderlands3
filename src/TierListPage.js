@@ -11,7 +11,7 @@ import IconButton from './components/IconButton';
 import Container from './components/Container';
 import ListContainer from './components/ListContainer';
 
-const TierListPage = ({item, onClickItem, onClickBank}) => {
+const TierListPage = ({item, onClickItem, onClickBank, onClickInfo}) => {
     let tiers = getTiers();
 
     const [search, setSearch] = useState('');
@@ -27,7 +27,7 @@ const TierListPage = ({item, onClickItem, onClickBank}) => {
 
     return (
         <ListContainer hide={item !== null ? true : false}>
-            <Header onTierList={true} showBank={onClickBank}/>
+            <Header onTierList={true} showBank={onClickBank} showInfo={onClickInfo}/>
             <Container>
                 <InputClear placeholder="Search" value={search} onChange={onChangeSearch} onClear={onClearSearch}/>
                 <div>
