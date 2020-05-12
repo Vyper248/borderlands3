@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/borderlands3/static/css/main.bf79225e.chunk.css",
-    "main.js": "/borderlands3/static/js/main.6ab291d7.chunk.js",
-    "main.js.map": "/borderlands3/static/js/main.6ab291d7.chunk.js.map",
+    "main.js": "/borderlands3/static/js/main.8cbeae15.chunk.js",
+    "main.js.map": "/borderlands3/static/js/main.8cbeae15.chunk.js.map",
     "runtime-main.js": "/borderlands3/static/js/runtime-main.0f58a542.js",
     "runtime-main.js.map": "/borderlands3/static/js/runtime-main.0f58a542.js.map",
-    "static/js/2.0a163c42.chunk.js": "/borderlands3/static/js/2.0a163c42.chunk.js",
-    "static/js/2.0a163c42.chunk.js.map": "/borderlands3/static/js/2.0a163c42.chunk.js.map",
+    "static/js/2.482ca685.chunk.js": "/borderlands3/static/js/2.482ca685.chunk.js",
+    "static/js/2.482ca685.chunk.js.map": "/borderlands3/static/js/2.482ca685.chunk.js.map",
     "index.html": "/borderlands3/index.html",
-    "precache-manifest.5a3d6b29f05cd6968b69b80e7a3c49c4.js": "/borderlands3/precache-manifest.5a3d6b29f05cd6968b69b80e7a3c49c4.js",
+    "precache-manifest.6d6029c9a818a74a144cc3d3bfa786d9.js": "/borderlands3/precache-manifest.6d6029c9a818a74a144cc3d3bfa786d9.js",
     "service-worker.js": "/borderlands3/service-worker.js",
     "static/css/main.bf79225e.chunk.css.map": "/borderlands3/static/css/main.bf79225e.chunk.css.map",
-    "static/js/2.0a163c42.chunk.js.LICENSE.txt": "/borderlands3/static/js/2.0a163c42.chunk.js.LICENSE.txt",
+    "static/js/2.482ca685.chunk.js.LICENSE.txt": "/borderlands3/static/js/2.482ca685.chunk.js.LICENSE.txt",
     "static/media/ColdBore.png": "/borderlands3/static/media/ColdBore.cb330d57.png",
     "static/media/Yellowcake.jpg": "/borderlands3/static/media/Yellowcake.fe90e61e.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.0f58a542.js",
-    "static/js/2.0a163c42.chunk.js",
+    "static/js/2.482ca685.chunk.js",
     "static/css/main.bf79225e.chunk.css",
-    "static/js/main.6ab291d7.chunk.js"
+    "static/js/main.8cbeae15.chunk.js"
   ]
 }
