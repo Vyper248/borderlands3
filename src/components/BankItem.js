@@ -43,11 +43,12 @@ const BankItem = ({item, onClick}) => {
 };
 
 const getElementIcon = (element) => {
-    if (element === 'Fire') return <Fire style={{color: '#FF1F07'}}/>;
+    if (element === 'Fire') return <Fire style={{color: '#F9A614'}}/>;
+    if (element === 'Incendiary') return <Fire style={{color: '#F9A614'}}/>;
     if (element === 'Shock') return <Shock style={{color: '#639FF4'}}/>;
-    if (element === 'Corrosive') return <Corrosive style={{color: '#A2D17B'}}/>;
-    if (element === 'Cryo') return <Cryo style={{color: '#07BDFB'}}/>;
-    if (element === 'Radiation') return <Radiation style={{color: '#FDC00A'}}/>;
+    if (element === 'Corrosive') return <Corrosive style={{color: '#35B433'}}/>;
+    if (element === 'Cryo') return <Cryo style={{color: '#32C5D2'}}/>;
+    if (element === 'Radiation') return <Radiation style={{color: '#329D3D'}}/>;
     else return null;
 }
 
