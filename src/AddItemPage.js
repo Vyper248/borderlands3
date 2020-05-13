@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import { GoSearch } from 'react-icons/go';
 
-import { getAnnointments, getModSkills, getGrenadeEffects, getShieldEffects, getTypes } from './items';
+import { getAnnointments, getModSkills, getGrenadeEffects, getShieldEffects, getTypes, getArtifactPrefixes } from './items';
 
 import Header from './components/Header';
 import Dropdown from './components/Dropdown';
@@ -436,6 +436,9 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
     }
 
     const getArtifactLayout = () => {
+        let prefixes = getArtifactPrefixes();
+        prefixes = prefixes.map(obj => obj.name);
+
         return (
             <div style={{padding: '10px'}}>
                 <StyledTable>
@@ -450,7 +453,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
                         </tr>
                         <tr>
                             <td>Prefix</td>
-                            <td><Input value={prefix} onChange={(e) => setPrefix(e.target.value)}/></td>
+                            <td><Dropdown value={prefix} items={prefixes} onChange={(value) => setPrefix(value)}/></td>
                         </tr>
                         <tr>
                             <td>Level</td>

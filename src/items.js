@@ -209,7 +209,7 @@ const getItems = () => {
         {name: 'Nova Berner', tier: 4, type: 'Shield', dedicated: 'Power Troopers', location: 'Promethea', area: 'Atlas HQ', redText: 'Feel the Bern.', ability: 'Nova on depletion and fill', elements: 'F'},
         {name: 'Rough Rider', tier: 4, type: 'Shield', dedicated: 'Urist McEnforcer', location: 'Promethea', area: 'Lectra City', redText: 'It takes more than that to kill a Bull Moose.', ability: 'No capacity. Reduces incoming dmg by 23% & grants +35% Max HP', elements: 'Any'},
         {name: 'Shooting Star', tier: 4, type: 'Shield', dedicated: 'Sky Bully', location: 'Eden-6', area: 'The Anvil', redText: 'Dont look up.', ability: 'While depleted, successful melee summons a projectile', elements: 'Any'},
-        {name: 'Commander Planetoid', tier: 4, type: 'Artifact', dedicated: 'Atomic', location: 'Nekrotafeyo', area: 'Tazendeer Ruins', redText: 'The power is YOURS!', ability: '+67% elemental melee damage. Element type changes every 5 sec', elements: 'Any'},
+        {name: 'Commander Planetoid', tier: 4, type: 'Artifact', dedicated: 'Atomic', location: 'Nekrotafeyo', area: 'Tazendeer Ruins', redText: 'The power is YOURS!', ability: '+72% elemental melee damage. Element type changes every 5 sec', elements: 'Any'},
         {name: 'Grave', tier: 4, type: 'Artifact', dedicated: 'Graveward', location: 'Eden-6', area: 'The Floating Tomb', redText: 'Pain becomes power.', ability: '+melee < 50% HP. +weapon dmg < 20% HP. +splash dmg < 5% HP'},
         {name: 'Unleash the Dragon', tier: 4, type: 'Artifact', dedicated: 'El Dragon Jr.', location: 'Eden-6', area: 'Jakobs Estate', redText: 'En fuego!', ability: 'Melee, slide, & ground slam have 100% chance to ignite enemy'},
         {name: 'Bear Trooper', tier: 4, type: 'Class Mod', character: 'Moze', dedicated: 'Tyrant of Instinct', location: 'Warward Tether', quest: 'Trial of Instinct', redText: 'Rocket \'til the wheels fall off.', ability: 'Decreases fuel use, increases Iron Bears duration'},
@@ -505,6 +505,34 @@ export const getShieldEffects = () => {
     return [
         'Absorb', 'Adaptive', 'Adrenaline', 'Amp', 'Booster', 'Brimming', 'Delay', 'Devourer', 'Fleet', 'Fortify Charge', 'Health', 'Health Charge', 
         'Nova', 'Power Charge', 'Projected', 'Quick-Charge', 'Recharger', 'Reflect', 'Resistant', 'Roid', 'Safe-Space', 'Spike', 'Staw Man', 'Trigger Happy', 'Turtle', 'Vagabond'
+    ];
+}
+
+export const getArtifactPrefixes = () => {
+    return [
+        {name: 'Atom Balm'},
+        {name: 'Berzerker'},
+        {name: 'Cauterizing'},
+        {name: 'Caustic Coast'},
+        {name: 'Corrosive Stone'},
+        {name: 'Cutpurse'},
+        {name: 'Electric Slide'},
+        {name: 'Elemental Projector'},
+        {name: 'Fire Stone'},
+        {name: 'Flesh Melter'},
+        {name: 'Hot Drop'},
+        {name: 'Ice Breaker'},
+        {name: 'Ice Spiker'},
+        {name: 'Knife Drain'},
+        {name: 'Last Stand'},
+        {name: 'Loot Expanding'},
+        {name: 'Mind Melt'},
+        {name: 'Radiodead'},
+        {name: 'Rear Ender'},
+        {name: 'Shock Stone	'},
+        {name: 'Spark Plug'},
+        {name: 'Snowdrift'},
+        {name: 'Toxic Revenger'},
     ];
 }
 
