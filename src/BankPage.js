@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import styled from 'styled-components';
 import { FiPlus } from 'react-icons/fi';
 import { FaFileImport } from 'react-icons/fa';
 
 import Header from './components/Header';
-import Button from './components/Button';
 import BankTypeList from './components/BankTypeList';
 import IconButton from './components/IconButton';
 import Container from './components/Container';

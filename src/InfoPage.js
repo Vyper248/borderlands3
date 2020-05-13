@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import Header from './components/Header';
 import Button from './components/Button';
-import BankTypeList from './components/BankTypeList';
-import IconButton from './components/IconButton';
 import Container from './components/Container';
 import ListContainer from './components/ListContainer';
-import BankItemDetails from './components/BankItemDetails';
-import InputClear from './components/InputClear';
 
 const StyledParagraph = styled.p`
     padding: 5px 10px;

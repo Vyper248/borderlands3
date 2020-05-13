@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { GiLockedChest } from 'react-icons/gi';
 
 import { getTiers } from './items';
 
 import TierList from './components/TierList';
 import InputClear from './components/InputClear';
 import Header from './components/Header';
-import IconButton from './components/IconButton';
 import Container from './components/Container';
 import ListContainer from './components/ListContainer';
 
