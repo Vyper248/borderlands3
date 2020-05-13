@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { MdHelpOutline } from 'react-icons/md';
+const headerImage = require('../header.jpeg');
 
 const StyledComp = styled.div`
     background-color: gray;
@@ -9,14 +10,20 @@ const StyledComp = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    background-image: url(${headerImage});
+    background-position: center;
+    
     & > h1 {
         margin-top: 0px;
         margin-bottom: 0px;
+        color: #FFE417;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
 
     & > div > span {
         font-style: italic;
+        text-shadow: 1px 1px 2px black;
+        ${'' /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */}
     }
 
     & span.selected {

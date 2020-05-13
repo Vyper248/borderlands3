@@ -11,7 +11,7 @@ import BankItemDetails from './components/BankItemDetails';
 import InputClear from './components/InputClear';
 
 const StyledParagraph = styled.p`
-    padding: 10px;
+    padding: 5px 10px;
     margin: 0px;
 
     & > a {
