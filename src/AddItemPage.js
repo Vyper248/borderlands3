@@ -223,7 +223,8 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
     }
 
     const getGrenadeLayout = () => {
-        const grenadeEffects = getGrenadeEffects();
+        let grenadeEffects = getGrenadeEffects();
+        grenadeEffects = ['None', ...grenadeEffects];
 
         return (
             <div style={{padding: '10px'}}>
@@ -316,7 +317,9 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
     }
 
     const getShieldLayout = () => {
-        const shieldEffects = getShieldEffects();
+        let shieldEffects = getShieldEffects();
+        shieldEffects = ['None', ...shieldEffects];
+
         return (
             <div style={{padding: '10px'}}>
                 <StyledTable>
@@ -361,10 +364,14 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
                             <td>Element Res.</td>
                             <td><Dropdown value={element1} items={['Incendiary', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
                         </tr>
-                        <tr>
-                            <td>Resistance %</td>
-                            <td><NumberInput value={elementChance} onChange={(value) => setElementChance(value)} suffix='%'/></td>
-                        </tr>
+                        {
+                            element1 !== 'None' ? (
+                                <tr>
+                                    <td>Resistance %</td>
+                                    <td><NumberInput value={elementChance} onChange={(value) => setElementChance(value)} suffix='%'/></td>
+                                </tr>
+                            ) : null
+                        }
                         <tr>
                             <td>Effect 1</td>
                             <td><Dropdown value={shieldEffect1} items={shieldEffects} onChange={(value) => setShieldEffect1(value)}/></td>
@@ -397,6 +404,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
 
         let stats = getModStats();
         stats = stats.map(obj => obj.name);
+        stats = ['None', ...stats];
 
         return (
             <div style={{padding: '10px'}}>
@@ -462,6 +470,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
 
         let stats = getArtifactStats();
         stats = stats.map(obj => obj.name);
+        stats = ['None', ...stats];
 
         return (
             <div style={{padding: '10px'}}>
