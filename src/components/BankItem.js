@@ -48,7 +48,7 @@ const getElementIcon = (element) => {
     if (element === 'Shock') return <Shock style={{color: '#639FF4'}}/>;
     if (element === 'Corrosive') return <Corrosive style={{color: '#35B433'}}/>;
     if (element === 'Cryo') return <Cryo style={{color: '#32C5D2'}}/>;
-    if (element === 'Radiation') return <Radiation style={{color: '#329D3D'}}/>;
+    if (element === 'Radiation') return <Radiation style={{color: '#CADB6F'}}/>;
     else return null;
 }
 

@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import styled from 'styled-components';
 import { GoSearch } from 'react-icons/go';
 
-import { getAnnointments, getModSkills, getGrenadeEffects, getShieldEffects, getTypes, getArtifactPrefixes } from './items';
+import { getAnnointments, getModSkills, getGrenadeEffects, getShieldEffects, getTypes, getArtifactPrefixes, getArtifactStats, getModStats } from './items';
 
 import Header from './components/Header';
 import Dropdown from './components/Dropdown';
@@ -84,6 +84,9 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
     const [stat1, setStat1] = useState('');
     const [stat2, setStat2] = useState('');
     const [stat3, setStat3] = useState('');
+    const [stat1Value, setStat1Value] = useState(0);
+    const [stat2Value, setStat2Value] = useState(0);
+    const [stat3Value, setStat3Value] = useState(0);
 
     const isWeapon = type === 'Shotgun' || type === 'AR' || type === 'Sniper' || type === 'Rocket Launcher' || type === 'SMG' || type === 'Pistol';
 
@@ -104,10 +107,25 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
         if (isWeapon) item = {name, type, prefix, level, annoint, notes, damage, damageMult, element1, element2, elementDmg, elementChance, elementEfficiency};
         if (type === 'Grenade') item = {name, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance, elementEfficiency, grenadeEffect1, grenadeEffect2, grenadeEffect3};
         if (type === 'Shield') item = {name, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance, shieldEffect1, shieldEffect2, shieldEffect3};
-        if (type === 'Class Mod') item = {name, type, modClass, level, notes, ability1, ability2, ability3, stat1, stat2, stat3};
-        if (type === 'Artifact') item = {name, type, prefix, level, notes, stat1, stat2, stat3};
+        if (type === 'Class Mod') {
+            let stats = getModStats();
+            item = {name, type, modClass, level, notes, ability1, ability2, ability3, stat1: getCombinedStat(stats, stat1Value, stat1), stat2: getCombinedStat(stats, stat2Value, stat2), stat3: getCombinedStat(stats, stat3Value, stat3)};
+        }
+        if (type === 'Artifact') {
+            let stats = getArtifactStats();
+            item = {name, type, prefix, level, notes, stat1: getCombinedStat(stats, stat1Value, stat1), stat2: getCombinedStat(stats, stat2Value, stat2), stat3: getCombinedStat(stats, stat3Value, stat3)};
+        }
 
         onAddItem(item);        
+    }
+
+    const getCombinedStat = (stats, value, stat) => {
+        let statObj = stats.find(obj => obj.name === stat);
+        if (statObj === undefined) return '';
+        let prefix = statObj.prefix !== undefined ? statObj.prefix : '+';
+        let suffix = statObj.suffix !== undefined ? statObj.suffix : '%';
+        let combinedStat = statObj !== undefined ? `${prefix}${value}${suffix} ${stat}` : '';
+        return combinedStat;
     }
 
     const levels = new Array(57).fill(0).map((a,i) => i+1).reverse();
@@ -166,7 +184,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
                         </tr>
                         <tr>
                             <td>Damage</td>
-                            <td><NumberInput value={damage} onChange={(value) => setDamage(value)} width='139px'/> x <NumberInput value={damageMult} onChange={(value) => setDamageMult(value)} width='50px' clearOnOpen={true}/></td>
+                            <td><FlexRow style={{alignItems:'baseline'}}><NumberInput value={damage} onChange={(value) => setDamage(value)} width='100%'/><span style={{width: '30px'}}> x </span><NumberInput value={damageMult} onChange={(value) => setDamageMult(value)} width='50px' clearOnOpen={true}/></FlexRow></td>
                         </tr>
                         <tr>
                             <td>Element 1</td>
@@ -333,7 +351,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
                         </tr>
                         <tr>
                             <td>Recharge Delay</td>
-                            <td><NumberInput value={rechargeDelay} onChange={(value) => setRechargeDelay(value)}/></td>
+                            <td><NumberInput value={rechargeDelay} onChange={(value) => setRechargeDelay(value)} isFloat={true}/></td>
                         </tr>
                         <tr>
                             <td>Recharge Rate</td>
@@ -377,6 +395,9 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
         const modSkills = getModSkills();
         const relevantSkills = modSkills[name] || [];  
 
+        let stats = getModStats();
+        stats = stats.map(obj => obj.name);
+
         return (
             <div style={{padding: '10px'}}>
                 <StyledTable>
@@ -419,15 +440,15 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
                         }
                         <tr>
                             <td>Stat 1</td>
-                            <td><Input value={stat1} onChange={(e) => setStat1(e.target.value)}/></td>
+                            <td><FlexRow><NumberInput value={stat1Value} onChange={(value) => setStat1Value(value)} width='60px'/><Dropdown value={stat1} items={stats} onChange={(value) => setStat1(value)}/></FlexRow></td>
                         </tr>
                         <tr>
                             <td>Stat 2</td>
-                            <td><Input value={stat2} onChange={(e) => setStat2(e.target.value)}/></td>
+                            <td><FlexRow><NumberInput value={stat2Value} onChange={(value) => setStat2Value(value)} width='60px'/><Dropdown value={stat2} items={stats} onChange={(value) => setStat2(value)}/></FlexRow></td>
                         </tr>
                         <tr>
                             <td>Stat 3</td>
-                            <td><Input value={stat3} onChange={(e) => setStat3(e.target.value)}/></td>
+                            <td><FlexRow><NumberInput value={stat3Value} onChange={(value) => setStat3Value(value)} width='60px'/><Dropdown value={stat3} items={stats} onChange={(value) => setStat3(value)}/></FlexRow></td>
                         </tr>
                     </tbody>
                 </StyledTable>
@@ -438,6 +459,9 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
     const getArtifactLayout = () => {
         let prefixes = getArtifactPrefixes();
         prefixes = prefixes.map(obj => obj.name);
+
+        let stats = getArtifactStats();
+        stats = stats.map(obj => obj.name);
 
         return (
             <div style={{padding: '10px'}}>
@@ -465,15 +489,15 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
                         </tr>
                         <tr>
                             <td>Stat 1</td>
-                            <td><Input value={stat1} onChange={(e) => setStat1(e.target.value)}/></td>
+                            <td><FlexRow><NumberInput value={stat1Value} onChange={(value) => setStat1Value(value)} width='60px'/><Dropdown value={stat1} items={stats} onChange={(value) => setStat1(value)}/></FlexRow></td>
                         </tr>
                         <tr>
                             <td>Stat 2</td>
-                            <td><Input value={stat2} onChange={(e) => setStat2(e.target.value)}/></td>
+                            <td><FlexRow><NumberInput value={stat2Value} onChange={(value) => setStat2Value(value)} width='60px'/><Dropdown value={stat2} items={stats} onChange={(value) => setStat2(value)}/></FlexRow></td>
                         </tr>
                         <tr>
                             <td>Stat 3</td>
-                            <td><Input value={stat3} onChange={(e) => setStat3(e.target.value)}/></td>
+                            <td><FlexRow><NumberInput value={stat3Value} onChange={(value) => setStat3Value(value)} width='60px'/><Dropdown value={stat3} items={stats} onChange={(value) => setStat3(value)}/></FlexRow></td>
                         </tr>
                     </tbody>
                 </StyledTable>
@@ -496,7 +520,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
             { type === 'Class Mod' ? getModLayout() : null }
             { type === 'Artifact' ? getArtifactLayout() : null }
             { type === '' && customMode ? getBasicLayout() : null }
-            <Input as='button' onClick={onBack} width='150px'>Cancel</Input> { name.length > 0 && type.length > 0 ? <Input as='button' onClick={onClickAdd} width='150px'>Add</Input> : null }
+            <FlexRow style={{justifyContent: 'center'}}><Input as='button' onClick={onBack} width='150px' style={{margin: '5px'}}>Cancel</Input> { name.length > 0 && type.length > 0 ? <Input as='button' onClick={onClickAdd} width='150px' style={{margin: '5px'}}>Add</Input> : null }</FlexRow>
         </div>
     );
 };

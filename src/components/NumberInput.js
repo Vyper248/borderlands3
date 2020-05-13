@@ -7,6 +7,7 @@ import Input from './Input';
 
 const StyledComp = styled.div`
     display: inline-block;
+    min-height: 30px;
     width: ${props => props.width};
 `;
 
@@ -33,11 +34,8 @@ const StyledMenu = styled.div`
         margin: 5px auto;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         margin: 3px;
-    }
-
-    & > div.selected {
-        background-color: #333;
     }
 
     & > div > span {
@@ -51,7 +49,7 @@ const StyledMenu = styled.div`
     }
 `;
 
-const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=false}) => {
+const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=false, isFloat=false}) => {
     const [open, setOpen] = useState(false);
     const ref = useRef();
     const isMobile = useMediaQuery({ maxWidth: 700 });
@@ -74,7 +72,7 @@ const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=fals
     const onClickNumber = (number) => (e) => {
         e.preventDefault();
         let newValue = value + '' + number;
-        newValue = Number(newValue);
+        if (number !== '.') newValue = parseFloat(newValue);
         onChange(newValue);
     }
 
@@ -83,7 +81,7 @@ const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=fals
         let newValue = String(value).split('');
         newValue.pop();
         newValue = newValue.join('');
-        newValue = Number(newValue);
+        newValue = parseFloat(newValue);
         onChange(newValue);
     }
 
@@ -96,25 +94,26 @@ const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=fals
         <StyledComp width={width}>
         {
             isMobile 
-                ? <Input as="button" className={open ? 'open' : ''} onClick={onClickInput}>{value+suffix}</Input> 
+                ? <Input as="div" className={open ? 'open' : ''} onClick={onClickInput}>{value+suffix}</Input> 
                 : <Input className={open ? 'open' : ''} type="number" value={value} onChange={onChangeInput}/>
         }            
         {
             open ? (
                 <StyledMenu ref={ref}>
                     <div><span>{value}</span></div>
-                    <div onTouchStart={onClickNumber(1)}><span>1</span></div>
-                    <div onTouchStart={onClickNumber(2)}><span>2</span></div>
-                    <div onTouchStart={onClickNumber(3)}><span>3</span></div>
-                    <div onTouchStart={onClickNumber(4)}><span>4</span></div>
-                    <div onTouchStart={onClickNumber(5)}><span>5</span></div>
-                    <div onTouchStart={onClickNumber(6)}><span>6</span></div>
-                    <div onTouchStart={onClickNumber(7)}><span>7</span></div>
-                    <div onTouchStart={onClickNumber(8)}><span>8</span></div>
-                    <div onTouchStart={onClickNumber(9)}><span>9</span></div>
-                    <div onTouchStart={onRemoveNumber}><span>{'<'}</span></div>
-                    <div onTouchStart={onClickNumber(0)}><span>0</span></div>
-                    <div onTouchEnd={onCloseMenu}><span>X</span></div>
+                    <div onTouchStart={onClickNumber(1)}>1</div>
+                    <div onTouchStart={onClickNumber(2)}>2</div>
+                    <div onTouchStart={onClickNumber(3)}>3</div>
+                    <div onTouchStart={onClickNumber(4)}>4</div>
+                    <div onTouchStart={onClickNumber(5)}>5</div>
+                    <div onTouchStart={onClickNumber(6)}>6</div>
+                    <div onTouchStart={onClickNumber(7)}>7</div>
+                    <div onTouchStart={onClickNumber(8)}>8</div>
+                    <div onTouchStart={onClickNumber(9)}>9</div>
+                    <div onTouchStart={onRemoveNumber}>{'<'}</div>
+                    <div onTouchStart={onClickNumber(0)}>0</div>
+                    { isFloat ? <div onTouchStart={onClickNumber('.')}>.</div> : null }
+                    <div onTouchEnd={onCloseMenu}>Done</div>
                 </StyledMenu>
             ) : null
         }

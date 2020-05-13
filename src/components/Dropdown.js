@@ -99,7 +99,7 @@ const Dropdown = ({value, items, onChange, placeholder='', width='100%'}) => {
 
     return (
         <StyledComp>
-            <Input as="button" width={width} onClick={onClickDropdown} className={open ? 'open' : ''}>{String(value).length > 0 ? value : placeholder}</Input>
+            <Input as="div" width={width} onClick={onClickDropdown} className={open ? 'open' : ''}>{String(value).length > 0 ? value : placeholder}</Input>
             {
                 open ? (
                     <StyledMenu ref={ref}>

@@ -11,6 +11,11 @@ const Input = styled.input`
     color: white;
     text-align: center;
     -webkit-appearance: none;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
 
     &.open {
         border: 1px solid #07BDFB;

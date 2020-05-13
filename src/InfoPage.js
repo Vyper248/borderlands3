@@ -37,6 +37,8 @@ const InfoPage = ({onClickBack, onClickBank, onClickTierList}) => {
                 <StyledParagraph>Grenade Effects: <a href='https://forums.gearboxsoftware.com/t/grenade-features-in-bl3/4064626'>Gearbox Forum Post</a></StyledParagraph>
                 <StyledParagraph>Shield Effects: <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vRJ8R2-nBod9Y3nUmDW1uH_j7v0hq9dpQcSozGk1BuBuEvyqa8zKJxdFtKReL3WisUT2_ojPluqhBLi/pubhtml#'>Google Sheet</a></StyledParagraph>
                 <StyledParagraph>Annointments: <a href='https://borderlands.fandom.com/wiki/Anointed_(item_bonus)'>Borderlands Wiki</a></StyledParagraph>
+                <StyledParagraph>Artifact Details: <a href='https://www.reddit.com/r/borderlands3/comments/ddu4s0/artifact_guide_for_borderlands_3/'>DetectivePieholes (Reddit)</a></StyledParagraph>
+                <StyledParagraph>Mod Details: <a href='https://www.reddit.com/r/borderlands3/comments/dh0a2a/class_mod_guide_for_borderlands_3/'>DetectivePieholes (Reddit)</a></StyledParagraph>
             </Container>
         </ListContainer>
     );
