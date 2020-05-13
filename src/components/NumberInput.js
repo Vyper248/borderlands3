@@ -19,7 +19,7 @@ const StyledMenu = styled.div`
     max-height: 300px;
     overflow: scroll;
     z-index: 5;
-    padding-bottom: 50px;
+    padding-bottom: ${props => props.isFloat ? '9px' : '50px'};
 
     & > div:first-child {
         width: 200px;
@@ -99,7 +99,7 @@ const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=fals
         }            
         {
             open ? (
-                <StyledMenu ref={ref}>
+                <StyledMenu ref={ref} isFloat={isFloat}>
                     <div><span>{value}</span></div>
                     <div onTouchStart={onClickNumber(1)}>1</div>
                     <div onTouchStart={onClickNumber(2)}>2</div>
