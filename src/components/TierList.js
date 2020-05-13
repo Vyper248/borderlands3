@@ -40,7 +40,13 @@ const TierList = ({tier, search, onClickItem}) => {
 
     let tierObj = tiers.find(item => item.tier === tier);
     let filtered = items.filter(item => item.tier === tier);
-    let searchFiltered = search.length === 0 ? filtered : filtered.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+    let searchFiltered = search.length === 0 ? filtered : filtered.filter(item => {
+        if (item.name.toLowerCase().includes(search.toLowerCase())) return true;
+        if (item.dedicated.toLowerCase().includes(search.toLowerCase())) return true;
+        if (item.location && item.location.toLowerCase().includes(search.toLowerCase())) return true;
+        if (item.area && item.area.toLowerCase().includes(search.toLowerCase())) return true;
+        return false;
+    });
 
     let showList = search.length > 0 ? true : open;
 
