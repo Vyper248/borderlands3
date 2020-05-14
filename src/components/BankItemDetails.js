@@ -35,6 +35,7 @@ const ModIcon = styled.div`
     display: inline-block;
     position: relative;
     margin-right: 5px;
+    margin-top: 1px;
     border: 1px solid ${props => props.color ? props.color : 'black'};
     background-color: ${props => props.color ? props.color : 'black'};
     height: 62px;
