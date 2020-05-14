@@ -560,7 +560,7 @@ export const getArtifactStats = () => {
         {name: 'Grenade Damage'},
         {name: 'Health/sec', prefix: 'Regenerates +', suffix: ''},
         {name: 'Heavy Damage'},
-        {name: 'Ignite Change'},
+        {name: 'Ignite Chance'},
         {name: 'Incendiary Damage'},
         {name: 'Incendiary Resistance'},
         {name: 'Irradiate Chance'},
