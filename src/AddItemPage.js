@@ -442,7 +442,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
                                 return (
                                     <tr key={'modSkill-'+i}>
                                         <td>{skillName}</td>
-                                        <td><FlexRow><ModIcon src={require(`./abilityIcons/${imageName}`)} alt='Ability Icon' color={color}/><Dropdown value={variable} items={[0,1,2,3]} onChange={(value) => setVariable(value)}/></FlexRow></td>
+                                        <td><FlexRow><ModIcon src={require(`./abilityIcons/${imageName}`)} alt='Ability Icon' color={color}/><Dropdown value={variable} items={[0,1,2,3,4]} onChange={(value) => setVariable(value)}/></FlexRow></td>
                                     </tr>
                                 );
                             })
