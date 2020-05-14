@@ -61,6 +61,7 @@ const TableRow = ({label, value, suffix='', single=false}) => {
     if (label === 'Recharge Delay' && value === 0) return null;
     if (label === 'Recharge Rate' && value === 0) return null;
     if (label === undefined) return null;
+    if (value === '+12 Luck') value = '+12.67 Luck';
     
     if (value === 'None') return null;
     if (value !== undefined) {
