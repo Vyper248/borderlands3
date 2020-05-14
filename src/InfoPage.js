@@ -16,6 +16,10 @@ const StyledParagraph = styled.p`
 `;
 
 const InfoPage = ({onClickBack, onClickBank, onClickTierList}) => {
+    const reloadPage = () => {
+        window.location.reload();
+    }
+
     return (
         <ListContainer>
             <Header showBank={onClickBank} showTierList={onClickTierList}/>
@@ -24,7 +28,9 @@ const InfoPage = ({onClickBack, onClickBank, onClickTierList}) => {
                 
                 <h3>Info</h3>
                 <StyledParagraph>Just a basic web app that will work offline, designed to make it quick and easy to check how good a weapon is, as well as keeping track of all items stored in the bank.</StyledParagraph> 
-                <StyledParagraph>I tried to make it as quick and easy to add items to the bank as I could, so it should be faster than using a spreadsheet (which is what I used to do).</StyledParagraph>
+
+                <h3>Update</h3>
+                <StyledParagraph as="div">Reload the page to check for updated versions of this app. <Button onClick={reloadPage}>Reload</Button></StyledParagraph>
 
                 <h3>Credits</h3>
                 <StyledParagraph>Tier List created by: <a href='https://docs.google.com/spreadsheets/d/1-Uv7rBP_MD_khcTunos9Xv4N4ezYmrTGftlkzaTguF8/edit#gid=1163577598'>DanSkinnyYo</a></StyledParagraph>
