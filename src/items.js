@@ -290,6 +290,7 @@ const getItems = () => {
         {name: 'Fish Slap', tier: 0, type: 'Grenade', dedicated: 'FISH SLAP!!!,Tyrone Smallums,Joey Ultraviolet', location: 'Revenge of the Cartels,Revenge of the Cartels,Revenge of the Cartels', area: 'Villa Ultraviolet,Villa Ultraviolet,Villa Ultraviolet', redText: 'Say hello to my little fish!', ability: 'Fishslap\'s damage is Melee Damage. Heals shields for 30% of shield dmg dealt. Pre: [Singularity / Elemental +20%dmg +80% chance / Jumping +10% dmg per jump', elements: 'Any'},
         {name: 'Red Card', tier: 0, type: 'Shield', dedicated: 'Gigamind', location: 'Promethea', area: 'Meridian Metroplex', redText: 'All Studs.', ability: 'Sliding drains all shield to deal bonus dmg based on shield strength', elements: 'N C S R O'},
         {name: 'Red Card Re-Charger', tier: 0, type: 'Shield', dedicated: 'Valkyrie Squad', area: 'Midnights Cairn', redText: 'One more kick, with feeling', ability: 'Mix of Red Card & Re-Charger shields', elements: 'F C S R'},
+        {name: 'Re-Router', tier: 0, type: 'Shield', dedicated: 'Princess Tarantella II', location: 'Pandora', area: 'The Splinterlands', redText: '', ability: 'Amp shot drains 50% shield for 120% dmg. Dmg returned as HP', elements: 'N F C R'},
         {name: 'Conductor', tier: 0, type: 'Class Mod', character: 'Zane', dedicated: 'World Drop Only', location: 'Xylourgos', redText: 'Half a league onward.', ability: 'Gain up to 25% bonus shock dmg based on remaining AS duration'},
         {name: 'Sapper', tier: 0, type: 'Class Mod', character: 'Moze', dedicated: 'World Drop Only', location: 'Xylourgos', redText: 'To each according to their needs.', ability: 'Gain up to 12% Life Steal. Longer fire duration, greater the lifesteal'},
         {name: 'Stone', tier: 0, type: 'Class Mod', character: 'Amara', dedicated: 'World Drop Only', location: 'Xylourgos', redText: 'She\'s mighty mighty.', ability: 'When hurt, +10% chance to gain Rush stack. +3% dmg reduction/stack'},
@@ -505,7 +506,7 @@ export const getGrenadeEffects = () => {
 
 export const getShieldEffects = () => {
     return [
-        'Absorb', 'Adaptive', 'Adrenaline', 'Amp', 'Booster', 'Brimming', 'Delay', 'Devourer', 'Fleet', 'Fortify Charge', 'Health', 'Health Charge', 
+        'Absorb', 'Adaptive', 'Adrenaline', 'Amp', 'Booster', 'Brimming', 'Capacity', 'Delay', 'Devourer', 'Fleet', 'Fortify Charge', 'Health', 'Health Charge', 
         'Nova', 'Power Charge', 'Projected', 'Quick-Charge', 'Recharger', 'Reflect', 'Resistant', 'Roid', 'Safe-Space', 'Spike', 'Staw Man', 'Trigger Happy', 'Turtle', 'Vagabond'
     ];
 }
