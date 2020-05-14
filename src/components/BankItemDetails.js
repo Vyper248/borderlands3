@@ -164,7 +164,6 @@ const getModLayout = (item) => {
     const {name, tier, type, modClass, level, notes, ability1, ability2, ability3, stat1, stat2, stat3} = item;   
     const modSkills = getModSkills();
     const relevantSkills = modSkills[name] || [];
-    const skillNames = relevantSkills.map(skill => skill.split(':')[0]);
     const skills = relevantSkills.map(skill => {
         let [skillName, color] = skill.split(':');
         let imageName = skillName.replace(/ /g, '') + '.png';
