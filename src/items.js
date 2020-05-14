@@ -545,6 +545,7 @@ export const getArtifactStats = () => {
     return [
         {name: 'Action Skill Cooldown Rate'},
         {name: 'Area-Of-Effect Damage'},
+        {name: 'Assault Rifle Damage'},
         {name: 'Cryo Damage'},
         {name: 'Cryo Efficiency'},
         {name: 'Cryo Resistance'},
