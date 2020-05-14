@@ -311,7 +311,7 @@ export const getTiers = () => {
 }
 
 export const getTypes = () => {
-    return ['Pistol', 'SMG', 'AR', 'Shotgun', 'Rocket Launcher', 'Sniper', 'Grenade', 'Shield', 'Artifact', 'Class Mod'];
+    return ['Pistol', 'SMG', 'AR', 'Shotgun', 'Rocket Launcher', 'Sniper', 'Shield', 'Grenade', 'Class Mod', 'Artifact'];
 }
 
 export const getModSkills = () => {

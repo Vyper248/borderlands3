@@ -113,7 +113,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
         }
         if (type === 'Artifact') {
             let stats = getArtifactStats();
-            item = {name, type, prefix, level, notes, stat1: getCombinedStat(stats, stat1Value, stat1), stat2: getCombinedStat(stats, stat2Value, stat2), stat3: getCombinedStat(stats, stat3Value, stat3)};
+            item = {name, type, prefix: prefix === 'None' ? '' : prefix, level, notes, stat1: getCombinedStat(stats, stat1Value, stat1), stat2: getCombinedStat(stats, stat2Value, stat2), stat3: getCombinedStat(stats, stat3Value, stat3)};
         }
 
         onAddItem(item);        
@@ -224,6 +224,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
 
     const getGrenadeLayout = () => {
         let grenadeEffects = getGrenadeEffects();
+        grenadeEffects.sort();
         grenadeEffects = ['None', ...grenadeEffects];
 
         return (
@@ -467,6 +468,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
     const getArtifactLayout = () => {
         let prefixes = getArtifactPrefixes();
         prefixes = prefixes.map(obj => obj.name);
+        prefixes = ['None', ...prefixes];
 
         let stats = getArtifactStats();
         stats = stats.map(obj => obj.name);
