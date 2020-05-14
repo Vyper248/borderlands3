@@ -17,6 +17,10 @@ const Table = styled.table`
         width: ${props => props.col1Width ? props.col1Width : '100px'};
     }
 
+    & td:last-child {
+        background-color: black;
+    }
+
     @media screen and (max-width: 700px) {
         & td {
             padding: 2px;

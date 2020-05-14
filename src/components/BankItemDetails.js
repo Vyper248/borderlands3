@@ -31,7 +31,31 @@ const StyledSideComp = styled.div`
     z-index: 5;
 `;
 
-const TableRow = ({label, value, suffix=''}) => {    
+const ModIcon = styled.div`
+    display: inline-block;
+    position: relative;
+    margin-right: 5px;
+    border: 1px solid ${props => props.color ? props.color : 'black'};
+    background-color: ${props => props.color ? props.color : 'black'};
+    height: 62px;
+
+    & > img {
+        height: 60px;
+        opacity: 0.9;
+    }
+
+    & > span {
+        position: absolute;
+        top: -1px;
+        right: 3px;
+        color: #FFE417;
+        font-weight: bold;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        font-size: 1.2em;
+    }
+`;
+
+const TableRow = ({label, value, suffix='', single=false}) => {    
     if (typeof value === 'string' && value.length === 0) return null;
     if (label === 'Recharge Delay' && value === 0) return null;
     if (label === 'Recharge Rate' && value === 0) return null;
@@ -41,8 +65,8 @@ const TableRow = ({label, value, suffix=''}) => {
     if (value !== undefined) {
         return (
             <tr>
-                <td>{label}</td>
-                <td>{value+suffix}</td>
+                { !single ? <td>{label}</td> : null }
+                <td colSpan={single ? '2' : '1'}>{value+suffix}</td>
             </tr>
         );
     } else {
@@ -132,6 +156,12 @@ const getModLayout = (item) => {
     const modSkills = getModSkills();
     const relevantSkills = modSkills[name] || [];
     const skillNames = relevantSkills.map(skill => skill.split(':')[0]);
+    const skills = relevantSkills.map(skill => {
+        let [skillName, color] = skill.split(':');
+        let imageName = skillName.replace(/ /g, '') + '.png';
+        return {skillName, color, imageName};
+    });
+
 
     return (
         <tbody>
@@ -141,12 +171,26 @@ const getModLayout = (item) => {
             <TableRow label="Class" value={modClass}/>
             <TableRow label="Level" value={level}/>
             <TableRow label="Notes" value={notes}/>
-            <TableRow label={skillNames[0]} value={ability1}/>
-            <TableRow label={skillNames[1]} value={ability2}/>
-            <TableRow label={skillNames[2]} value={ability3}/>
-            <TableRow label="Stat 1" value={stat1}/>
-            <TableRow label="Stat 2" value={stat2}/>
-            <TableRow label="Stat 3" value={stat3}/>
+            <tr>
+                <td colSpan='2'>
+                {
+                    skills.map((skill, i) => {
+                        let value = 0;
+                        if (i === 0) value = ability1;
+                        if (i === 1) value = ability2;
+                        if (i === 2) value = ability3;
+                        if (value === 0) return null;
+                        return (<ModIcon key={skill.skillName} color={skill.color}>
+                                    <img src={require(`../abilityIcons/${skill.imageName}`)} alt='Ability Icon'/>
+                                    <span>+{value}</span>
+                                </ModIcon>);
+                    })
+                }
+                </td>
+            </tr>
+            <TableRow label="Stat 1" value={stat1} single={true}/>
+            <TableRow label="Stat 2" value={stat2} single={true}/>
+            <TableRow label="Stat 3" value={stat3} single={true}/>
         </tbody>
     );
 }
@@ -162,9 +206,9 @@ const getArtifactLayout = (item) => {
             <TableRow label="Prefix" value={prefix}/>
             <TableRow label="Level" value={level}/>
             <TableRow label="Notes" value={notes}/>
-            <TableRow label="Stat 1" value={stat1}/>
-            <TableRow label="Stat 2" value={stat2}/>
-            <TableRow label="Stat 3" value={stat3}/>
+            <TableRow label="Stat 1" value={stat1} single={true}/>
+            <TableRow label="Stat 2" value={stat2} single={true}/>
+            <TableRow label="Stat 3" value={stat3} single={true}/>
         </tbody>
     );
 }
