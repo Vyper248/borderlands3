@@ -519,6 +519,7 @@ export const getArtifactPrefixes = () => {
         {name: 'Cauterizing'},
         {name: 'Caustic Coast'},
         {name: 'Corrosive Stone'},
+        {name: 'Cyro Stone'},
         {name: 'Cutpurse'},
         {name: 'Electric Slide'},
         {name: 'Elemental Projector'},
