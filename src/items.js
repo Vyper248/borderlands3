@@ -579,6 +579,7 @@ export const getArtifactStats = () => {
         {name: 'SMG Damage'},
         {name: 'Sniper Damage'},
         {name: 'Weapon Accuracy'},
+        {name: 'Weapon Reload Speed'}
     ];
 }
 
