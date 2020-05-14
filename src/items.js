@@ -480,11 +480,11 @@ export const getAnnointments = () => {
             Universal: [
                 'On Action Skill Start, regenerate 1 grenade',
                 'While Action Skill Active, Grenade damage is increased by 150%',
-                'On ASE, The next 2 magazines will have 50% additional bonus Fire damage.',
-                'On ASE, The next 2 magazines will have 50% additional bonus Corrosive damage.',
-                'On ASE, The next 2 magazines will have 50% additional bonus Shock damage.',
-                'On ASE, The next 2 magazines will have 50% additional bonus Cryo damage.',
-                'On ASE, The next 2 magazines will have 50% additional bonus Radiation damage.',
+                'On ASE, Gain 50% bonus Incendiary damage with weapons for 10s.',
+                'On ASE, Gain 50% bonus Corrosive damage with weapons for 10s.',
+                'On ASE, Gain 50% bonus Shock damage with weapons for 10s.',
+                'On ASE, Gain 50% bonus Cryo damage with weapons for 10s.',
+                'On ASE, Gain 50% bonus Radiation damage with weapons for 10s.',
                 'On grenade thrown, weapon, grenade and Action Skill Damage are increased by 25% for 6s',
             ],
             Moze: [
