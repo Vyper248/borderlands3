@@ -320,7 +320,7 @@ export const getModSkills = () => {
     const green = '#3AF00F';
     const blue = '#0B7FF0';
     return {
-        'Breaker': [`Jab Cross:${red}`, `Personal Space:${red}`, `Find Your Center:${red}`],
+        'Breaker': [`Jab Cross:${green}`, `Personal Space:${green}`, `Find Your Center:${green}`],
         'Dragon': [`Do Harm:${blue}`, `Remnant:${blue}`, `Restless:${blue}`],
         'Elementalist': [`Wildfire:${red}`, `Infusion:${red}`, `Violent Tapestry:${blue}`],
         'Golden Rule': [`Laid Bare:${blue}`, `Mindfulness:${green}`, `Helping Hand(s):${green}`],
