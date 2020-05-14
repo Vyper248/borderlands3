@@ -97,7 +97,7 @@ const getWeaponLayout = (item) => {
             { showChance ? <TableRow label="Element Damage" value={elementDmg}/> : null }
             { showChance ? <TableRow label="Element Chance" value={elementChance} suffix='%'/> : null }
             { element1 === 'Cryo' || element2 === 'Cryo' ? <TableRow label="Cryo Efficiency" value={elementEfficiency} suffix='%'/> : null }
-            <TableRow label="Annointment" value={annoint}/>
+            <TableRow label="Annointment" value={annoint} single={true}/>
         </tbody>
     );
 }
@@ -105,6 +105,11 @@ const getWeaponLayout = (item) => {
 const getShieldLayout = (item) => {
     let {name, tier, type, prefix, level, annoint, notes, capacity, rechargeDelay, rechargeRate, element1, elementChance, shieldEffect1, shieldEffect2, shieldEffect3} = item;   
     if (element1 === 'Fire') element1 = 'Incendiary';
+
+    let effects = '';
+    if (shieldEffect1 && shieldEffect1.length > 0 && shieldEffect1 !== 'None') effects += shieldEffect1;
+    if (shieldEffect2 && shieldEffect2.length > 0 && shieldEffect2 !== 'None') effects += ' | ' + shieldEffect2;
+    if (shieldEffect3 && shieldEffect3.length > 0 && shieldEffect3 !== 'None') effects += ' | ' + shieldEffect3;
 
     return (
         <tbody>
@@ -119,10 +124,8 @@ const getShieldLayout = (item) => {
             <TableRow label="Recharge Rate" value={rechargeRate}/>
             { element1 !== 'None' ? <TableRow label="Element Res." value={element1}/> : null }
             { element1 !== 'None' ? <TableRow label="Resistance %" value={elementChance} suffix='%'/> : null }
-            <TableRow label="Annointment" value={annoint}/>
-            <TableRow label="Effect 1" value={shieldEffect1}/>
-            <TableRow label="Effect 2" value={shieldEffect2}/>
-            <TableRow label="Effect 3" value={shieldEffect3}/>
+            <TableRow label="Effects" value={effects}/>
+            <TableRow label="Annointment" value={annoint} single={true}/>
         </tbody>
     );
 }
@@ -130,6 +133,12 @@ const getShieldLayout = (item) => {
 const getGrenadeLayout = (item) => {
     let {name, tier, type, prefix, level, annoint, notes, damage, radius, element1, elementDmg, elementChance, grenadeEffect1, grenadeEffect2, grenadeEffect3} = item;  
     if (element1 === 'Fire') element1 = 'Incendiary'; 
+
+    let effects = '';
+    if (grenadeEffect1 && grenadeEffect1.length > 0 && grenadeEffect1 !== 'None') effects += grenadeEffect1;
+    if (grenadeEffect2 && grenadeEffect2.length > 0 && grenadeEffect2 !== 'None') effects += ' | ' + grenadeEffect2;
+    if (grenadeEffect3 && grenadeEffect3.length > 0 && grenadeEffect3 !== 'None') effects += ' | ' + grenadeEffect3;
+
 
     return (
         <tbody>
@@ -144,10 +153,8 @@ const getGrenadeLayout = (item) => {
             <TableRow label="Element" value={element1}/>
             { element1 !== 'None' ? <TableRow label="Element Damage" value={elementDmg}/> : null }
             { element1 !== 'None' ? <TableRow label="Element Chance" value={elementChance} suffix='%'/> : null }
-            <TableRow label="Annointment" value={annoint}/>
-            <TableRow label="Effect 1" value={grenadeEffect1}/>
-            <TableRow label="Effect 2" value={grenadeEffect2}/>
-            <TableRow label="Effect 3" value={grenadeEffect3}/>
+            <TableRow label="Effects" value={effects}/>
+            <TableRow label="Annointment" value={annoint} single={true}/>
         </tbody>
     );
 }
