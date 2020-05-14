@@ -558,6 +558,7 @@ export const getArtifactStats = () => {
         {name: 'FFYL Movement Speed'},
         {name: 'Grenade Damage'},
         {name: 'Health/sec', prefix: 'Regenerates +', suffix: ''},
+        {name: 'Heavy Damage'},
         {name: 'Ignite Change'},
         {name: 'Incendiary Damage'},
         {name: 'Incendiary Resistance'},
