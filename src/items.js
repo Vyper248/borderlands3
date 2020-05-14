@@ -288,6 +288,7 @@ const getItems = () => {
         // {name: 'Bite Size', tier: 0, type: 'Pistol'},
         // {name: 'RYNAH', tier: 0, type: 'Rocket Launcher'},
         {name: 'Fish Slap', tier: 0, type: 'Grenade', dedicated: 'FISH SLAP!!!,Tyrone Smallums,Joey Ultraviolet', location: 'Revenge of the Cartels,Revenge of the Cartels,Revenge of the Cartels', area: 'Villa Ultraviolet,Villa Ultraviolet,Villa Ultraviolet', redText: 'Say hello to my little fish!', ability: 'Fishslap\'s damage is Melee Damage. Heals shields for 30% of shield dmg dealt. Pre: [Singularity / Elemental +20%dmg +80% chance / Jumping +10% dmg per jump', elements: 'Any'},
+        {name: 'Ultraball', tier: 0, type: 'Grenade', dedicated: 'Deluxe Edition', redText: 'Do not taunt Happy Fun Ball.', ability: 'Explodes into bouncing grenades & bouncy balls', elements: 'N'},
         {name: 'Red Card', tier: 0, type: 'Shield', dedicated: 'Gigamind', location: 'Promethea', area: 'Meridian Metroplex', redText: 'All Studs.', ability: 'Sliding drains all shield to deal bonus dmg based on shield strength', elements: 'N C S R O'},
         {name: 'Red Card Re-Charger', tier: 0, type: 'Shield', dedicated: 'Valkyrie Squad', area: 'Midnights Cairn', redText: 'One more kick, with feeling', ability: 'Mix of Red Card & Re-Charger shields', elements: 'F C S R'},
         {name: 'Re-Router', tier: 0, type: 'Shield', dedicated: 'Princess Tarantella II', location: 'Pandora', area: 'The Splinterlands', redText: '', ability: 'Amp shot drains 50% shield for 120% dmg. Dmg returned as HP', elements: 'N F C R'},
