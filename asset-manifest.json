@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/borderlands3/static/css/main.bf79225e.chunk.css",
-    "main.js": "/borderlands3/static/js/main.f56092d7.chunk.js",
-    "main.js.map": "/borderlands3/static/js/main.f56092d7.chunk.js.map",
+    "main.js": "/borderlands3/static/js/main.c0a8781e.chunk.js",
+    "main.js.map": "/borderlands3/static/js/main.c0a8781e.chunk.js.map",
     "runtime-main.js": "/borderlands3/static/js/runtime-main.0f58a542.js",
     "runtime-main.js.map": "/borderlands3/static/js/runtime-main.0f58a542.js.map",
     "static/js/2.f2e0b00b.chunk.js": "/borderlands3/static/js/2.f2e0b00b.chunk.js",
     "static/js/2.f2e0b00b.chunk.js.map": "/borderlands3/static/js/2.f2e0b00b.chunk.js.map",
     "index.html": "/borderlands3/index.html",
-    "precache-manifest.5ea8eb58ba516a5fbef6fa3145f754da.js": "/borderlands3/precache-manifest.5ea8eb58ba516a5fbef6fa3145f754da.js",
+    "precache-manifest.1b6323c267ca48b304173e417b264ad6.js": "/borderlands3/precache-manifest.1b6323c267ca48b304173e417b264ad6.js",
     "service-worker.js": "/borderlands3/service-worker.js",
     "static/css/main.bf79225e.chunk.css.map": "/borderlands3/static/css/main.bf79225e.chunk.css.map",
     "static/js/2.f2e0b00b.chunk.js.LICENSE.txt": "/borderlands3/static/js/2.f2e0b00b.chunk.js.LICENSE.txt",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.0f58a542.js",
     "static/js/2.f2e0b00b.chunk.js",
     "static/css/main.bf79225e.chunk.css",
-    "static/js/main.f56092d7.chunk.js"
+    "static/js/main.c0a8781e.chunk.js"
   ]
 }
