@@ -81,7 +81,7 @@ const NumberInput = ({value, onChange, width='100%', suffix='', clearOnOpen=fals
         let newValue = String(value).split('');
         newValue.pop();
         newValue = newValue.join('');
-        newValue = parseFloat(newValue);
+        newValue = newValue.length === 0 ? 0 : parseFloat(newValue);
         onChange(newValue);
     }
 

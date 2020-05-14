@@ -268,17 +268,17 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
                             <td><Dropdown value={element1} placeholder="Element 1" items={['Incendiary', 'Cryo', 'Corrosive', 'Shock', 'Radiation', 'None']} onChange={(value) => setElement1(value)}/></td>
                         </tr>
                         {
-                            element1 === 'None' ? null : (
+                            element1 !== 'None' && element1 !== 'Cryo' ? (
                                 <tr>
                                     <td>Element Damage</td>
                                     <td><NumberInput value={elementDmg} onChange={(value) => setElementDmg(value)}/></td>
                                 </tr>
-                            )
+                            ) : null
                         }
                         {
                             element1 === 'Cryo' ? (
                                 <tr>
-                                    <td>Element Efficiency</td>
+                                    <td>Cryo Efficiency</td>
                                     <td><NumberInput value={elementEfficiency} onChange={(value) => setElementEfficiency(value)} suffix='%'/></td>
                                 </tr>
                             ) : null
