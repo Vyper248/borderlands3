@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "279d3ba46850aed4562e616c7ccbe1ad",
+    "revision": "e1333380cf426d3c5d6d69251e949c81",
     "url": "/borderlands3/index.html"
   },
   {
-    "revision": "629102a24bad82e8f65d",
+    "revision": "6f593bbec9d530957d78",
     "url": "/borderlands3/static/css/main.bf79225e.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/borderlands3/static/js/2.f2e0b00b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "629102a24bad82e8f65d",
-    "url": "/borderlands3/static/js/main.07cc2afb.chunk.js"
+    "revision": "6f593bbec9d530957d78",
+    "url": "/borderlands3/static/js/main.3fe85402.chunk.js"
   },
   {
     "revision": "cedf53c9778dd8a722a0",
