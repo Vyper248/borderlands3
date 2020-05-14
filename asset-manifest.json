@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/borderlands3/static/css/main.bf79225e.chunk.css",
-    "main.js": "/borderlands3/static/js/main.c0a8781e.chunk.js",
-    "main.js.map": "/borderlands3/static/js/main.c0a8781e.chunk.js.map",
+    "main.js": "/borderlands3/static/js/main.6e559813.chunk.js",
+    "main.js.map": "/borderlands3/static/js/main.6e559813.chunk.js.map",
     "runtime-main.js": "/borderlands3/static/js/runtime-main.0f58a542.js",
     "runtime-main.js.map": "/borderlands3/static/js/runtime-main.0f58a542.js.map",
-    "static/js/2.f2e0b00b.chunk.js": "/borderlands3/static/js/2.f2e0b00b.chunk.js",
-    "static/js/2.f2e0b00b.chunk.js.map": "/borderlands3/static/js/2.f2e0b00b.chunk.js.map",
+    "static/js/2.4eba5447.chunk.js": "/borderlands3/static/js/2.4eba5447.chunk.js",
+    "static/js/2.4eba5447.chunk.js.map": "/borderlands3/static/js/2.4eba5447.chunk.js.map",
     "index.html": "/borderlands3/index.html",
-    "precache-manifest.1b6323c267ca48b304173e417b264ad6.js": "/borderlands3/precache-manifest.1b6323c267ca48b304173e417b264ad6.js",
+    "precache-manifest.bfe15fcf084f5aaacb4f88050fd2019a.js": "/borderlands3/precache-manifest.bfe15fcf084f5aaacb4f88050fd2019a.js",
     "service-worker.js": "/borderlands3/service-worker.js",
     "static/css/main.bf79225e.chunk.css.map": "/borderlands3/static/css/main.bf79225e.chunk.css.map",
-    "static/js/2.f2e0b00b.chunk.js.LICENSE.txt": "/borderlands3/static/js/2.f2e0b00b.chunk.js.LICENSE.txt",
+    "static/js/2.4eba5447.chunk.js.LICENSE.txt": "/borderlands3/static/js/2.4eba5447.chunk.js.LICENSE.txt",
     "static/media/ColdBore.png": "/borderlands3/static/media/ColdBore.cb330d57.png",
     "static/media/Yellowcake.jpg": "/borderlands3/static/media/Yellowcake.fe90e61e.jpg",
     "static/media/header.jpeg": "/borderlands3/static/media/header.2ff05b15.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.0f58a542.js",
-    "static/js/2.f2e0b00b.chunk.js",
+    "static/js/2.4eba5447.chunk.js",
     "static/css/main.bf79225e.chunk.css",
-    "static/js/main.c0a8781e.chunk.js"
+    "static/js/main.6e559813.chunk.js"
   ]
 }
