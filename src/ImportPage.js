@@ -5,6 +5,7 @@ import getItems, { getTypes, getTiers } from './items';
 
 import Header from './components/Header';
 import Input from './components/Input';
+import Container from './components/Container';
 
 const ImportPage = ({onBack, onImport, bankItems}) => {
     const types = getTypes();
@@ -15,10 +16,7 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
         skipEmptyLines: true
     }
 
-    const onExport = () => {
-        let csvContent = "data:text/csv;charset=utf-8,";
-        if (navigator.share) csvContent = '';
-
+    const createCSV = (csvContent='') => {
         types.forEach(type => {
             let items = bankItems.filter(item => item.type === type);
             items.forEach(item => addTier(item));
@@ -34,21 +32,29 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
                 csvContent += '\n';
             }
         });
+        return csvContent;
+    }
+
+    const onExport = () => {
+        let csvContent = createCSV('data:text/csv;charset=utf-8,');
+
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute('target', '_blank');
+        link.setAttribute("download", "Borderlands3Bank.csv");
+        link.click();        
+    }
+
+    const onShare = () => {
+        let csvContent = createCSV();
 
         if (navigator.share) {
             navigator.share({
                 title: 'Borderlands3Bank',
                 text: csvContent
             });
-        } else {
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute('target', '_blank');
-            link.setAttribute("download", "Borderlands3Bank.csv");
-            link.click();
         }
-        
     }
 
     //convert camel case to normal
@@ -96,13 +102,18 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
     return (
         <div>
             <Header onBank={true}/>
-            <h3>Import</h3>
-            <CSVReader label='Select CSV file to import' onFileLoaded={onClickImport} parserOptions={papaparseOptions}/>
-            <br/>
-            <h3>Export</h3>
-            <p>Dpending on your browser, this will either open the sharing options, allowing you to save the file, or download a csv file. If it uses the share options, you can rename the file to .csv and open it in your spreadsheet app.</p>
-            <Input as='button' width='200px' onClick={onExport}>Export Bank Items</Input><br/><br/>
-            <Input as='button' onClick={onBack} width='150px'>Cancel</Input>
+            <Container>
+                <h3>Import</h3>
+                <p style={{padding: '0px 10px'}}>Imported items will be added to the bank along with the existing items.</p>
+                <CSVReader label='Select CSV file to import' onFileLoaded={onClickImport} parserOptions={papaparseOptions}/>
+                <br/>
+                <h3>Export</h3>
+                <p style={{padding: '0px 10px'}}>If exporting opens in a new tab instead of downloading, then try the share button if there is one. This will let you share the data as a txt file which can be renamed to .csv and opened in a spreadsheet app.</p>
+                <Input as='button' width='200px' onClick={onExport}>Export Bank Items</Input>
+                { navigator.share ? <div><br/><Input as='button' width='200px' onClick={onShare}>Share Bank Items</Input></div> : null }
+                <br/><br/>
+                <Input as='button' onClick={onBack} width='150px'>Cancel</Input>
+            </Container>
         </div>
     );
 }
