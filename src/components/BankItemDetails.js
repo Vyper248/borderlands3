@@ -58,8 +58,8 @@ const ModIcon = styled.div`
 
 const TableRow = ({label, value, suffix='', single=false}) => {    
     if (typeof value === 'string' && value.length === 0) return null;
-    if (label === 'Recharge Delay' && value === 0) return null;
-    if (label === 'Recharge Rate' && value === 0) return null;
+    if (label === 'Recharge Delay' && (value === 0 || value === '0')) return null;
+    if (label === 'Recharge Rate' && (value === 0 || value === '0')) return null;
     if (label === undefined) return null;
     if (value === '+12 Luck') value = '+12.67 Luck';
     
@@ -80,7 +80,7 @@ const getWeaponLayout = (item) => {
     let {name, type, level, annoint, notes, prefix, damage, damageMult, element1, element2, elementDmg, elementChance, elementEfficiency, tier} = item;   
     const showChance = (element1 !== 'Cryo' && element1 !== 'None') || (element2 !== 'Cryo' && element2 !== 'None');
     let damageStr = damage;
-    if (damageMult !== undefined && damageMult !== 1 && damageMult !== '') damageStr += ' x ' + damageMult;
+    if (damageMult !== undefined && damageMult !== 1 && damageMult !== '' && damageMult !== '1') damageStr += ' x ' + damageMult;
     if (element1 === 'Fire') element1 = 'Incendiary';
     if (element2 === 'Fire') element2 = 'Incendiary';
 

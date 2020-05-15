@@ -116,7 +116,7 @@ const BankPage = ({onClickBack, onClickInfo, onShowItem}) => {
             <Container>
                 <InputClear placeholder="Search" value={search} onChange={onChangeSearch} onClear={onClearSearch}/>
                 <IconButton Icon={FiPlus} onClick={onClickAdd} position='right'/>
-                {/* <IconButton Icon={FaFileImport} onClick={onClickImport} position='left'/> */}
+                <IconButton Icon={FaFileImport} onClick={onClickImport} position='left'/>
                 {
                     types.map(type => {
                         return <BankTypeList key={'BankType-'+type} type={type} items={getItemsByType(type)} search={search} onClickItem={onClickItem}/>
