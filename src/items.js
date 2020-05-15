@@ -121,7 +121,7 @@ const getItems = () => {
         {name: 'Ogre', tier: 3, type: 'AR', dedicated: 'Anointed Alpha', location: 'Eden-6', area: 'The anvil', redText: 'Its all ogre now.', ability: 'Shots explode on impact. High magazine size', elements: 'N'},
         {name: 'Rowans Call', tier: 3, type: 'AR', dedicated: 'Red Rain', quest: 'From a quest in Desolations Edge (Nekrotafeyo)', location: 'Slaughterstar 3000', redText: 'Uh-oh!', ability: 'Crit ricochets 2 bullets & returns 2 bullets to mag. Lasers', elements: 'F S R'},
         {name: 'Shredifier', tier: 3, type: 'AR', dedicated: 'Raging Titan', location: 'Pandora (Konrads Hold)', area: 'The Slaughter Shaft', redText: 'Speed Kills.', ability: 'Full-Auto / Random underbarrel attachment. High fire rate & mag size', elements: 'Any'},
-        {name: 'Seeryul Killer', tier: 3, type: 'AR', dedicated: 'World Drop Only', location: 'DLC 2', area: '', redText: 'Look at that unsubtle blood-red coloring...', ability: 'Kill grants increased dmg, fire rate & reduces heat. Stacks 3 times', elements: 'F'},
+        {name: 'Seeryul Killur', tier: 3, type: 'AR', dedicated: 'World Drop Only', location: 'DLC 2', area: '', redText: 'Look at that unsubtle blood-red coloring...', ability: 'Kill grants increased dmg, fire rate & reduces heat. Stacks 3 times', elements: 'F'},
         {name: 'Zheitsevs Eruption', tier: 3, type: 'AR', m4: true, dedicated: 'Valkyrie Squad / Wotan,Raging Titan', location: ',Pandora (Konrads Hold)', area: 'Midnights Cairn,Slaughter Shaft', redText: 'Pain and Misery erupt in the Void.', ability: 'Launches homing projectiles when overheating', elements: 'N F C O'},
         {name: 'Polyaimorous', tier: 3, type: 'SMG', dedicated: '50 Hearts', location: 'Broken Hearts Event', redText: 'Spread the love.', ability: 'Shoots a continuous beam. Chains to nearby enemies', elements: 'F S'},
         {name: 'Crossroad', tier: 3, type: 'SMG', dedicated: 'Katagawa Jr.', location: 'Promethea', area: 'Atlas HQ', redText: 'Open the gate for me.', ability: '6-round burst. 2 ammo/shot', elements: 'F C S R O'},
@@ -289,13 +289,17 @@ const getItems = () => {
         // {name: 'RYNAH', tier: 0, type: 'Rocket Launcher'},
         {name: 'Fish Slap', tier: 0, type: 'Grenade', dedicated: 'FISH SLAP!!!,Tyrone Smallums,Joey Ultraviolet', location: 'Revenge of the Cartels,Revenge of the Cartels,Revenge of the Cartels', area: 'Villa Ultraviolet,Villa Ultraviolet,Villa Ultraviolet', redText: 'Say hello to my little fish!', ability: 'Fishslap\'s damage is Melee Damage. Heals shields for 30% of shield dmg dealt. Pre: [Singularity / Elemental +20%dmg +80% chance / Jumping +10% dmg per jump', elements: 'Any'},
         {name: 'Ultraball', tier: 0, type: 'Grenade', dedicated: 'Deluxe Edition', redText: 'Do not taunt Happy Fun Ball.', ability: 'Explodes into bouncing grenades & bouncy balls', elements: 'N'},
+        {name: 'Old God', tier: 0, type: 'Shield', dedicated: 'World Drop Only', redText: 'The end comes from within.', ability: '+20% >element< dmg & +25% elemental resistance', elements: 'Any'},
         {name: 'Red Card', tier: 0, type: 'Shield', dedicated: 'Gigamind', location: 'Promethea', area: 'Meridian Metroplex', redText: 'All Studs.', ability: 'Sliding drains all shield to deal bonus dmg based on shield strength', elements: 'N C S R O'},
         {name: 'Red Card Re-Charger', tier: 0, type: 'Shield', dedicated: 'Valkyrie Squad', area: 'Midnights Cairn', redText: 'One more kick, with feeling', ability: 'Mix of Red Card & Re-Charger shields', elements: 'F C S R'},
         {name: 'Re-Router', tier: 0, type: 'Shield', dedicated: 'Princess Tarantella II', location: 'Pandora', area: 'The Splinterlands', redText: '', ability: 'Amp shot drains 50% shield for 120% dmg. Dmg returned as HP', elements: 'N F C R'},
+        {name: 'Torch', tier: 0, type: 'Shield', dedicated: 'World Drop Only', redText: 'Inflammable means flammable?!', ability: 'Spawns fireballs around player on depletion that deal 10195 dmg (lvl 57)', elements: 'F'},
+        {name: 'Void Rift', tier: 0, type: 'Shield', dedicated: 'Empowered Scholar', location: 'Xylourgos', area: 'Dustbound Archives', redText: 'Be careful what comes out.', ability: 'Fires homing spikes when taking bullet dmg. Singularity & nova on break', elements: 'O'},
         {name: 'Conductor', tier: 0, type: 'Class Mod', character: 'Zane', dedicated: 'World Drop Only', location: 'Xylourgos', redText: 'Half a league onward.', ability: 'Gain up to 25% bonus shock dmg based on remaining AS duration'},
         {name: 'Sapper', tier: 0, type: 'Class Mod', character: 'Moze', dedicated: 'World Drop Only', location: 'Xylourgos', redText: 'To each according to their needs.', ability: 'Gain up to 12% Life Steal. Longer fire duration, greater the lifesteal'},
         {name: 'Stone', tier: 0, type: 'Class Mod', character: 'Amara', dedicated: 'World Drop Only', location: 'Xylourgos', redText: 'She\'s mighty mighty.', ability: 'When hurt, +10% chance to gain Rush stack. +3% dmg reduction/stack'},
         {name: 'Tr4iner', tier: 0, type: 'Class Mod', character: 'Fl4k', dedicated: 'World Drop Only', location: 'Xylourgos', redText: 'This is my cause.', ability: '25% chance for pet to confuse enemy for 20 sec instead of kill'},
+        {name: 'Lunacy', tier: 0, type: 'Artifact', dedicated: 'Empowered Grawn', location: 'Xylourgos', area: 'Negul Neshai', redText: 'Equivalent Exchange.', ability: 'Double your shields capacity but greatly increases recharge delay'}
     ];
 };
 
@@ -557,6 +561,7 @@ export const getArtifactStats = () => {
         {name: 'Experience Gained From Combat'},
         {name: 'FFYL Duration'},
         {name: 'FFYL Movement Speed'},
+        {name: 'Fire Rate'},
         {name: 'Grenade Damage'},
         {name: 'Health/sec', prefix: 'Regenerates +', suffix: ''},
         {name: 'Heavy Damage'},
