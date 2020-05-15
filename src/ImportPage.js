@@ -35,11 +35,12 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
         });
 
         const encodedUri = encodeURI(csvContent);
+        const file = new File([ encodedUri ], 'Borderlands3Bank.csv', {type: 'text/csv'});
 
-        if (navigator.share) {
+        if (navigator.canShare && navigator.canShare({files: [ file ]})) {
             navigator.share({
-                title: 'Borderlands 3 Bank',
-                url: encodedUri
+                files: [ file ],
+                title: 'Borderlands3Bank',
             });
         } else {
             const link = document.createElement("a");
