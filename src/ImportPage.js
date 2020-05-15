@@ -26,19 +26,28 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
             if (firstItem !== undefined) {
                 let headings = Object.keys(firstItem).map(heading => convertHeading(heading));
                 csvContent += headings.join(',') + '\n';
+                items.forEach(item => {
+                    let values = Object.values(item).map(item => '"'+item+'"');
+                    csvContent += values.join(',') + '\n';
+                });
+                csvContent += '\n';
             }
-            items.forEach(item => {
-                let values = Object.values(item).map(item => '"'+item+'"');
-                csvContent += values.join(',') + '\n';
-            });
-            csvContent += '\n';
         });
 
         const encodedUri = encodeURI(csvContent);
-        const link = document.createElement("a");
-        link.setAttribute("href", encodedUri);
-        link.setAttribute("download", "my_data.csv");
-        link.click();
+
+        if (navigator.share) {
+            navigator.share({
+                title: 'Borderlands 3 Bank',
+                url: encodedUri
+            });
+        } else {
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "Borderlands3Bank.csv");
+            link.click();
+        }
+        
     }
 
     //convert camel case to normal
