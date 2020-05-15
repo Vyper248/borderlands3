@@ -17,6 +17,7 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
 
     const onExport = () => {
         let csvContent = "data:text/csv;charset=utf-8,";
+        csvContent = "";
 
         types.forEach(type => {
             let items = bankItems.filter(item => item.type === type);
@@ -36,6 +37,7 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
 
         const encodedUri = encodeURI(csvContent);
         const file = new File([ encodedUri ], 'Borderlands3Bank.csv', {type: 'text/csv'});
+        const blob = new Blob([ csvContent ], { type: 'text/csv;charset=utf-8;' });
 
         if (navigator.canShare && navigator.canShare({files: [ file ]})) {
             navigator.share({
@@ -43,8 +45,10 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
                 title: 'Borderlands3Bank',
             });
         } else {
+            let url = URL.createObjectURL(blob);
             const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
+            link.setAttribute("href", url);
+            link.setAttribute('target', '_blank');
             link.setAttribute("download", "Borderlands3Bank.csv");
             link.click();
         }
