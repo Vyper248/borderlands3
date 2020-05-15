@@ -17,6 +17,7 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
 
     const onExport = () => {
         let csvContent = "data:text/csv;charset=utf-8,";
+        if (navigator.share) csvContent = '';
 
         types.forEach(type => {
             let items = bankItems.filter(item => item.type === type);
@@ -34,14 +35,13 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
             }
         });
 
-        const encodedUri = encodeURI(csvContent);
-        // const file = new File([ encodedUri ], 'Borderlands3Bank.csv', {type: 'text/csv'});
-
         if (navigator.share) {
             navigator.share({
+                title: 'Borderlands3Bank',
                 text: csvContent
             });
         } else {
+            const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
             link.setAttribute("href", encodedUri);
             link.setAttribute('target', '_blank');
@@ -100,6 +100,7 @@ const ImportPage = ({onBack, onImport, bankItems}) => {
             <CSVReader label='Select CSV file to import' onFileLoaded={onClickImport} parserOptions={papaparseOptions}/>
             <br/>
             <h3>Export</h3>
+            <p>Dpending on your browser, this will either open the sharing options, allowing you to save the file, or download a csv file. If it uses the share options, you can rename the file to .csv and open it in your spreadsheet app.</p>
             <Input as='button' width='200px' onClick={onExport}>Export Bank Items</Input><br/><br/>
             <Input as='button' onClick={onBack} width='150px'>Cancel</Input>
         </div>
