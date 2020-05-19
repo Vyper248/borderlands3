@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/borderlands3/precache-manifest.6757e67d8f25a87877861c2f4b834e6e.js"
+  "/borderlands3/precache-manifest.e42309b93f2c72825e11b31d854ee101.js"
 );
 
 self.addEventListener('message', (event) => {
