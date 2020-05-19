@@ -22,17 +22,29 @@ const TierListPage = ({item, onClickItem, onClickBank, onClickInfo}) => {
         setSearch('');
     }
 
+    const owned = getOwned();
+
     return (
         <ListContainer hide={item !== null ? true : false}>
             <Header onTierList={true} showBank={onClickBank} showInfo={onClickInfo}/>
             <Container>
                 <InputClear placeholder="Search" value={search} onChange={onChangeSearch} onClear={onClearSearch}/>
                 <div>
-                    { tiers.map(tier => <TierList key={tier.tier} tier={tier.tier} search={search} onClickItem={onClickItem}/>) }
+                    { tiers.map(tier => <TierList key={tier.tier} tier={tier.tier} search={search} onClickItem={onClickItem} owned={owned}/>) }
                 </div>
             </Container>
         </ListContainer>
     );
 };
+
+const getOwned = () => {
+    let bankArr = localStorage.getItem('bank');        
+    if (bankArr !== null) bankArr = JSON.parse(bankArr);
+    else bankArr = [];  
+    
+    let ownedList = {};
+    bankArr.forEach(item => ownedList[item.name] = true);
+    return ownedList;
+}
 
 export default TierListPage;

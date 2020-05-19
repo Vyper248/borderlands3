@@ -31,7 +31,7 @@ const StyledComp = styled.div`
     }
 `;
 
-const TierList = ({tier, search, onClickItem}) => {
+const TierList = ({tier, search, onClickItem, owned={}}) => {
     const [open, setOpen] = useState(false);
 
     let items = getItems();
@@ -73,7 +73,7 @@ const TierList = ({tier, search, onClickItem}) => {
                                 let typeItems = getItemsForType(type, searchFiltered);
                                 if (typeItems.length === 0) return null;
                                 return (
-                                    <TypeList key={tier+type} type={type} items={typeItems} onClickItem={onClickItem}/>
+                                    <TypeList key={tier+type} type={type} items={typeItems} onClickItem={onClickItem} owned={owned}/>
                                 );
                             })
                         }

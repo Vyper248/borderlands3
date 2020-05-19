@@ -13,13 +13,9 @@ const StyledComp = styled.div`
     }
 `;
 
-const Item = ({name, tier, type, onClick}) => {
-    let bankArr = localStorage.getItem('bank');        
-    if (bankArr !== null) bankArr = JSON.parse(bankArr);
-    else bankArr = [];  
-    let owned = bankArr.filter(item => item.name === name).length > 0 ? true : false;
-
-    return <StyledComp onClick={onClick} owned={owned}>{name}</StyledComp>
+const Item = ({name, tier, type, onClick, owned={}}) => {
+    let ownItem = owned[name] === true;
+    return <StyledComp onClick={onClick} owned={ownItem}>{name}</StyledComp>
 }
 
 export default Item;
