@@ -281,6 +281,8 @@ const getItems = () => {
         {name: 'Iceburger', tier: 0, type: 'Shotgun', dedicated: 'Roaster,The Tenderizer,Joey Ultraviolet', location: 'Revenge of the Cartels,Revenge of the Cartels,Revenge of the Cartels', area: 'Villa Ultraviolet,Villa Ultraviolet,Villa Ultraviolet', redText: '90% of the flavor is under the bun.', ability: 'Shoots continuous fire laser and frozen burgers', elements: 'F'},
         // {name: 'Dream Gun', tier: 0, type: 'Shotgun'},
         {name: 'NoPewPew', tier: 0, type: 'AR', dedicated: 'Roaster,The Tenderizer,Joey Ultraviolet', location: 'Revenge of the Cartels,Revenge of the Cartels,Revenge of the Cartels', area: 'Villa Ultraviolet,Villa Ultraviolet,Villa Ultraviolet', redText: 'Extra, extra spicy.', ability: '3 projectiles/shot. Gradual increase in fire rate. 1 ammo/shot, can be [4 projectiles/shot. 2 ammo/shot]', elements: 'F'},
+        {name: 'Sickle', tier: 0, type: 'AR', dedicated: 'Warden', location: 'Eden-6', area: 'The Anvil', redText: 'Swing the sickle!', ability: 'Its really a Full-Auto shotgun. Spread forms a sickle. 2 ammo/shot', elements: 'Any'},
+
         // {name: 'Portals and Shite', tier: 0, type: 'AR'},
         {name: 'Needle Gun', tier: 0, type: 'SMG', dedicated: 'Joey Ultraviolet,Josie Byte,Franco Firewall', location: 'Revenge of the Cartels,Revenge of the Cartels,Revenge of the Cartels', area: 'Villa Ultraviolet,Villa Ultraviolet,Villa Ultraviolet', redText: 'Not your average needle.', ability: 'Shooting applies debuff on enemy. [Damage boost on reload]', elements: 'Any'},
         // {name: 'P2P Networker', tier: 0, type: 'SMG'},

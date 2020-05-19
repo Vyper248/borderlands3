@@ -7,7 +7,7 @@ import Container from './components/Container';
 import ListContainer from './components/ListContainer';
 
 const StyledParagraph = styled.p`
-    padding: 5px 10px;
+    padding: 3px 10px;
     margin: 0px;
 
     & > a {
@@ -27,7 +27,7 @@ const InfoPage = ({onClickBack, onClickBank, onClickTierList}) => {
                 <Button onClick={onClickBack}>Back</Button>
                 
                 <h3>Info</h3>
-                <StyledParagraph>Just a basic web app that will work offline, designed to make it quick and easy to check how good a weapon is, as well as keeping track of all items stored in the bank.</StyledParagraph> 
+                <StyledParagraph>Just a basic web app that will work offline, designed to make it quick and easy to check how good a weapon is, as well as keeping track of all items stored in the bank. The Tier List also shows which items are owned already.</StyledParagraph> 
 
                 <h3>Update</h3>
                 <StyledParagraph as="div">Reload the page to check for updated versions of this app. <Button onClick={reloadPage}>Reload</Button></StyledParagraph>

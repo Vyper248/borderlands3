@@ -44,7 +44,7 @@ const BankTypeList = ({type, items, search, onClickItem}) => {
     
     return (
         <StyledComp>
-            <TierHeading value={type} color={'#BBB'} onClick={toggleList}/>
+            <TierHeading value={type + ' - ' + searchFiltered.length} color={'#BBB'} onClick={toggleList}/>
             {
                 showList ? (
                     <div>
