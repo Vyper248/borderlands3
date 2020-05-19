@@ -438,7 +438,8 @@ export const getAnnointments = () => {
                 'While Action Skill is Active, Constantly trigger novas that deal damage',
                 'While Action Skill is Active, Deal 75% more weapon damage to Badass, Named and Boss enemies',
                 'Gain 300% increased weapon damage against enemies above 90% health',
-                'While under 50% health, deal 150% bonus radiation damage'
+                'While under 50% health, deal 150% bonus radiation damage',
+                'Elemental critical hits can cause status effects of that element to explode, creating a nova that deals 500% of the status effect’s damage'
             ],
             Amara: [
                 'After Phasegrasping an enemy, Weapon Accuracy and Handling are greatly increased',
