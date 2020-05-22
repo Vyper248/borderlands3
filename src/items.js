@@ -451,7 +451,7 @@ export const getAnnointments = () => {
                 'After using Phaseslam, Melee Damage is increased by 200% for a short time',
                 'After using Phaseslam, damage taken is reduced by 20% and movespeed is increased by 12%',
                 'While Phasegrasp is active, 71% decreased weapon charge time and 12% increased movement speed',
-                'On ASE, deal 40% bonus radiation damage for a short time',
+                'On ASE, deal 75% bonus radiation damage for a short time',
             ],
             Zane: [
                 'After swapping places with your Digi-Clone, Weapon Damage is increased by 130% for a short time',
