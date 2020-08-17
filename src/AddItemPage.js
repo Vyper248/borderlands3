@@ -46,7 +46,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
     //general
     const [type, setType] = useState('');
     const [name, setName] = useState('');
-    const [level, setLevel] = useState(57);
+    const [level, setLevel] = useState(60);
     const [notes, setNotes] = useState('');
     const [annoint, setAnnoint] = useState('None');
     const [prefix, setPrefix] = useState('');
@@ -128,7 +128,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
         return combinedStat;
     }
 
-    const levels = new Array(57).fill(0).map((a,i) => i+1).reverse();
+    const levels = new Array(60).fill(0).map((a,i) => i+1).reverse();
     const annointments = getAnnointments();
     const types = getTypes();
     const cryoOnly = (element1 === 'Cryo' && element2 === 'None') || (element2 === 'Cryo' && element1 === 'None') || (element1 === 'Cryo' && element2 === 'Cryo');
