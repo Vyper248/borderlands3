@@ -83,6 +83,9 @@ const getWeaponLayout = (item) => {
     if (damageMult !== undefined && damageMult !== 1 && damageMult !== '' && damageMult !== '1') damageStr += ' x ' + damageMult;
     if (element1 === 'Fire') element1 = 'Incendiary';
     if (element2 === 'Fire') element2 = 'Incendiary';
+    
+    //annointment adjustment
+    annoint = annoint.replace(/On ASE, The next 2 magazines will have 50% additional bonus ([a-zA-Z]+) damage/, 'On ASE, The next 2 magazines will have 100% additional bonus $1 damage');
 
     return (
         <tbody>
