@@ -164,7 +164,6 @@ const getItems = () => {
 
         {name: 'Boring Gun', tier: 4, type: 'Shotgun', dedicated: 'Antalope', location: 'Pandora', area: 'Devils Razor', redText: 'This is beyond science.', ability: 'Shoots 3 grounded sawblades that dig in fired direction. 2 ammo/shot', elements: 'Any'},
         {name: 'Deathgrip', tier: 4, type: 'Shotgun', m4: true, dedicated: 'Troy Calypso,Valkyrie Squad / Wotan', location: 'Pandora,', area: 'The Great Vault,Midnights Cairn', redText: 'A good death is its own reward.', ability: '"Vosks Grasp", a singularity shot / 6 shot laser trap', elements: 'F C S R O'},
-        {name: 'Fearmonger', tier: 4, type: 'Shotgun', dedicated: 'Loot Ghost', location: 'Bloody Harvest Event', area: 'The Heck Hole', redText: 'I cant control their fear, only my own.', ability: 'Increased pellets per terror level up to 7', elements: 'F C S R O'},
         {name: 'Flama Diddle', tier: 4, type: 'Shotgun', dedicated: 'World Drop Only', location: 'DLC 2', area: '', redText: 'VIII. Never turn your back on the Monster!', ability: 'Reload shoots twice before exploding on impact. Bullets ricochet once', elements: 'F'},
         {name: 'Heart Breaker', tier: 4, type: 'Shotgun', dedicated: 'Georgous Armada', location: 'The Handsome Jackpot', area: 'The Compactor', redText: 'I dont want to set the world on fire...', ability: 'Heals you when damaging enemy. Heart shaped projectile pattern', elements: 'F C S O'},
         {name: 'Horizon', tier: 4, type: 'Shotgun', dedicated: 'Maxitrillion', location: 'Eden-6', area: 'Voracious Canopy', redText: 'You cant leave. She wont let you.', ability: 'Reload projects target that can be shot to create a Singularity', elements: 'Any'},
@@ -246,7 +245,6 @@ const getItems = () => {
         {name: 'Masterwork Crossbow', tier: 5, type: 'Sniper', dedicated: 'Urist McEnforcer', location: 'Promethea', area: 'Lectra City', redText: 'All craftsdwarfship is of the highest quality.', ability: 'Shoots explosive bolt. One shot mag size', elements: 'N'},
         {name: 'Red Queen', tier: 5, type: 'Grenade', dedicated: 'Blinding Banshee', location: 'Nekrotafeyo', area: 'Desolations Edge', redText: 'OFF WITH THEIR HEADS!', ability: 'Rubberized. Splits into 2 laser-connected grenades. ', elements: 'N'},
         {name: 'Moxxis Bouncing Pair', tier: 5, type: 'Grenade', dedicated: 'Killavolt', location: 'Promethea', area: 'Lectra City', redText: 'Prepare for trouble, and make it double.', ability: 'Rubberized. Throws 2 grenades at once. Increased dmg every bounce', elements: 'F S'},
-        {name: 'Ghast Call', tier: 5, type: 'Grenade', dedicated: 'Loot Ghost', location: 'Bloody Harvest Event', area: 'The Heck Hole', redText: 'To you I am past, a story to tell.', ability: 'Throws a ghost which explodes into more ghosts', elements: 'C'},
         {name: 'Rectifier', tier: 5, type: 'Shield', dedicated: 'Sylestro', location: 'Nekrotafeyo', area: 'Tazendeer Ruins', redText: 'You conduit.', ability: 'Shocks nearby enemies while depleted', elements: 'S'},
         {name: 'Phoenix Tears', tier: 5, type: 'Artifact', dedicated: 'Phoenix', location: 'Pandora', area: 'The Splinterlands', redText: 'Rise from the ashes.', ability: 'Gain 100% HP on second wind'},
         {name: 'Rocket Boots', tier: 5, type: 'Artifact', dedicated: 'Blue Fire', quest: 'From a quest in Desolations Edge (Nekrotafeyo)', location: 'Slaughterstar 3000', redText: 'Not that kind.', ability: 'Slide launches homing rockets that deal incendiary dmg', elements: 'Any'},
@@ -272,7 +270,6 @@ const getItems = () => {
         {name: 'Cheddar Shredder', tier: 6, type: 'Grenade', dedicated: 'Deluxe Edition', redText: 'Make it rain.', ability: '"Enemies drop a holy metric buttload of cash when damaged"', elements: 'N'},
         {name: 'Diamon Butt Bomb', tier: 6, type: 'Grenade', dedicated: 'Deluxe Edition', redText: 'Bye bye, Li\'l Butt Stallion!', ability: 'Throw Buttstallion with a rainbow explosion', elements: 'N'},
         {name: 'Fastball', tier: 6, type: 'Grenade', dedicated: 'Thunk', location: 'Pandora', area: 'Konrads Hold', redText: 'Forget the curveball Ricky, give him the heater.', ability: 'Throws the grenade like a fast baseball. Explodes on impact', elements: 'Any'},
-        {name: 'Scream of Terror', tier: 6, type: 'Shield', dedicated: 'Loot Ghost', location: 'Bloody Harvest Event', area: 'The Heck Hole', redText: 'Behold the flesh and power it holds.', ability: '"Let loose a piercing scream" 14872 nova dmg on shield break.', elements: 'O'},
         {name: 'Whiskey Tango Foxtrot', tier: 6, type: 'Shield', dedicated: 'Crushjaw', location: 'Pandora', area: 'Cathedral of the Twin Gods', redText: 'Situation normal.', ability: 'Nova. 25% chance to drop IEDs when damaged', elements: 'N C S'},
         {name: 'Moxxis Endowment', tier: 6, type: 'Artifact', dedicated: 'Graveward', location: 'Eden-6', area: 'The Floating Tomb', redText: 'Hey, sugar. I got somethin\' for ya', ability: '+10% Combat XP (lvl 57)'},
         {name: 'Pull Out Method', tier: 6, type: 'Artifact', dedicated: 'DJ Deadsk4g', location: 'Pandora', area: 'The Splinterlands', redText: 'Doesn\'t work how you think it does...', ability: 'Slam generates a singularity effect, pulling enemies toward you', elements: 'N S R O'},
@@ -326,6 +323,30 @@ const getItems = () => {
         {name: 'Proprietary License', tier: 1, type: 'SMG', dedicated: 'Hydragoian', location: 'Gehenna', area: 'Obsidian Forest', redText: 'A little from Column A, a little from Column B.', ability: 'Crit ricochets. Body shots apply stickies. 5-round burst. ADS Increases fire rate'},
         {name: 'Narp', tier: 2, type: 'Sniper', dedicated: 'Haddon Marr', location: 'Gehenna', area: 'Ashfall Peaks', redText: 'What happened to your peace lily?', ability: 'Remaining mag grants bonus to the next mag on reload. Dmg up to +200%'},
         {name: 'Complex Root', tier: 1, type: 'Sniper', dedicated: 'Lani Dixon', location: 'Gehenna', area: 'Ashfall Peaks', redText: 'Your brain is a creative computer.', ability: 'Shoots sporadic zig-zagging projectiles. 2-round burst'},
+
+        //DLC4
+        {name: 'Lovable Rogue', tier: 0, type: 'AR', dedicated: 'Evil Brick', area: 'Castle Crimson', location: 'Krieg\'s Mind', redText: 'I know.', ability: 'Gyrojets have chance to spawn homing missile'},
+        {name: 'Rebound', tier: 0, type: 'AR', dedicated: 'Psychoreaver', area: 'Vaulthalla', location: 'Krieg\'s Mind', redText: 'Measure twice, cut twice!', ability: 'Shoots dynamite-attached-sawblades'},
+        {name: 'Prompt Critical', tier: 0, type: 'Pistol', dedicated: 'Evil Lilith', area: 'Castle Crimson', location: 'Krieg\'s Mind', redText: 'Explodermaster masterexploder', ability: 'Subsequent stickies combine for +dmg&radius'},
+        {name: 'Major Kong', tier: 0, type: 'Rocket Launcher', dedicated: 'Psychoreaver	', area: 'Vaulthalla', location: 'Krieg\'s Mind', redText: 'Hi There!', ability: '[x1, x2] Charging adds dmg & ammo cost. +Missiles'},
+        {name: 'Blind Sage', tier: 0, type: 'Shotgun', dedicated: 'Locomöbius', area: 'Sapphire\'s Run', location: 'Krieg\'s Mind', redText: 'There is more than one sort of prison.', ability: 'Damaging an enemy applies an Echo debuff status to them for 8 seconds. Killing an enemy with an Echo status fires a projectile at a nearby enemy.'},
+        {name: 'Convergence', tier: 0, type: 'Shotgun', dedicated: 'Dr. Benedict', area: 'Benediction of Pain', location: 'Krieg\'s Mind', redText: 'At the summit, you will find yourself united.', ability: 'Fires three additional pellets for each listed pellet and all of the pellets converge on the enemy.'},
+        {name: 'Blood-Starved Beast', tier: 0, type: 'SMG', dedicated: 'Evil Lilith', area: 'Castle Crimson', location: 'Krieg\'s Mind', redText: 'Chaos, or some say Chaosm', ability: '[x2, x3] Penetrating projectiles. Explode chance'},
+        {name: 'P.A.T. Mk. III', tier: 0, type: 'SMG', dedicated: 'SpongeBoss', area: 'Castle Crimson', location: 'Krieg\'s Mind', redText: 'War breeds war again.', ability: 'Discarded copies spawn with a full magazine. Shoots large hitscan-based lasers between regular shots when tossed. Unique voice module. Always Raptor module.'},
+        {name: 'Septimator Prime', tier: 0, type: 'Sniper', dedicated: 'Evil Mordecai', area: 'Castle Crimson', location: 'Krieg\'s Mind', redText: 'I oft have wish\'d for Hell for ease from Heaven.', ability: 'Each hit has a chance to launch a fireball at the enemy.'},
+        {name: 'Faulty Star', tier: 0, type: 'Shield', dedicated: 'Locomöbius', area: 'Sapphire\'s Run', location: 'Krieg\'s Mind', redText: 'Some infinities are bigger than other infinities.', ability: 'When damaged, chance to trigger a nova around the attacking enemy.'},
+        {name: 'Plus Ultra', tier: 0, type: 'Shield', dedicated: 'Dr. Benedict', area: 'Benediction of Pain', location: 'Krieg\'s Mind', redText: 'Remember why you started down this path.', ability: '25% chance to absorb bullets as ammo and increase action skill cooldown rate by 30% for a few seconds. Increases character health (2x) and aim-down-sights speed (+30%).'},
+        {name: 'Muse', tier: 0, type: 'Class Mod', character: 'Amara', dedicated: 'Evil Lilith', area: 'Castle Crimson', location: 'Krieg\'s Mind', redText: 'Ascend the brightest heaven of invention.', ability: 'Melee dmg projects elemental melee'},
+        {name: 'Peregrine', tier: 0, type: 'Class Mod', character: 'Fl4k', dedicated: 'Dr. Benedict', area: 'Benediction of Pain', location: 'Krieg\'s Mind', redText: 'Rakk-Shalak in the ak-ak-pack. I win again.', ability: 'Whenever FL4K\'s rakk hit an enemy, the rakk drops a grenade that is matched to FL4K\'s equipped grenade mod.'},
+        {name: 'Flare', tier: 0, type: 'Class Mod', character: 'Moze', dedicated: 'Evil Mordecai', area: 'Castle Crimson', location: 'Krieg\'s Mind', redText: 'That\'s what the flair\'s about. It\'s about fun.', ability: 'Gain up to 100% damage when Iron Bear is active, decreasing as Iron Bear spends fuel.'},
+        {name: 'Hustler', tier: 0, type: 'Class Mod', character: 'Zane', dedicated: 'Locomöbius', area: 'Sapphire\'s Run', location: 'Krieg\'s Mind', redText: 'Every day I\'m hustlin\'.', ability: 'Damaging an enemy with a non-critical hit grants Zane a stack that gives a 25% critical hit damage bonus and a 5% chance for non-critical hits to score a critical hit. The effect can be stacked 5 times and the non-critical hit bonus uses all stacks when triggered.'},
+
+        //Bloody Harvest
+        {name: 'Fearmonger', tier: 4, type: 'Shotgun', dedicated: 'Captain Haunt / Loot Ghost', location: 'Bloody Harvest Event', area: 'The Heck Hole', redText: 'I cant control their fear, only my own.', ability: 'Increased pellets per terror level up to 7', elements: 'F C S R O'},
+        {name: 'Stalker', tier: 0, type: 'Sniper', dedicated: 'Captain Haunt / Loot Ghost', location: 'Bloody Harvest Event', area: 'The Heck Hole', redText: 'All that remains is an icy husk.', ability: 'Always cryo. Fires three projectiles in a fixed pattern at the cost of two ammo per shot, in a three round burst. Alternate fire mode changes the pattern, between vertical or horizontal.'},
+        {name: 'Scream of Terror', tier: 6, type: 'Shield', dedicated: 'Captain Haunt / Loot Ghost', location: 'Bloody Harvest Event', area: 'The Heck Hole', redText: 'Behold the flesh and power it holds.', ability: '"Let loose a piercing scream" 14872 nova dmg on shield break.', elements: 'O'},
+        {name: 'Ghast Call', tier: 5, type: 'Grenade', dedicated: 'Captain Haunt / Loot Ghost', location: 'Bloody Harvest Event', area: 'The Heck Hole', redText: 'To you I am past, a story to tell.', ability: 'Throws a ghost which explodes into more ghosts', elements: 'C'},
+
     ];
 };
 
@@ -358,6 +379,7 @@ export const getModSkills = () => {
         'Phasezerker': [`Anima:${red}`, `Clarity:${green}`, `Conflux:${red}`],
         'Spiritual Driver': [`Clarity:${green}`, `Helping Hand(s):${green}`, `Mindfulness:${green}`],
         'Stone': [`Awakening:${blue}`, `Do Harm:${blue}`, `Violent Tapestry:${blue}`],
+        'Muse': [`Jab Cross:${green}`, `Illuminated Fist:${red}`, `Laid Bare:${blue}`],
 
         'Bounty Hunter': [`Frenzy:${blue}`, `Hunters Eye:${red}`, `The Most Dangerous Game: ${red}`],
         'Cosmic Stalker': [`Hunters Eye:${red}`, `Interplanetary Stalker:${red}`, `Big Game:${red}`],
@@ -368,6 +390,7 @@ export const getModSkills = () => {
         'Red Fang': [`Eager To Impress:${green}`, `Ferocity:${blue}`, `He Bites:${blue}`],
         'St4ckbot': [`Hunters Eye:${red}`, `The Fast And The Furryous:${green}`, `Pack Tactics:${blue}`],
         'Tr4iner': [`Pack Tactics:${blue}`, `Grim Harvest:${red}`, `Ferocity:${blue}`],
+        'Peregrine': [`Interplanetary Stalker:${red}`, `Ambush Predator: ${red}`, `Eager To Impress:${green}`],
 
         'Bear Trooper': [`Explosive Punctuation:${blue}`, `Grizzled:${blue}`, `Stainless Steel Bear:${blue}`],
         'Blast Master': [`Pull The Holy Pin:${blue}`, `Redistribution:${green}`, `Vampyr:${blue}`],
@@ -377,6 +400,7 @@ export const getModSkills = () => {
         'Raging Bear': [`Deadlines:${blue}`, `Stainless Steel Bear:${blue}`, `Stoke The Embers:${green}`],
         'Rocketeer': [`Cloud Of Lead:${green}`, `Fire In The Skag Den:${blue}`, `Torgue Cross Promotion:${blue}`],
         'Sapper': [`Matched Set:${green}`, `Means Of Destruction:${blue}`, `The Iron Bank:${green}`],
+        'Flare': [`Cloud Of Lead:${green}`, `Stainless Steel Bear:${blue}`, `Means Of Destruction:${blue}`],
 
         'Antifreeze': [`Supersonic Man:${red}`, `Violent Momentum:${blue}`, `Violent Speed:${blue}`],
         'Cold Warrior': [`Ready For Action:${green}`, `Synchronicity:${red}`, `Trick Of The Light:${red}`],
@@ -385,7 +409,8 @@ export const getModSkills = () => {
         'Infiltrator': [`Like A Ghost:${red}`, `Supersonic Man:${red}`, `Violent Momentum:${blue}`],
         'Seein Dead': [`Donnybrook:${red}`, `Playing Dirty:${blue}`, `Violent Violence:${blue}`],
         'Shockerator': [`Best Served Cold:${green}`, `Duct Tape Mod:${red}`, `Pocket Full Of Grenades:${red}`],
-        'Techspert': [`Ready For Action:${green}`, `Really Expensive Jacket:${green}`, `Rise To The Occasion:${green}`]
+        'Techspert': [`Ready For Action:${green}`, `Really Expensive Jacket:${green}`, `Rise To The Occasion:${green}`],
+        'Hustler': [`Adrenaline:${green}`, `Brain Freeze:${green}`, `Like A Ghost:${red}`]
     }
 }
 
@@ -427,6 +452,23 @@ export const getAnnointments = () => {
             Fl4k: [
                 'When exiting Fade Away, create a nova that deals 175% damage',
                 'Grants an extra charge of Rakk Attack',
+            ], 
+            Terror: [
+                'While Terrified, gain increased crit damage. The more Terror you have, the higher the bonus.',
+                'While Terrified, gain increased damage and fire rate. The more Terror you have, the higher the bonus.',
+                'While Terrified, gain ammo regeneration. The more Terror you have, the higher the bonus.',
+                'While Terrified, gain health regeneration. The more Terror you have, the higher the bonus.',
+                'While Terrified, deal 75% bonus cryo damage.',
+                'While Terrified, you have a chance to fire an extra projectile per shot. The more Terror you have, the higher the bonus.',
+                'While Terrified, enemy bullets have a chance to reflect off of you. The more Terror you have, the higher the bonus.',
+                'While Terrified, reduce all incoming damage by a small amount. The more Terror you have, the higher the bonus.',
+                'On Action Skill End, heal 25% max health, effect is increased by 15% per terror stack. Consumes all Terror.',
+                'On Action Skill End, apply Terror to yourself every 3 seconds for the next 18 seconds.',
+                'Melee Attacks have a 25% chance to apply Terror to yourself.',
+                '(Amara) After Phasegrasping an enemy, Amara fires Terror skulls at the grasped target dealing damage.',
+                '(Fl4k) After Using Attack Command, consume all Terror and Fl4K\'s Pet gains 200% bonus incendiary damage for a short time.',
+                '(Zane) While SNTNL is active, SNTNL gains 100% lifesteal while you are affected by Terror.',
+                '(Moze) After Reloading, consume all Terror and create a nova that deals cryo damage.'
             ]
         }, 
         'Weapon': {
@@ -506,6 +548,23 @@ export const getAnnointments = () => {
                 'On Fade Away End, Trigger non-elemental nova',
                 'Enemies Damaged by Rakk Attak take 100% increased damage for 10s',
                 'Grants an extra chage of rakk attack',
+            ], 
+            Terror: [
+                'While Terrified, gain increased crit damage. The more Terror you have, the higher the bonus.',
+                'While Terrified, gain increased damage and fire rate. The more Terror you have, the higher the bonus.',
+                'While Terrified, gain ammo regeneration. The more Terror you have, the higher the bonus.',
+                'While Terrified, gain health regeneration. The more Terror you have, the higher the bonus.',
+                'While Terrified, deal 75% bonus cryo damage.',
+                'While Terrified, you have a chance to fire an extra projectile per shot. The more Terror you have, the higher the bonus.',
+                'While Terrified, enemy bullets have a chance to reflect off of you. The more Terror you have, the higher the bonus.',
+                'While Terrified, reduce all incoming damage by a small amount. The more Terror you have, the higher the bonus.',
+                'On Action Skill End, heal 25% max health, effect is increased by 15% per terror stack. Consumes all Terror.',
+                'On Action Skill End, apply Terror to yourself every 3 seconds for the next 18 seconds.',
+                'Melee Attacks have a 25% chance to apply Terror to yourself.',
+                '(Amara) After Phasegrasping an enemy, Amara fires Terror skulls at the grasped target dealing damage.',
+                '(Fl4k) After Using Attack Command, consume all Terror and Fl4K\'s Pet gains 200% bonus incendiary damage for a short time.',
+                '(Zane) While SNTNL is active, SNTNL gains 100% lifesteal while you are affected by Terror.',
+                '(Moze) After Reloading, consume all Terror and create a nova that deals cryo damage.'
             ]
         },
         'Grenade': {
@@ -521,6 +580,23 @@ export const getAnnointments = () => {
             ],
             Moze: [
                 'While Iron Bear is active, taking damage has a 20% chance to spawn a grenade each 8s',
+            ], 
+            Terror: [
+                'While Terrified, gain increased crit damage. The more Terror you have, the higher the bonus.',
+                'While Terrified, gain increased damage and fire rate. The more Terror you have, the higher the bonus.',
+                'While Terrified, gain ammo regeneration. The more Terror you have, the higher the bonus.',
+                'While Terrified, gain health regeneration. The more Terror you have, the higher the bonus.',
+                'While Terrified, deal 75% bonus cryo damage.',
+                'While Terrified, you have a chance to fire an extra projectile per shot. The more Terror you have, the higher the bonus.',
+                'While Terrified, enemy bullets have a chance to reflect off of you. The more Terror you have, the higher the bonus.',
+                'While Terrified, reduce all incoming damage by a small amount. The more Terror you have, the higher the bonus.',
+                'On Action Skill End, heal 25% max health, effect is increased by 15% per terror stack. Consumes all Terror.',
+                'On Action Skill End, apply Terror to yourself every 3 seconds for the next 18 seconds.',
+                'Melee Attacks have a 25% chance to apply Terror to yourself.',
+                '(Amara) After Phasegrasping an enemy, Amara fires Terror skulls at the grasped target dealing damage.',
+                '(Fl4k) After Using Attack Command, consume all Terror and Fl4K\'s Pet gains 200% bonus incendiary damage for a short time.',
+                '(Zane) While SNTNL is active, SNTNL gains 100% lifesteal while you are affected by Terror.',
+                '(Moze) After Reloading, consume all Terror and create a nova that deals cryo damage.'
             ],
         }
     };
