@@ -40,13 +40,14 @@ const FlexRow = styled.div`
 `;
 
 const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
+    const MAX_LEVEL = 65;
     const [nameSuggest, setNameSuggest] = useState('');
     const [customMode, setCustomMode] = useState(false);
 
     //general
     const [type, setType] = useState('');
     const [name, setName] = useState('');
-    const [level, setLevel] = useState(60);
+    const [level, setLevel] = useState(MAX_LEVEL);
     const [notes, setNotes] = useState('');
     const [annoint, setAnnoint] = useState('None');
     const [prefix, setPrefix] = useState('');
@@ -128,7 +129,7 @@ const AddItemPage = ({onBack, onAddItem, showTierList, showInfo}) => {
         return combinedStat;
     }
 
-    const levels = new Array(60).fill(0).map((a,i) => i+1).reverse();
+    const levels = new Array(MAX_LEVEL).fill(0).map((a,i) => i+1).reverse();
     const annointments = getAnnointments();
     const types = getTypes();
     const cryoOnly = (element1 === 'Cryo' && element2 === 'None') || (element2 === 'Cryo' && element1 === 'None') || (element1 === 'Cryo' && element2 === 'Cryo');
